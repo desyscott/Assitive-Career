@@ -4,14 +4,18 @@
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
+  
+  "engines": {
+    "node": "16.13.1"
+  },
   "scripts": {
     "server": "nodemon server.js",
-    "client": "cd client-side && npm start",
-    "build":"cd client-side && npm run build",
-    "install-client-side":"cd client-side && npm install",
+    "build":"cd Client-Side && npm run build",
+    "install-client":"cd Client-Side && npm install",
+    "heroku-postbuild":"npm run install-client && npm run build",
     "start":"node server-side.js",
-    "heroku-postbuild":"npm run install-client-side && npm run build",
-    "dev": "concurrently -n 'server,client-side' -c 'red,green' \"npm run server\" \"npm run client\"",
+    "client": "cd Client-Side && npm start",
+    "dev": "concurrently -n 'server,Client-Side' -c 'red,green' \"npm run server\" \"npm run client\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
