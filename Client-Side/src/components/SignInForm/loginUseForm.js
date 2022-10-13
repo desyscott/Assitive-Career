@@ -8,7 +8,7 @@ import { Link,useHistory,useLocation} from "react-router-dom";
 const LoginUseForm = () => {
 
   const dispatch = useDispatch();
-  const Location =  useLocation ();
+  const history =  useHistory();
   
   const [values, setValues] = useState({
     email: "",
@@ -31,7 +31,7 @@ const LoginUseForm = () => {
     e.preventDefault();
     const { email, password } = values;
       
-      Location.push("/home")
+    history.push("/home");
       // dispatch(signIn(email, password))
   };
 

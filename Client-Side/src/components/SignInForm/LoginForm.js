@@ -26,11 +26,11 @@ function LoginForm() {
   
   const { handleChange, values, handleSubmit} = loginUseForm();
   
-  useEffect(()=>{
-    if(currentUser){
-    location.assign("/home")
-    }
-  },[history,redirect,currentUser])
+  // useEffect(()=>{
+  //   if(currentUser){
+  //    history.push(redirect);
+  //   }
+  // },[history,redirect,currentUser])
   
   useEffect(()=>{
     inputRef.current.focus();
