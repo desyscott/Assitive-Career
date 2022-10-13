@@ -62,6 +62,11 @@ const  App=()=> {
             <Home/>
             </MainLayout>
           )}/>
+          <Route path="/profile" render={()=>(
+            <MainLayout>
+            <Profile/>
+            </MainLayout>
+          )}/>
           
           <Route path="/course/:courseId" render={()=>(
             <MainLayout>
@@ -70,7 +75,7 @@ const  App=()=> {
           )}/>
           
           {/* <PrivateRoute path="/home" component={Home} /> */}
-          <PrivateRoute path="/profile" component={Profile} />
+          {/* <PrivateRoute path="/profile" component={Profile} /> */}
           
           <Route path="/dashboard" render={()=>(
             <MainLayout>
