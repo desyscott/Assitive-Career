@@ -2,10 +2,13 @@ import { useState } from "react";
 import {signIn} from "../Redux/Reducers/userReducer/userActions"
 import {useDispatch} from "react-redux"
 
+import { Link,useHistory,useLocation} from "react-router-dom";
+
 
 const LoginUseForm = () => {
 
   const dispatch = useDispatch();
+  const Location =  useLocation ();
   
   const [values, setValues] = useState({
     email: "",
@@ -28,7 +31,8 @@ const LoginUseForm = () => {
     e.preventDefault();
     const { email, password } = values;
       
-      dispatch(signIn(email, password))
+      Location.push("/home")
+      // dispatch(signIn(email, password))
   };
 
   return { handleChange, values, handleSubmit};
