@@ -1,0 +1,61 @@
+.role-form{
+
+    max-width:35rem;
+    margin:0 auto;
+    border:.1rem #c0c0c0 solid;
+    border-radius:.5rem;
+    margin-top: 100px;
+}
+
+.role-form > div{
+    display: flex;
+    flex-direction:column;
+    margin:1rem;
+}
+
+.role-form label{
+    margin:1rem 0;
+}
+
+.role-container{
+    max-width:34rem;
+    border:1px solid #c4c4c4;
+    /* height:8rem; */
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+.role-container:hover{
+   color:#0D03C3;
+    border:1px solid #0D03C3;
+    cursor:pointer;
+   
+}
+
+.role-container a{
+   color:#000; 
+   text-align: center;
+   width:100%;
+  padding:3rem;
+
+}
+.role-container a:hover{
+   color:#0D03C3; 
+}
+
+ .sub-header{
+     display:flex;
+     flex-direction: row;
+     justify-content: space-between;
+    
+    
+ }
+ .sub-header >span{
+    font-size:2rem;
+    padding-bottom:2rem;
+    display: inline;
+ }
+ .close-btn{
+    font-size:4rem;
+  cursor:pointer;
+ }

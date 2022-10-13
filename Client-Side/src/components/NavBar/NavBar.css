@@ -1,0 +1,171 @@
+.nav-header{
+    position:-webkit-sticky;
+    position:sticky;
+    top:0;
+    align-items:center;
+    justify-content:space-between;
+    background:#082f58;
+    height: 70px; 
+    padding-left:60px;
+    padding-right: 50px;
+
+}
+
+ 
+.flex{
+    display:flex;
+    gap:2rem;
+}
+
+.nav a{
+    padding:1rem;
+    color:#fff;
+}
+
+.nav-logo a{
+font-weight: bold ;
+ text-transform:capitalize;
+ font-size:2rem;
+ color:#ffff;
+}
+.active .nav-logo a{
+font-weight: bold ;
+ text-transform:capitalize;
+ font-size:2rem;
+ color:#000;
+}
+.menu-button  button {
+    background:none;
+    border :none;
+    color:#ffff;
+    font-size:2.5rem;
+   padding:.5rem;
+   display:none;
+  
+}
+
+
+.primary-navigation {
+    list-style: none;
+    align-items:center;
+    white-space:nowrap;
+    margin: 0;
+    padding: 0;
+}
+.primary-navigation a {
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size:13px;
+  color:rgb(214, 205, 205);
+  padding: 10px 0;
+  letter-spacing: .5px;
+}
+.primary-navigation a:hover {
+    color:#ffff;
+}
+
+.active{
+    background-color:#fff;
+    box-shadow: 0 .3rem .5rem rgba(0,0,0,0.1);
+    opacity: 100;
+}
+.active .primary-navigation a{
+    color:#000;
+    position: relative;
+}
+
+.active .nav-links a{
+    color:#fff;
+    position: relative;
+}
+
+.active .primary-navigation a:hover{
+    color:#279EFD;
+}
+
+
+.navbar-list-items{
+    width:92%;
+    padding-right: 10px;
+    margin-bottom:5px;
+
+  }
+.nav-active{
+   position:relative;
+  }
+
+  .nav-active::before{
+   content:"";
+   position:absolute;
+   background-color:rgba(85, 27, 179, 0.89);
+   width:90%;
+   height:25%;
+   left:0;
+   right: 0;
+   top:15px;
+}
+
+
+.nav-links a{
+    color:#ffff; 
+}
+.nav-links {
+  display:flex;  
+  justify-content:center;
+  
+}
+
+
+.dropdown{
+    display:flex;
+    align-items:center;
+    position:relative;
+    padding:.5rem;
+}
+
+.dropdown-content{
+    display:none;
+    position:absolute;
+    right:0;
+    top:40px;
+    min-width:12rem;
+    padding:1rem;
+    z-index:9999;
+    margin:0;
+    margin-top:0.4rem;
+    border-radius:0.5rem;
+    background-color:#203040;
+  
+}
+.dropdown:hover .dropdown-content {
+    display:block;
+}
+
+.dropdown-content > li:hover{
+    background-color:#082f58;
+    min-width:100%;
+}
+
+     
+.profile-photo{
+    width:4rem;
+    height:4rem;
+    border-radius:100%;
+}
+
+@media screen and (max-width:650px){
+    .nav{
+        width:100%;
+    }
+    .downloadBtn{
+        display:none;
+    }
+    .primary-navigation{
+        display:none;
+    }
+    .menu-button button{
+        display:inline-block;
+    }
+    
+}

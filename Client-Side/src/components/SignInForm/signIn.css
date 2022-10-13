@@ -1,0 +1,71 @@
+
+.Main{
+    padding:2rem 0;
+    width:100%;
+    max-width:40rem;
+    margin:0 auto;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+.form{
+    max-width:50rem;
+    margin:2rem auto;
+}
+.form > div{
+    display: flex;
+    flex-direction:column;
+    margin:1rem;
+}
+
+.form label{
+    margin:1rem 0;
+}
+
+input{
+    padding:.8rem;
+    border:0.1rem #c0c0c0 solid;
+    
+}
+input:focus{
+    outline-color:#9fd49f;
+    outline-width: 0.5px;
+   
+    
+}
+
+.error{
+    font-size: 15px;
+    color:#f00e0e;
+}
+.forgotPswd-wrapper{
+    display:flex;
+    justify-content: flex-end;
+}
+
+.btn{
+    
+        outline:none;
+        border:none;
+        cursor:pointer;
+        white-space:nowrap;
+
+}
+.btn-primary{
+    background: #2076FF;
+    color: #fff;
+}
+
+.form a{
+    color:#2076FF;
+    font-size:1.5rem;
+    
+}
+.form-logo{
+   margin-bottom:2rem;
+}
+.sign-header{
+    font-size:2rem;
+    font-weight:normal
+}

@@ -1,0 +1,42 @@
+{
+  "name": "Server-Side",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "server": "nodemon server.js",
+    "client": "cd client-side && npm start",
+    "build":"cd client-side && npm run build",
+    "install-client-side":"cd client-side && npm install",
+    "start":"node server-side.js",
+    "heroku-postbuild":"npm run install-client-side && npm run build",
+    "dev": "concurrently -n 'server,client-side' -c 'red,green' \"npm run server\" \"npm run client\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "desy",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  },
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "body-parser": "^1.19.0",
+    "colors": "^1.4.0",
+    "concurrently": "^6.0.0",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-async-handler": "^1.2.0",
+    "express-fileupload": "^1.4.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.13.14",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.5-lts.1",
+    "nodemailer": "^6.7.2",
+    "uuid": "^8.3.2",
+    "validator": "^13.7.0"
+  }
+}

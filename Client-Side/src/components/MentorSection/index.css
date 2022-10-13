@@ -1,0 +1,44 @@
+
+.mentor-container{
+    padding:4rem 0;
+    position: relative;
+    background-color: var(--white);
+    height:80vh;
+  }
+  
+  .purpleBg{
+    background:#210060;
+  }
+  
+ 
+.img-wrapper{
+  max-width:500px;
+}
+
+
+.mentor-Img{
+  width:100%;
+  vertical-align: middle;
+  display: inline-block;
+  border:0;
+}
+
+
+  
+  .purpleText{
+      color:#210060;
+      letter-spacing: 1.4px;
+  }
+
+ 
+    @media screen and (max-width:768px){
+      
+  .InforRow{
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    align-content: stretch;
+    align-content: center;
+  }
+  
+    }  

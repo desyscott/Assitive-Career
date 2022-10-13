@@ -1,0 +1,153 @@
+/* 
+
+.testimony-container{
+    position: relative;
+    padding:10rem 0;
+    background-color: var(--white);
+    
+  }
+  
+  
+  
+  .wrapper{
+        width:100%;
+        max-width: 1300px;
+        margin-right: auto;
+        margin-left: auto;
+        padding-left:50px;
+        padding-right: 50px;
+  }
+  
+  .InforRow{
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+    margin-right: -15px;
+    margin-left:-15px;
+    margin-bottom:-15px;
+    flex-wrap: wrap;
+    align-content: stretch;
+    align-content: center;
+  }
+  
+  .InforColumn{
+  margin-bottom: 15px;
+  padding-right: 15px;
+   padding-left: 15px;
+  flex:1;
+  max-width:50%;
+  flex-basis: 50%;
+  
+  }
+  .TextWrapper{
+    max-width:550px;
+    padding-top:0;
+    padding-bottom:25px;
+  
+  }
+  
+  .Top-Line{
+    font-size:16px;
+    line-height:16px;
+    font-weight: 700;
+    margin-bottom:16px;
+  }
+  
+  .redText{
+    color:#f00946;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+  }
+  
+  .heading{
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    font-size:35px;
+    line-height:1;
+    font-weight:800;
+  
+  }
+  
+  .darkText{
+    color:#2d3349;
+  }
+  .lightText{
+    color:#f7f8fa;
+  }
+  
+  .sub-desc{
+    max-width:440px;
+    margin-bottom: 65px;
+    font-size:18px;
+    line-height:20px;
+  }
+  
+  .textDesc{
+    color:#c9cdcf;
+  }
+  
+  .darkTextDesc{
+    color:#2d3349;
+  }
+  
+  .Btn-wrapper{
+    margin-bottom:16px;
+    display:flex;
+    align-items:center;
+    
+  }
+  
+  .appleDownloadImg{
+    height:50px; 
+  }
+  .googleDownloadImg{
+    height:75px;
+  }
+  
+  
+  .img-wrapper{
+    max-width:750px;
+  }
+  
+  .Img{
+    width:100%;
+    vertical-align: middle;
+    display: inline-block;
+    border:0;
+  }
+  
+  @media screen and (max-width:991px){
+    .Container{
+      padding-right: 30px;
+      padding-right: 30px;
+    }
+  }
+  
+  @media screen and (max-width:768px){
+    .InforColumn{
+  max-width: 100%;
+  flex-basis:100%;
+  display:flex;
+  justify-content:center;
+    }
+    .appleDownloadImg{
+      height:45px; 
+    }
+    .googleDownloadImg{
+      height:70px;
+    }
+    .heading{
+      text-transform: uppercase;
+      margin-bottom: 24px;
+      font-size:2rem;
+      line-height:1;
+      font-weight:700;
+      color:#f7f8fa;
+    }
+    
+    
+    .TextWrapper{
+      padding-bottom: 65px;
+    }
+    
+  } */
