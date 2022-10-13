@@ -29,6 +29,8 @@ function LoginForm() {
   useEffect(()=>{
     if(currentUser){
      history.push(redirect);
+    }else{
+      history.push(redirect);
     }
   },[history,redirect,currentUser])
   
