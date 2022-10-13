@@ -22,13 +22,13 @@ function LoginForm() {
   const location=useLocation()
   const history=useHistory()
   
-  const redirect = "/home";
+  const redirect = location.search ? location.search.split("=")[1]:"/home";
   
   const { handleChange, values, handleSubmit} = loginUseForm();
   
   useEffect(()=>{
     if(currentUser){
-     history.push(redirect);
+    location.assign("/home")
     }
   },[history,redirect,currentUser])
   
