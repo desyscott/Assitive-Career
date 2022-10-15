@@ -13,11 +13,11 @@ export const Button=({scroll,login})=>{
 }
 
 
-export const SecondaryButton=({GetStarted})=>{
+export const SecondaryButton=({text})=>{
   return (
     <div>
     <button className= "Btn secondary">
-    <Link to={GetStarted ? "user-role":""} className="BtnLink_secondary">{GetStarted  ? "Get Started":""}</Link>  
+    <Link to={text ? "user-role":""} className="BtnLink_secondary">{text  ? text:""}</Link>  
    
     </button>
     </div>

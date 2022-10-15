@@ -19,7 +19,7 @@ export const HomeObjOne={
 };
 
 export const HomeObjTwo={
-    lightBg:false,
+    lightBg:true,
     lightText:true,
     lightTextDesc:true,
     headLine:"about us",
@@ -45,11 +45,11 @@ export const HomeObjThree={
 
 export const HomeObjFour={
     lightBg:true,
-    lightText:true,
-    lightTextDesc:true,
+    lightText:false,
+    lightTextDesc:false,
     headLine:"about us",
     description: "iLoc is here to stay with you on campus. Our goal is to enable students to easily identify places , and buildings around them with ease.iLoc is the easiest, fastest ,safest to navigate your way on campus",
-    imgStart:"start",
+    imgStart:"SS",
     // img:HeroImg,
     alt:"",
 };

@@ -1,5 +1,6 @@
 import React from 'react'
 import "./index.css"
+import Fade from 'react-reveal/Fade';
 
 const Hero=({lightBg,TopLine,lightText,lightTextDesc,headLine,description,img,alt,imgStart,googleImg, appleImg})=> {
   return (
@@ -9,6 +10,7 @@ const Hero=({lightBg,TopLine,lightText,lightTextDesc,headLine,description,img,al
         <div className="InforRow" style={{display: "flex", flexDirection: imgStart==="start" ? "row-reverse":"row"}}>
             <div className="InforColumn">
               <div className="TextWrapper">
+              <Fade left>
                       <div className={lightBg ? "Top-Line":"Top-Line redText "}>{TopLine}</div>
                     <h1 className={lightText ? "heading lightText" : "heading darkText"}>{headLine}</h1>
                      <p className={lightTextDesc? "sub-desc textDesc":"sub-desc darkTextDesc"}> 
@@ -20,6 +22,7 @@ const Hero=({lightBg,TopLine,lightText,lightTextDesc,headLine,description,img,al
                     </a>
                     
                     </ul>
+                    </Fade>
               </div>
             </div>
         

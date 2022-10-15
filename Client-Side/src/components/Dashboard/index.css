@@ -1,0 +1,13 @@
+.chart{
+    margin-bottom:5rem;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:5px;
+}
+
+@media screen and (max-width: 568px){
+    .chart{
+        flex-wrap: wrap;
+    }
+}

@@ -3,7 +3,9 @@ import Hero from "../components/Hero/index";
 import MentorSection from "../components/MentorSection/index";
 import EventSection from "../components/EventSection/index"
 import TestimonalSection from "../components/TestimonialSection/index"
+import AboutUs from "../components/AboutUs/index"
 import ScrollToTop from "../components/ScrollToButton/ScrollToTop"
+import ContactUs from "../components/ContactUs/index"
 
 import {HomeObjOne,HomeObjTwo,HomeObjThree,HomeObjFour} from "../components/LandingData/LandingData"
 
@@ -17,8 +19,13 @@ const Landing=(props)=>{
   <Hero {...HomeObjOne}/>
     </div>
     
+   <div  ref={aboutUs}>
+   <AboutUs {...HomeObjTwo}/>
+   </div>
+   
+   
    <div  ref={event}>
-   <EventSection {...HomeObjTwo}/>
+   <EventSection {...HomeObjFour}/>
    </div>
    
    <div  ref={mentor}>
@@ -27,6 +34,10 @@ const Landing=(props)=>{
    
    <div  ref={testimonal}>
    <TestimonalSection {...HomeObjFour}/>
+   </div>
+   
+   <div>
+   <ContactUs/>
    </div>
   
     </>

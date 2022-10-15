@@ -38,8 +38,8 @@ const Details=()=> {
    
   return (
     
-    <div >
-    {loading ? 
+    <div>
+    {/* {loading ? 
      <LoadingBox/>
      :
      error ?<MessageBox variant="danger">{error}</MessageBox>
@@ -50,7 +50,23 @@ const Details=()=> {
       </div>
       </>
      )
-     }
+     } */}
+     <>
+       <Link to ="/home">Back to Results</Link>
+         <div className="column center">
+         <div className="details-nav">
+         <div >
+         <Link to="/#">Details</Link>
+         </div>
+         <div >
+         <Link to ="/#">Roadmap</Link>
+         </div>
+         </div>
+         <div className="details-modal">
+         
+         </div>
+      </div>
+      </>
  </div>
  
   )

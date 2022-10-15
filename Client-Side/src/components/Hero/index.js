@@ -3,6 +3,7 @@ import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 import "./index.css"
 import {SecondaryButton} from "../Button/index"
+// import fade from "react-r"
 
 
 
@@ -20,7 +21,7 @@ const Hero=({lightBg,TopLine,lightText,lightTextDesc,headLine,description,img,us
                   {description}
                   </p>
                      <ul className="Btn-wrapper">
-                     <SecondaryButton GetStarted={true}/>
+                     <SecondaryButton text="Get Started"/>
                     </ul>
               </div>
             </div>

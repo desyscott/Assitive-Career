@@ -1,5 +1,5 @@
 import React,{useEffect,useRef} from "react";
-import { Link,useHistory,useLocation} from "react-router-dom";
+import { Link,useHistory} from "react-router-dom";
 import {useSelector} from "react-redux"
 import loginUseForm from "./loginUseForm";
 import LoadingBox from "../LoadingBox";
@@ -19,18 +19,17 @@ const mapState=({userData})=>({
 function LoginForm() {
   const {currentUser,loading,signInError,error}=useSelector(mapState);
   const inputRef=useRef()
-  const location=useLocation()
   const history=useHistory()
   
-  const redirect = location.search ? location.search.split("=")[1]:"/home";
+  const redirect = "/home";
   
   const { handleChange, values, handleSubmit} = loginUseForm();
   
-  // useEffect(()=>{
-  //   if(currentUser){
-  //    history.push(redirect);
-  //   }
-  // },[history,redirect,currentUser])
+  useEffect(()=>{
+    if(currentUser){
+     history.push(redirect);
+    }
+  },[history,redirect,currentUser])
   
   useEffect(()=>{
     inputRef.current.focus();

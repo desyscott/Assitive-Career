@@ -19,10 +19,6 @@ import MentorRequest from "./Pages/MentorRequest"
 import Mentors from "./Pages/Mentors"
 import CareerTest from "./Pages/CareerTest"
 import CourseDetails from "./Pages/CourseDetails";
-import ShippingAddress from "./Pages/ShippingAddress"
-import PaymentMethod from "./Pages/PaymentMethod";
-import PlaceOrder from "./Pages/PlaceOrder"
-import Order from "./Pages/Order"
 import Profile from "./Pages/Profile"
 import PrivateRoute from "./components/PrivateRoute/index"
 
@@ -62,20 +58,15 @@ const  App=()=> {
             <Home/>
             </MainLayout>
           )}/>
-          <Route path="/profile" render={()=>(
-            <MainLayout>
-            <Profile/>
-            </MainLayout>
-          )}/>
           
           <Route path="/course/:courseId" render={()=>(
             <MainLayout>
               <CourseDetails/>
             </MainLayout>
           )}/>
-          
-          {/* <PrivateRoute path="/home" component={Home} /> */}
-          {/* <PrivateRoute path="/profile" component={Profile} /> */}
+{/*           
+          <PrivateRoute path="/home" component={Home} /> */}
+          <PrivateRoute path="/profile" component={Profile} />
           
           <Route path="/dashboard" render={()=>(
             <MainLayout>
@@ -107,27 +98,6 @@ const  App=()=> {
   
           <Route path="/signIn" component={Login} />
           <Route path="/signUp/:signUpRole"  component={SignUp} />
-          
-          <Route path="/shipping" render={()=>(
-              <MainLayout>
-            <ShippingAddress/>
-            </MainLayout>
-          )}/>
-          <Route path="/payment" render={()=>(
-              <MainLayout>
-            <PaymentMethod/>
-            </MainLayout>
-            )}/>
-          <Route path="/place-order" render={()=>(
-            <MainLayout>
-            <PlaceOrder/>
-            </MainLayout>
-            )}/>
-          <Route path="/order/:orderId" render={()=>(
-            <MainLayout>
-              <Order/>
-            </MainLayout>
-          )}/>
           
           <Route path="/email-verification/:userId/:verificationString"
            component={EmailVerified}

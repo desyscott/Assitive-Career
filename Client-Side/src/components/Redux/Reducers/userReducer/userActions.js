@@ -46,11 +46,11 @@ export const signOut=()=>async(dispatch)=>{
 }
 
 
-export const signup=(formData)=>async(dispatch)=>{
-    dispatch({type:userTypes.USER_SIGNUP_REQUEST,payLoad:{formData}})
+export const signup=(name,email,password)=>async(dispatch)=>{
+    dispatch({type:userTypes.USER_SIGNUP_REQUEST,payLoad:{email,password}})
     
     try{
-        const {data} = await Axios.post("/api/auth/signup",{formData});
+        const {data} = await Axios.post("/api/auth/signup",{name,email,password});
         console.log("data",data);
         
       

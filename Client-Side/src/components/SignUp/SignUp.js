@@ -53,7 +53,6 @@ function SignUp() {
       dispatch(signup(name,role,email,Cv,password));
       console.log(name,Cv,role)
     }
- 
   };
   
   useEffect(()=>{
@@ -77,7 +76,7 @@ function SignUp() {
     </div>
     
       <div className="form-container">
-        <form className="form" onSubmit={handleSubmit}>
+        <form className="form" onSubmit={handleSubmit} enctype="multipart/form-data">
         
         <div>
           <h2>

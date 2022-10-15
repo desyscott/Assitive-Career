@@ -1,9 +1,10 @@
 import React from 'react'
+import UserDashboard from '../components/Dashboard/index'
 
 function Dashboard() {
   return (
     <div className="container">
-      Dashboard
+      <UserDashboard/>
     </div>
   )
 }

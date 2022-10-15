@@ -1,10 +1,10 @@
-// import Product1 from "../../Images/product-2.jpg"
+import eventImg1 from "./images/charlesdeluvio-Lks7vei-eAg-unsplash.jpg"
 // import Product2 from "../../Images/product-1.jpg"
 // import Product3 from "../../Images/product-6.jpg"
 
 export const productsData=[
     {
-    //  img:Product1,
+     img:eventImg1,
      alt:"Pizza",
      name:'supreme Pizza',
      desc:"Marinara sauce, basil, italian, sauage,roma tomatoes, olives, and pesto",
@@ -13,7 +13,7 @@ export const productsData=[
 
     },
     {
-    //  img:Product2,
+        img:eventImg1,
      alt:"Pizza",
      name:'Hawaiian Paradise',
      desc:"Marinara sauce, basil, italian, sauage,roma tomatoes, olives, and pesto",
@@ -22,7 +22,7 @@ export const productsData=[
 
     },
     {
-    //  img:Product3,
+        img:eventImg1,
      alt:"Pizza",
      name:'veggie overload',
      desc:"Marinara sauce, basil, italian, sauage,roma tomatoes, olives, and pesto",
@@ -31,7 +31,7 @@ export const productsData=[
 
     },
     {
-    //  img:Product3,
+        img:eventImg1,
      alt:"Pizza",
      name:'veggie overload',
      desc:"Marinara sauce, basil, italian, sauage,roma tomatoes, olives, and pesto",
@@ -40,7 +40,7 @@ export const productsData=[
 
     },
     {
-    //  img:Product3,
+    img:eventImg1,
      alt:"Pizza",
      name:'veggie overload',
      desc:"Marinara sauce, basil, italian, sauage,roma tomatoes, olives, and pesto",
@@ -49,7 +49,7 @@ export const productsData=[
 
     },
     {
-    //  img:Product3,
+    img:eventImg1,
      alt:"Pizza",
      name:'veggie overload',
      desc:"Marinara sauce, basil, italian, sauage,roma tomatoes, olives, and pesto",

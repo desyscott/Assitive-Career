@@ -5,6 +5,8 @@ import dotenv  from "dotenv";
 import cors  from "cors";
 import morgan  from "morgan";
 import cookieParser  from "cookie-parser";
+import expressAsyncHandler from "express-async-handler"
+import path from 'path';
 
 const app = express();
 
@@ -23,10 +25,65 @@ connectDB();
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-// app.use(fileUpload());
+app.use(fileUpload());
 app.use(cookieParser());
 app.use(morgan("dev"));
 app.use(cors());
+const __dirname = path.resolve();
+
+
+const chartsData=[
+  { 
+  labels : ['javascript', 'python', 'C++', 'C#', 'java', 'Perl', 'PHP'],
+  data:[
+    {values:[6500,4000,3250,2000,1500,1000,800] },
+   { values:[6500,4000,3250,2000,1500,1000,800]} ,
+   ],
+   backgroundColor:[
+     { color:'rgba(255, 99, 132, 0.5)'},
+     { color:'rgba(53, 162, 235, 0.5)'}
+                    ],
+   text:'Top 20 emerging Jobs',
+  },
+  { 
+  labels : ['web development', 'mobile development', 'data science', 'cyberSecurity', 'UI design', 'Affliate marketing', 'Broadcasting'],
+  data:[
+    {values:[6500,4000,3250,2000,1500,1000,800] },
+   { values:[6500,4000,3250,2000,1500,1000,800]} ,
+   ],
+   backgroundColor:[
+     { color:'rgba(125, 99, 132, 0.5)'},
+     { color:'rgba(713, 562, 35, 0.5)'}
+                    ],
+    text:'Number of indeed job posting by programming language',
+  }
+
+]
+
+app.get("/api/charts",(req,res)=>{
+  res.json(chartsData)
+})
+
+
+//file upload
+app.post("/api/upload",expressAsyncHandler(async(req,res)=>{
+ if(req.files===null){
+   return res.status(400).json({msg:"No file uploaded"})
+ }
+ 
+ const file = req.files.file;
+ console.log(file.name)
+ 
+ file.mv(`${__dirname}/client-side/public/uploads/${file.name}`,(err)=>{
+   if(err){
+     console.error(err);
+    return res.status(500).send(err);
+   }
+   
+   res.json({fileName:file.name, filePath:`/uploads/${file.name}`})
+ })
+}));
+
 
 
 app.use("/api/auth",authRoute);

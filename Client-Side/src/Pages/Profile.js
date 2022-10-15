@@ -58,6 +58,7 @@ useEffect(()=>{
        <h2>User Profile</h2>
       </div>
       
+      
       {
          loading ? <LoadingBox></LoadingBox> :
          error ? <MessageBox variant="danger">{error}</MessageBox>

@@ -22,12 +22,26 @@
     color:#fff;
 }
 
+.nav-logo{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
 .nav-logo a{
 font-weight: bold ;
  text-transform:capitalize;
  font-size:2rem;
  color:#ffff;
+ margin-left: 1rem;
 }
+
+
+.logo-nav{
+    height:35px;
+    width:35px; 
+}
+
 .active .nav-logo a{
 font-weight: bold ;
  text-transform:capitalize;

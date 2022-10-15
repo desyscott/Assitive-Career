@@ -2,6 +2,7 @@ import bcrypt from "bcrypt";
 
 
 const salt = await bcrypt.genSalt();
+
 export const data ={
     
     users:[

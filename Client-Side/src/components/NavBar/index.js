@@ -3,6 +3,7 @@ import {Link} from "react-router-dom"
 import {useSelector,useDispatch} from "react-redux"
 import {signOut} from "../Redux/Reducers/userReducer/userActions"
 import { NavBarItems } from "./NavBarItems"
+import logo from '../Assets/images/logo.svg'
 import "./NavBar.css"
 import ProfilePhoto from "../Assets/images/blank-profile-picture-gdfa15e9f3_1280.png"
 
@@ -23,6 +24,10 @@ const NavBar =()=>{
   <div className= "nav-header flex">
   
    <div className="nav-logo">
+     <div>
+    <img src={ logo} alt="logo" className="logo-nav"/>
+    </div>
+    
    <Link to="/home" >Assistive Career</Link>
    </div>
    

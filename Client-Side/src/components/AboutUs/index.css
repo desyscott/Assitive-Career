@@ -1,0 +1,45 @@
+
+.aboutUs-container{
+    padding:4rem 5rem;
+    background-color: var(--white);
+ 
+  }
+  .about-wrapper{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      position: relative;
+      top:-180px;
+  }
+
+  .about-card{
+    border:0.1rem rgba(0, 0, 0, 0.25) solid;
+    background-color:#1a202c;
+    box-shadow:0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    border-radius:0.5rem;
+    margin:0 1rem;
+    width:70rem;
+    height:40rem;
+    display: flex;
+    justify-content:center;
+    padding:2rem;
+    
+  }
+  .about-steps{
+      display: flex;
+      justify-content:space-between;
+      align-items:center;
+      position: relative;
+     bottom:100px;
+ 
+  }
+  
+  .steps{
+    background-color:#1a202c;
+    box-shadow:0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    border-radius:0.5rem;
+    width:38rem;
+    height:200px;
+  }
+  
+    
