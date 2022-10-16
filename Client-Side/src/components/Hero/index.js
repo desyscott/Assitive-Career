@@ -3,8 +3,7 @@ import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 import "./index.css"
 import {SecondaryButton} from "../Button/index"
-// import fade from "react-r"
-
+import Fade from 'react-reveal/Fade';
 
 
 const Hero=({lightBg,TopLine,lightText,lightTextDesc,headLine,description,img,userRatingImg,alt,imgStart,googleImg, appleImg})=> {
@@ -28,15 +27,18 @@ const Hero=({lightBg,TopLine,lightText,lightTextDesc,headLine,description,img,us
         
           <div className="InforColumn">
           <div className="img-wrapper">
+          <Fade>
           <img src={img || <Skeleton/>} alt={alt} className="Img"/>
+          </Fade>
           </div>
           </div>
           
          
         </div>
         <div className="ratingImg-wrapper">
+        <Fade left>
         <img src={userRatingImg || <Skeleton/>} alt={alt} className="ratingImg"/>
-        
+        </Fade>
         </div>
       </div>
     </div>

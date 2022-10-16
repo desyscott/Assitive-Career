@@ -16,6 +16,7 @@ import {requireAuth}  from "./middleware/authMiddleware.js";
 import authRoute  from "./routes/authRoute.js";
 import orderRouter from "./routes/orderRouter.js";
 import coursesRouter from "./routes/coursesRouter.js";
+import chartsRouter from "./routes/chartsRouter.js";
 
 import connectDB  from "./db.js";
 
@@ -32,37 +33,7 @@ app.use(cors());
 const __dirname = path.resolve();
 
 
-const chartsData=[
-  { 
-  labels : ['javascript', 'python', 'C++', 'C#', 'java', 'Perl', 'PHP'],
-  data:[
-    {values:[6500,4000,3250,2000,1500,1000,800] },
-   { values:[6500,4000,3250,2000,1500,1000,800]} ,
-   ],
-   backgroundColor:[
-     { color:'rgba(255, 99, 132, 0.5)'},
-     { color:'rgba(53, 162, 235, 0.5)'}
-                    ],
-   text:'Top 20 emerging Jobs',
-  },
-  { 
-  labels : ['web development', 'mobile development', 'data science', 'cyberSecurity', 'UI design', 'Affliate marketing', 'Broadcasting'],
-  data:[
-    {values:[6500,4000,3250,2000,1500,1000,800] },
-   { values:[6500,4000,3250,2000,1500,1000,800]} ,
-   ],
-   backgroundColor:[
-     { color:'rgba(125, 99, 132, 0.5)'},
-     { color:'rgba(713, 562, 35, 0.5)'}
-                    ],
-    text:'Number of indeed job posting by programming language',
-  }
 
-]
-
-app.get("/api/charts",(req,res)=>{
-  res.json(chartsData)
-})
 
 
 //file upload
@@ -85,8 +56,8 @@ app.post("/api/upload",expressAsyncHandler(async(req,res)=>{
 }));
 
 
-
 app.use("/api/auth",authRoute);
+app.use("/api/charts",chartsRouter);
 app.use("/api/courses",coursesRouter);
 app.use("/api/orders",requireAuth,orderRouter);
 

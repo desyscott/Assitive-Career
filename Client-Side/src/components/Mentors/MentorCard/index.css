@@ -1,7 +1,6 @@
 .mentor-card{
-    border:0.1rem rgba(0, 0, 0, 0.25) solid;
    background-color:#ffff;
-   /* box-shadow:0 100px 60px -12px rgba(0, 0, 0, 0.25); */
+   box-shadow:0 100px 60px -12px rgba(0, 0, 0, 0.25);
    border-radius:0.5rem;
    max-width: 25rem;
    padding: 2rem;
@@ -18,9 +17,16 @@
    
 }
 .profile-photo-wrapper > img{
-    height:6rem;
-    width:6rem;
-    border-radius:100%; 
+    width:95px;
+    height: 100px;
+    vertical-align: middle;
+    border-radius: 100%;
+    cursor: pointer;
+    border-top-left-radius: 50% 50%;
+     border-top-right-radius: 50% 50%;
+      border-bottom-right-radius: 50% 50%; 
+      border-bottom-left-radius: 50% 50%;
+    
 }
 
 .mentor-infor{

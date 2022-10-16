@@ -31,7 +31,8 @@ useEffect(()=>{
     dispatch(userDetails(currentUser.id));
   }else{
     setValues({
-      name:user.name,
+      firstName:user.firstName,
+      lastName:user.lastName,
       email:user.email,
     })
   }
@@ -41,12 +42,12 @@ useEffect(()=>{
      
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const {name,email,password,confirmPassword}=values;
+    const {firstName,lastName,email,password,confirmPassword}=values;
 
     if(password !== confirmPassword){
       alert("password and confirm password do not match")
     }else{
-      dispatch(updateUserProfile({userId:currentUser.id,name,email,password}));
+      dispatch(updateUserProfile({userId:currentUser.id,firstName,lastName,email,password}));
     }
  
   }
@@ -69,20 +70,32 @@ useEffect(()=>{
            {profileUpdateError && <MessageBox variant="danger">{profileUpdateError}</MessageBox>}
            {profileUpdateSuccess && <MessageBox variant="success">profile updated successfully</MessageBox>}
           <div>
-         <label htmlFor="name">Name</label>
+         <label htmlFor="firstName">FirstName</label>
          <input
           type="text"
-          id="name"
-          name="name"
-          placeholder="Enter name"
-          value={values.name}
+          id="firstName"
+          name="firstName"
+          placeholder="Enter FirstName"
+          value={values.firstName}
+          onChange={handleChange}
+          
+         />
+         </div>
+          <div>
+         <label htmlFor="lastName">LastName</label>
+         <input
+          type="text"
+          id="lastName"
+          name="lastName"
+          placeholder="Enter LastName"
+          value={values.lastName}
           onChange={handleChange}
           
          />
          </div>
          
           <div>
-         <label htmlFor="name">Email</label>
+         <label htmlFor="email">Email</label>
          <input
           type="email"
           id="email"

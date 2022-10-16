@@ -14,7 +14,7 @@ const Landing=(props)=>{
   
   return (
     <>
-    <ScrollToTop/>
+    {/* <ScrollToTop/> */}
     <div ref={home}>
   <Hero {...HomeObjOne}/>
     </div>

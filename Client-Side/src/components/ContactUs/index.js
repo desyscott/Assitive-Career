@@ -21,9 +21,12 @@ const ContactUs=()=>{
         <IconContext.Provider value={{color:"#d6a458"}}>
         <div className="contact-container">
         <div className="footer-row">
-        <div className="footer-col">
+        
+        <div className="footer-col-1">
        <img src={logo} alt="/"/>
+       <p>Assistive Career is on stop destination in helping you understand yourself,the best career for you and providing you all the resources in the process</p>
         </div>
+        
         <div className="footer-col">
         <h3>contact us<div className="underline"><span></span></div></h3>
         <ul>

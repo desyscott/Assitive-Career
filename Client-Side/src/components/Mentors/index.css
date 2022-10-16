@@ -3,7 +3,8 @@
 .mentor-grid{
     display:grid;
     grid-template-columns:1fr 1fr 1fr;
-    gap:2rem;;
+    gap:2rem;
+  
 }
 
 .row.top{
@@ -16,4 +17,23 @@
 
 .col-2{
     flex:2 1 70rem;
+}
+.request-card{
+    border:0.1rem #c0c0c0 solid;
+    /* background-color:#1a202c; */
+    box-shadow:0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    border-radius:0.5rem;
+    margin:1rem;
+    max-width:29rem;
+    height:8rem;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background-color:#e59191;
+    color:#fff;
+    
+}
+
+.col-1 > p{
+    text-transform: uppercase;
 }

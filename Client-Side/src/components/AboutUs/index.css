@@ -21,8 +21,13 @@
     width:70rem;
     height:40rem;
     display: flex;
-    justify-content:center;
+    justify-content:flex-start;
+    flex-direction:column;
+    align-items:center;
     padding:2rem;
+    color:#ffff;
+    line-height:2.5rem;
+    
     
   }
   .about-steps{
@@ -38,8 +43,16 @@
     background-color:#1a202c;
     box-shadow:0 25px 50px -12px rgba(0, 0, 0, 0.25);
     border-radius:0.5rem;
-    width:38rem;
+    width:40rem;
     height:200px;
+    padding: 2rem;
+    color:rgba(255, 255, 255, 0.767);
+    line-height:2.2rem;
+  }
+  
+  .steps >h3{
+margin-bottom:1rem;
+    color: rgba(120, 85, 218, 0.842);
   }
   
     

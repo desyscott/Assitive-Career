@@ -55,10 +55,10 @@ const Details=()=> {
        <Link to ="/home">Back to Results</Link>
          <div className="column center">
          <div className="details-nav">
-         <div >
+         <div  className="details-btn">
          <Link to="/#">Details</Link>
          </div>
-         <div >
+         <div className="details-btn">
          <Link to ="/#">Roadmap</Link>
          </div>
          </div>

@@ -1,15 +1,16 @@
 .role-form{
-
     max-width:35rem;
     margin:0 auto;
     border:.1rem #c0c0c0 solid;
     border-radius:.5rem;
     margin-top: 100px;
+    background-color:#fafafa;
 }
 
 .role-form > div{
     display: flex;
-    flex-direction:column;
+    flex-direction:row;
+    align-items:center;
     margin:1rem;
 }
 
@@ -43,19 +44,26 @@
    color:#0D03C3; 
 }
 
- .sub-header{
+ .role-header{
      display:flex;
      flex-direction: row;
      justify-content: space-between;
-    
-    
+     padding-bottom:1rem;
  }
- .sub-header >span{
-    font-size:2rem;
-    padding-bottom:2rem;
+ .sub-header{
+     padding-bottom:1rem;
+ }
+ .sub-header {
+    font-size:1.8rem;
     display: inline;
+  
  }
+ 
  .close-btn{
-    font-size:4rem;
+    font-size:3rem;
   cursor:pointer;
+  color: rgb(66, 66, 66)
+ }
+ .close-btn:hover{
+color: #000
  }

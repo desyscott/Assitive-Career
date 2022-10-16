@@ -41,15 +41,11 @@ function LoginForm() {
     <img src={ logo} alt="logo"/>
     </div>
     
-    <div> login to Assistive Career</div>
-        
-       
+    <div> Login to Assistive Career</div>
         <form onSubmit={handleSubmit} className="form">
         <div>
           <h2>Sign In</h2>
           </div>
-       
-        
           
           {signInError && <span>{signInError.emailVerifyMessage}</span>}
           {error && <MessageBox variant="danger">{error}</MessageBox>}

@@ -5,43 +5,28 @@ const salt = await bcrypt.genSalt();
 
 export const data ={
     
-    users:[
-        {
-            name:"Desmond",
-            email:"mrfallback055@gmail.com",
-            password:bcrypt.hashSync("desy53t3",salt),
-            isAdmin:true
-        },
-        {
-            name:"Mike",
-            email:"desyscott055@gmail.com",
-            password:bcrypt.hashSync("desy3123",salt),
-            isAdmin:false
-        },
-          ],
-    
           courses:[
             {
         _id:"1",
-        title:"frontend",
+        title:"Web development",
         description:"Step by guid to becoming frontend developer in 2022",
         details:""
             },
             {
         _id:"2",
-        title:"frontend",
+        title:"Cybersecurity",
         description:"Step by guid to becoming frontend developer in 2022",
         details:""
             },
             {
         _id:"3",
-        title:"frontend",
+        title:"Data Analysis",
         description:"Step by guid to becoming frontend developer in 2022",
         details:""
             },
             {
         _id:"4",
-        title:"frontend",
+        title:"Data Science",
         description:"Step by guid to becoming frontend developer in 2022",
         details:""
             },
@@ -89,6 +74,27 @@ export const data ={
             },
             {
         _id:"12",
+        title:"frontend",
+        description:"Step by guid to becoming frontend developer in 2022",
+        details:""
+        
+            },
+            {
+        _id:"13",
+        title:"frontend",
+        description:"Step by guid to becoming frontend developer in 2022",
+        details:""
+        
+            },
+            {
+        _id:"14",
+        title:"frontend",
+        description:"Step by guid to becoming frontend developer in 2022",
+        details:""
+        
+            },
+            {
+        _id:"15",
         title:"frontend",
         description:"Step by guid to becoming frontend developer in 2022",
         details:""

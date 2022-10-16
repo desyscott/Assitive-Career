@@ -36,7 +36,6 @@ const Courses = () => {
 
   return (
     <div className="main">
-    
     {loading ? 
         
         <div className="row center">
@@ -55,11 +54,8 @@ const Courses = () => {
     )}
     </div>
     </div>
-        )
-        }
-          
+        )}  
     </div>
-  
   )
 }
 

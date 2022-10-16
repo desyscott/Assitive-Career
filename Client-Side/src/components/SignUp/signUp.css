@@ -1,24 +1,33 @@
 .form-container{
-    height: 100vh;
+    height: 100%;
    
 }
 
-.form{
-    max-width:50rem;
+.signUp-form{
+    width:35rem;
     margin:0 auto;
     border:.1rem #c0c0c0 solid;
     border-radius:.5rem;
     background-color:#fafafa;
 }
 
-.form > div{
+.signUp-form > div{
     display: flex;
     flex-direction:column;
     margin:1rem;
 }
 
-.form label{
+.signUp-form label{
     margin:1rem 0;
+    font-size: 1.5rem;
+}
+.signUp-form  span{
+    color:rgba(32, 31, 31, 0.753);
+    font-size:1.3rem;
+}
+.signUp-form  a{
+    color: #2076FF;
+ ;
 }
 
 input{
@@ -29,4 +38,8 @@ input{
 .error{
     font-size: 15px;
     color:#f00e0e;
+}
+
+.check-box{
+    margin-right:1rem;
 }

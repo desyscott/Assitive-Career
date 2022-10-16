@@ -3,7 +3,6 @@ import axios from "axios"
 
 function MentorRequest() {
   const [file,setFile]=useState("");
-  const [filename,setFilename]=useState("");
   const [uploadedFile,setUploadedFile]=useState("");
   
   const onChange=(e)=>{
@@ -39,6 +38,8 @@ function MentorRequest() {
      <input type="file" onChange={onChange}/>
      <button type="submit">upload</button>
      </form>
+     <div>{uploadedFile.fileName}</div>
+     <img src={uploadedFile.filePath} alt="profile"/>
     </div>
   )
 }

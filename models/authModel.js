@@ -4,23 +4,27 @@ import bcrypt from "bcrypt";
 
 //schema define the field and data that will be saved in the mongodb database collection
 const userSchema = new mongoose.Schema({
-  name: {
+  firstName: {
     type: String,
-    required: [true, "Enter your name"],
+    required: [true, "Enter your firstname"],
+  },
+  lastName: {
+    type: String,
+    required: [true, "Enter your lastname"],
   },
   role: {
     type: String,
     required: true,
   },
   
-  CV:{
-    data:Buffer,
-  },
   email: {
     type: String,
     required: [true, "Enter your email"],
     unique: true,
     validate: [validator.isEmail, "Enter a correct email"],
+  },
+  CV:{
+    data:Buffer,
   },
  
   password: {

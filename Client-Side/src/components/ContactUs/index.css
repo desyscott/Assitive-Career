@@ -1,7 +1,7 @@
 .contact-container{
     background: linear-gradient(to right,#00093c,#2d0b00);
     padding: 50px 0 30px;
-    height:80vh;
+    height:100%;
     width:100%;
     color:#ccc;
 }
@@ -17,6 +17,22 @@
     flex-wrap: wrap;
 }
 
+.footer-col-1{
+    flex-basis: 30%;
+    padding: 10px;
+    display: flex;
+  
+    
+}
+.footer-col-1 > img{
+   width:4.5rem;
+   height:4.5rem;
+   margin-right:1rem;
+}
+.footer-col-1 > p{
+    font-size:1.5rem;
+}
+
 .footer-col{
     flex-basis: 20%;
     padding: 10px;
@@ -29,7 +45,7 @@
     font-size: 40px;
 }
 .footer-col p{
-    font-size: 50px;
+    font-size: 1.8rem;
     letter-spacing: 3px; 
 }
 

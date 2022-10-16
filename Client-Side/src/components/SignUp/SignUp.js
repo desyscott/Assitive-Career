@@ -25,15 +25,20 @@ function SignUp() {
   
 
   const [values, setValues] = useState({
-    name: "",
+    firstName: "",
+    lastName: "",
     email: "",
     role:"",
     password: "",
     confirmPassword: "",
   });
-  const [fileName,setFileName]=useState();
+  const [file,setFile]=useState("");
+  const [uploadedFile,setUploadedFile]=useState("");
   
   
+  const onChange=(e)=>{
+    setFile(e.target.files[0])
+  }
   
   const handleChange = (e) => {
     const {name,value}=e.target
@@ -45,15 +50,24 @@ function SignUp() {
   
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const {name,role,Cv,email,password,confirmPassword}=values;
+    const {firstName,lastName,role,email,password,confirmPassword}=values;
+    
+    const formData= new FormData();
+    formData.append("file" ,file);
+    formData.append("firstName" ,firstName);
+    formData.append("lastName" ,lastName);
+    formData.append("role" ,role);
+    formData.append("email" ,email);
+    formData.append("password" ,password);
 
     if(password !== confirmPassword){
       alert("password and confirm password do not match")
     }else{
-      dispatch(signup(name,role,email,Cv,password));
-      console.log(name,Cv,role)
+      dispatch(signup(formData));
+      console.log(firstName,lastName,role)
     }
   };
+  
   
   useEffect(()=>{
     setValues({role:role});
@@ -76,7 +90,7 @@ function SignUp() {
     </div>
     
       <div className="form-container">
-        <form className="form" onSubmit={handleSubmit} enctype="multipart/form-data">
+        <form className="signUp-form" onSubmit={handleSubmit} enctype="multipart/form-data">
         
         <div>
           <h2>
@@ -84,21 +98,6 @@ function SignUp() {
           </h2>
           </div>
           {userVerificationMessage && <p>{userVerificationMessage}</p>}
-          <div>
-            <label htmlFor="name">Name</label>
-            <input
-            ref={inputRef}
-              type="text"
-              id="name"
-              name="name"
-              placeholder="Enter name"
-              required
-              value={values.name}
-              onChange={handleChange}
-           
-            />
-            {signUpErrors && <span className="error">{signUpErrors.name}</span>}
-          </div>
           
           
           <div>
@@ -112,6 +111,37 @@ function SignUp() {
               disabled
             />
           </div>
+          
+          <div>
+            <label htmlFor="firstName">FirstName</label>
+            <input
+            ref={inputRef}
+              type="text"
+              id="firstName"
+              name="firstName"
+              placeholder="Enter FirstName"
+              required
+              value={values.firstName}
+              onChange={handleChange}
+           
+            />
+            {signUpErrors && <span className="error">{signUpErrors.firstName}</span>}
+          </div>
+          <div>
+            <label htmlFor="lastName">LastName</label>
+            <input
+              type="text"
+              id="lastName"
+              name="lastName"
+              placeholder="Enter LastName"
+              required
+              value={values.lastName}
+              onChange={handleChange}
+           
+            />
+            {signUpErrors && <span className="error">{signUpErrors.lastName}</span>}
+          </div>
+          
          
           <div>
             <label htmlFor="email">Email</label>
@@ -129,30 +159,17 @@ function SignUp() {
         
           
 
-          {params.signUpRole==="Mentor"? (
-           
-          (
-            <div>
+          {params.signUpRole==="Mentor" &&
+          <div>
             <label htmlFor="Cv">Upload CV</label>
             <input
               type="file"
-              name="Cv"
               required
-            />
-          </div> 
-             )
-      
-          ):(
-            <div>
-            <label htmlFor="Cv">Upload CV</label>
-            <input
-              type="file"
-              name="Cv"
-              
+              onChange={onChange}
             />
           </div>
-      
-          )}
+           
+          }
           
           <div>
             <label htmlFor="password">Password</label>
@@ -188,7 +205,12 @@ function SignUp() {
           <button type="submit" class="btn btn-primary">{loading ?<LoadingBox/>:<>Sign Up</>}</button>
           </div>
           <div>
+          <div>
+          <input type="checkbox" class="check-box" required/>
+          <span>By continuing, you agree to Assistive Career's <Link>Conditions of Use</Link> and <Link>Privacy Notice.</Link></span>
+          </div>
            <label/>
+           
             <div>
              Already have an account? {' '} 
              <Link to="/signIn">Sign-In</Link>

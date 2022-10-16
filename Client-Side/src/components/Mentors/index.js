@@ -17,7 +17,10 @@ function Mentors() {
     </div>
     </div>
     <div className="col-1">
-    Sent request
+    <p>Sent request</p>
+    <div className="request-card">
+    <p>You can send max 4 requests at a time</p>
+    </div>
     </div>
     </div>
   )

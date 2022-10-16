@@ -23,8 +23,17 @@
     justify-content: center;
     align-items: center;
     width: 10rem;
-    background-color: red;
+    background-color: rgb(130, 113, 179);
     border-radius:5px;
+    
+}
+.details-btn{
+    padding: 1rem;
+    cursor: pointer;
+    color: #fff;
+}
+.details-btn > a{
+   color: #fff;
 }
 
 .details-modal{

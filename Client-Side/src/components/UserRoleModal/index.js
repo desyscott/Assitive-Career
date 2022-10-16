@@ -10,17 +10,15 @@ export const UserRoleModal=()=>{
     <>
     <div>
       <form className="role-form" >
-       <div>
+       <div className="role-header">
        <h2>Sign Up</h2>
-       </div>
-       
-      <div className="sub-header">
-      
-        <span>Choose your goal !</span>
-        <div>
+       <div>
         <Link to="/signIn" className="close-btn">&times;</Link>
          </div>
-      
+       </div>
+       
+      <div>
+        <span className="sub-header">Choose your role !</span>
         </div>
         
         <div className="role-container">
