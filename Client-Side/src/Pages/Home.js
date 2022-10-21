@@ -1,11 +1,11 @@
 import React from "react";
-import Courses from "../components/Courses/index"
+import UserDashboard from '../components/Dashboard/index'
 
 const Home = () => {
     
   return (
     <div className="container">
-     <Courses/>
+     <UserDashboard/>
     </div>
   );
 };

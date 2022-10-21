@@ -1,10 +1,10 @@
 import React from 'react'
-import UserDashboard from '../components/Dashboard/index'
+import Courses from "../components/Courses/index"
 
 function Dashboard() {
   return (
     <div className="container">
-      <UserDashboard/>
+      <Courses/>
     </div>
   )
 }

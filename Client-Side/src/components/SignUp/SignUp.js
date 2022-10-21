@@ -33,7 +33,9 @@ function SignUp() {
     confirmPassword: "",
   });
   const [file,setFile]=useState("");
-  const [uploadedFile,setUploadedFile]=useState("");
+
+  const redirect = "/home";
+  
   
   
   const onChange=(e)=>{
@@ -53,7 +55,7 @@ function SignUp() {
     const {firstName,lastName,role,email,password,confirmPassword}=values;
     
     const formData= new FormData();
-    formData.append("file" ,file);
+    formData.append("cv" ,file);
     formData.append("firstName" ,firstName);
     formData.append("lastName" ,lastName);
     formData.append("role" ,role);
@@ -64,7 +66,7 @@ function SignUp() {
       alert("password and confirm password do not match")
     }else{
       dispatch(signup(formData));
-      console.log(firstName,lastName,role)
+ 
     }
   };
   
@@ -74,7 +76,6 @@ function SignUp() {
   if( inputRef &&  inputRef.current){
     inputRef.current.focus();
   } 
-
   },[params, role])
   
    
@@ -160,14 +161,26 @@ function SignUp() {
           
 
           {params.signUpRole==="Mentor" &&
-          <div>
+         ( <div>
             <label htmlFor="Cv">Upload CV</label>
             <input
               type="file"
+              name="cv"
               required
               onChange={onChange}
             />
-          </div>
+          </div>)
+           
+          }
+          {params.signUpRole==="Student" &&
+         ( <div>
+            <label htmlFor="Cv">Upload CV</label>
+            <input
+              type="file"
+              name="cv"
+              onChange={onChange}
+            />
+          </div>)
            
           }
           

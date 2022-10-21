@@ -1,48 +1,59 @@
-import React from 'react'
+import React,{useState} from 'react'
+import Modal from "../../Modal/index"
 import "./index.css"
 
-function MentorCard({data}) {
-    
+function MentorCard({mentor}) {
+  const [openModal,setOpenModal] = useState(false)
+  
+  const handleModal=()=>{
+    setOpenModal(true)
+   
+  }
+  
+    if(openModal) {
+   return <Modal closeModal={setOpenModal} mentor={mentor} /> 
+  }
     
   return (
-    <div className="mentor-card">
+    <div className="mentor-card" key={mentor._id}>
+
         <div className="profile-photo-wrapper">
-        <img src={data.profileImage} alt="profile" />
+        <img src={mentor.profileImage} alt="profile" />
         </div>
         
         <div className="mentor-infor">
         <div>
-        <h3 className="mentor-name"> {data.name}</h3>
+        <h3 className="mentor-name"> {mentor.name}</h3>
         </div>
         
           <div className="mentor-profession" >
           <label className="label">professional enterprise</label>
-          <p>{data.professional}</p>
+          <p>{mentor.professional}</p>
           </div>
           
          
           <div>
           <label className="label">Location</label>
-          <p>{data.Location}</p>
+          <p>{mentor.Location}</p>
           </div>
                
           <div>
-          <label className="label">department</label>  
-          <p>{data.department}</p>
+          <label className="label">Career</label>  
+          <p>{mentor.career}</p>
           </div>
        
           <div>
           <label className="label">Mentorship Role</label>
-       <p> {data.MentorshipCate}</p>
+       <p> {mentor.MentorshipCate}</p>
           </div>
         
           <div>
           <label className="label">hobbies</label>
-          <p>{data.Hobbies}</p>
+          <p>{mentor.Hobbies}</p>
           </div>
         </div>
-        <div className="request-link "><p>Request</p></div>
-        
+        <div className="request-link " onClick={handleModal}><p>Request</p></div>
+       
     </div>
   )
 }

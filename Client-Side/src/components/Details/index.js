@@ -1,35 +1,36 @@
 import React,{useState,useEffect} from 'react'
 import {useParams,useHistory,Link} from "react-router-dom"
 import {useSelector,useDispatch} from "react-redux"
-import {fetchProductRequest} from "../Redux/Reducers/productReducer/productActions"
+import {fetchCourseRequest} from "../Redux/Reducers/courseReducer/courseActions"
 import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 import MessageBox from "../MessageBox/index"
 import "./index.css"
 import LoadingBox from '../LoadingBox'
+import Roadmap from "../Roadmap/index"
 
-const mapState=({productsData})=>({
-  product:productsData.product,
-  loading:productsData.loading,
-  error:productsData.error
+const mapState=({coursesData})=>({
+  course:coursesData.course,
+  loading:coursesData.loading,
+  error:coursesData.error
 })
 
 const Details=()=> {
-  const {product,loading,error} =useSelector(mapState)
+  const {course,loading,error} =useSelector(mapState)
   const dispatch =useDispatch()
   const history =useHistory()
   
-   const {productId}=useParams()
+   const {courseId}=useParams()
   
   useEffect(()=>{
-    dispatch(fetchProductRequest(productId))
-  },[dispatch,productId])
+    dispatch(fetchCourseRequest(courseId))
+  },[dispatch,courseId])
   
  
   
   
    
-   if(!product){
+   if(!course){
      return <div>No course found</div>
    }
    
@@ -38,35 +39,31 @@ const Details=()=> {
    
   return (
     
-    <div>
-    {/* {loading ? 
+    <div className="main">
+    {loading ? 
      <LoadingBox/>
      :
      error ?<MessageBox variant="danger">{error}</MessageBox>
-     :(
-      <>
-       <Link to ="/">Back to Results</Link>
-         <div className="row top">
-      </div>
-      </>
-     )
-     } */}
-     <>
-       <Link to ="/home">Back to Results</Link>
+     :
+    ( <>
+       <Link to ="/careers">Back to Results</Link>
          <div className="column center">
          <div className="details-nav">
          <div  className="details-btn">
-         <Link to="/#">Details</Link>
+         <Link to={`/course/${courseId}`}>Details</Link>
          </div>
          <div className="details-btn">
-         <Link to ="/#">Roadmap</Link>
+         <Link to ="/roadmap">Roadmap</Link>
          </div>
          </div>
-         <div className="details-modal">
          
+         <div className="details-modal">
+          <p>{course.details}</p>
+           
          </div>
       </div>
-      </>
+      </>)
+    }
  </div>
  
   )

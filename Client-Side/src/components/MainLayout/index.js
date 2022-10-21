@@ -10,9 +10,9 @@ const  index= ({children})=> {
       <NavBar />
       </header>
     
-      <main className="main">
+      <content className="content">
       {children}
-      </main>
+      </content>
       
       <footer className="footer">
       <Footer/>

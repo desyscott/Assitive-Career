@@ -10,11 +10,11 @@ export const data ={
         _id:"1",
         title:"Web development",
         description:"Step by guid to becoming frontend developer in 2022",
-        details:""
+        details:"Artificial intelligence (AI) specialists program computers to think.Some AI specialists work in cognitive simulation, in which "
             },
             {
         _id:"2",
-        title:"Cybersecurity",
+        title:"Cyber Security",
         description:"Step by guid to becoming frontend developer in 2022",
         details:""
             },
@@ -26,62 +26,62 @@ export const data ={
             },
             {
         _id:"4",
-        title:"Data Science",
+        title:"Artificial intelligence Specialist",
         description:"Step by guid to becoming frontend developer in 2022",
         details:""
             },
             {
         _id:"5",
-        title:"frontend",
+        title:"Backend Developer",
         description:"Step by guid to becoming frontend developer in 2022",
         details:""
             },
             {
         _id:"6",
-        title:"frontend",
+        title:"Data Engineer",
         description:"Step by guid to becoming frontend developer in 2022",
         details:""
             },
             {
         _id:"7",
-        title:"frontend",
+        title:"Robotic Engineer",
         description:"Step by guid to becoming frontend developer in 2022",
         details:""
             },
             {
         _id:"8",
-        title:"frontend",
+        title:"Full Stack engineer",
         description:"Step by guid to becoming frontend developer in 2022",
         details:""
             },
             {
         _id:"9",
-        title:"frontend",
+        title:"Site Reliability engineer",
         description:"Step by guid to becoming frontend developer in 2022",
         details:""
             },
             {
         _id:"10",
-        title:"frontend",
+        title:"Customer Success specialist",
         description:"Step by guid to becoming frontend developer in 2022",
         details:""
             },
             {
         _id:"11",
-        title:"frontend",
+        title:"Chief revenue Officer (CRO)",
         description:"Step by guid to becoming frontend developer in 2022",
         details:""
             },
             {
         _id:"12",
-        title:"frontend",
+        title:"Data Science",
         description:"Step by guid to becoming frontend developer in 2022",
         details:""
         
             },
             {
         _id:"13",
-        title:"frontend",
+        title:"Behavioral Health Technician",
         description:"Step by guid to becoming frontend developer in 2022",
         details:""
         

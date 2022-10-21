@@ -3,8 +3,8 @@ export const NavBarItems =[
     
     {
     
-        title:"Dashboard",
-        path:"/dashboard",
+        title:"Careers",
+        path:"/careers",
     },
     
     {

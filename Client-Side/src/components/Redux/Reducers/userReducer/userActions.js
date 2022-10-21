@@ -53,8 +53,6 @@ export const signup=(formData)=>async(dispatch)=>{
         const {data} = await Axios.post("/api/auth/signup",formData);
         console.log("data",data);
         
-      
-        
         if(data.errors){
             dispatch({type:userTypes.USER_SIGNUP_ERROR,payLoad:data.errors})
             }

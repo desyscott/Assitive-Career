@@ -1,7 +1,7 @@
 import React from 'react'
 import Details from "../components/Details/index"
 
-const ProductDetails=()=> {
+const CourseDetails=()=> {
   return (
     <div className="container">
     <Details/>
@@ -9,4 +9,4 @@ const ProductDetails=()=> {
   )
 }
 
-export default ProductDetails
+export default CourseDetails;

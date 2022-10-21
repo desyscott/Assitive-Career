@@ -15,11 +15,7 @@ html{
   box-sizing: border-box;
 }
 
-li{
-  list-style: none;
-  white-space:nowrap;
-  margin-top:1rem;
-}
+
  a:hover{
   text-decoration: none;
 }
@@ -42,7 +38,12 @@ a{
 }
 
 .container{
-  padding:5rem ;
+  padding:4rem;
+  
+
+}
+.content{
+ background-color: #f4f4f4;
 
 }
 

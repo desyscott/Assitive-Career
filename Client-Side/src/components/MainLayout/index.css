@@ -3,7 +3,7 @@
     display:grid;
     grid-template-areas: 
     "header"
-    "main"
+    "content"
     "footer"
     ;
     grid-template-columns: 1fr;
@@ -14,8 +14,8 @@
 .header{
     grid-area: header;
 }
-.main{
-    grid-area: main;
+.content{
+    grid-area: content;
 }
 .footer{
     grid-area:footer;

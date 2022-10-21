@@ -160,6 +160,16 @@ font-weight: bold ;
     background-color:#082f58;
     min-width:100%;
 }
+.dropdown-content > li{
+ list-style:none;
+ white-space:nowrap;
+ margin-top:1rem;
+
+}
+.dropdown-content > li >a{
+ 
+ font-size:1.6rem;
+}
 
      
 .profile-photo{

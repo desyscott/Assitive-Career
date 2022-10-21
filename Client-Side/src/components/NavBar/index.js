@@ -48,13 +48,13 @@ const NavBar =()=>{
     </nav>
    
    <div className="nav-links flex">
-    {/* {currentUser && */}
+    {currentUser &&
      
   
       <div className="dropdown">
       <img src={ProfilePhoto} alt="profile" className="profile-photo"/>
        {'  '}
-        <Link to="#">Eddie
+        <Link to="#">{currentUser.firstName}
         {' '}<i className="fa fa-caret-down"/>
         </Link>
         <ul className="dropdown-content">
@@ -66,7 +66,7 @@ const NavBar =()=>{
           </li>
         </ul>
     </div>
-    {/* } */}
+    }
      
     
    

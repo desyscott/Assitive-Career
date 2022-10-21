@@ -17,6 +17,7 @@ import authRoute  from "./routes/authRoute.js";
 import orderRouter from "./routes/orderRouter.js";
 import coursesRouter from "./routes/coursesRouter.js";
 import chartsRouter from "./routes/chartsRouter.js";
+import usersRouter from "./routes/usersRouter.js";
 
 import connectDB  from "./db.js";
 
@@ -26,7 +27,7 @@ connectDB();
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(fileUpload());
+// app.use(fileUpload());
 app.use(cookieParser());
 app.use(morgan("dev"));
 app.use(cors());
@@ -38,27 +39,38 @@ const __dirname = path.resolve();
 
 //file upload
 app.post("/api/upload",expressAsyncHandler(async(req,res)=>{
- if(req.files===null){
-   return res.status(400).json({msg:"No file uploaded"})
- }
+  if(req.files===null){
+    return res.status(400).json({msg:"No file uploaded"})
+  }
+  setTimeout(()=>{
+    console.log("file uploaded")
+    return res.status(200).json({result:true,msg:"file uploaded"})
+  },300)
  
- const file = req.files.file;
- console.log(file.name)
  
- file.mv(`${__dirname}/client-side/public/uploads/${file.name}`,(err)=>{
-   if(err){
-     console.error(err);
-    return res.status(500).send(err);
-   }
+//  const file = req.files.file;
+//  console.log(file.name)
+ 
+//  file.mv(`${__dirname}/client-side/public/uploads/${file.name}`,(err)=>{
+//    if(err){
+//      console.error(err);
+//     return res.status(500).send(err);
+//    }
    
-   res.json({fileName:file.name, filePath:`/uploads/${file.name}`})
- })
+//    res.json({fileName:file.name, filePath:`/uploads/${file.name}`})
+//  })
+}));
+
+//file delete
+app.delete("/api/upload",expressAsyncHandler(async(req,res)=>{
+ return res.status(200).json({result:true,msg:"file deleted"})
 }));
 
 
 app.use("/api/auth",authRoute);
 app.use("/api/charts",chartsRouter);
 app.use("/api/courses",coursesRouter);
+app.use("/api/users",usersRouter);
 app.use("/api/orders",requireAuth,orderRouter);
 
 

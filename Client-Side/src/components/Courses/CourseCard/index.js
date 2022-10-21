@@ -4,11 +4,6 @@ import "../index.css"
 
 const index=(props)=>{
   const {course}=props
-
-
-
-
-
   return (
   <div className="card" key={course._id}>
   <div className="card-body">

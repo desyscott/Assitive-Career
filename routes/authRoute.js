@@ -31,12 +31,12 @@ const storage =multer.diskStorage({
   destination:(req,file,cb)=>{
     cb(null,"uploads")
   },
-  // fileFilter:(req,file,cb)=>{
-  //   cb(null,MimeTypes.includes(file.mimetypes))
-  // },
+  fileFilter:(req,file,cb)=>{
+    cb(null,MimeTypes.includes(file.mimetypes))
+  },
   filename:(req,file,cb)=>{
     cb(null,file.originalname)
-  }
+  },
 })
 //configure the storage engine
 const upload=multer({storage:storage})
@@ -95,32 +95,32 @@ router.get("/seed",expressAsyncHandler(async(req,res)=>{
 }))
 
 
-router.post("/signup", expressAsyncHandler(async (req, res) => {
-  
-  if(req.files===null){
+router.post("/signup", upload.single("cv"), expressAsyncHandler(async (req, res) => {
+  if(req.file===null){
     return res.status(400).json({msg:"No file uploaded"})
   }
-  const file = req.files.file;
-  console.log(file.name)
   
- 
-   
+  // const file = req.files.file;
+  // console.log(file)
   try {
     const user = await authModel.create({
       firstName:req.body.firstName,
       lastName:req.body.lastName,
       role:req.body.role,
       email:req.body.email,
-      CV:file,
+      CV:{
+        data:fs.readFileSync("uploads/" + req.file.filename),
+        contentType:"application/pdf",
+        },
       password:req.body.password,
     });
     
-    file.mv(`${__dirname}/client-side/public/uploads/${file.name}`,(err)=>{
-      if(err){
-        console.error(err);
-       return res.status(500).send(err);
-      }
-    })
+    // file.mv(`${__dirname}/client-side/public/uploads/${file.name}`,(err)=>{
+    //   if(err){
+    //     console.error(err);
+    //    return res.status(500).send(err);
+    //   }
+    // })
     
     //sending the jwt cookie to user browser when sign out
     // const maxAge= 3*24*60*60;

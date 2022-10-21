@@ -8,7 +8,7 @@ export const middlewares = [thunk,logger]
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-//we get the cartItem from the localStorage and convert it to an array containing the items
+//we get the requestItem from the localStorage and convert it to an array containing the items
 const  initialState={
     userData:{
         currentUser:localStorage.getItem("currentUser")
@@ -16,15 +16,11 @@ const  initialState={
         : null
     }, 
     
-    cartData:{
-        cartItems:localStorage.getItem('cartItems') 
-        ? JSON.parse(localStorage.getItem('cartItems'))
+    requestData:{
+        requestItems:localStorage.getItem('requestItems') 
+        ? JSON.parse(localStorage.getItem('requestItems'))
         : [],
         
-        shippingAddress:localStorage.getItem("shippingAddress")
-        ?JSON.parse(localStorage.getItem("shippingAddress"))
-        :{}, 
-        paymentMethod:'PayPal',
     }
     
 

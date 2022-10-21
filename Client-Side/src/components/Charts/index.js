@@ -35,6 +35,7 @@ export function Charts({chartData}) {
           },
           title: {
             display: true,
+            color: 'black',
             text: text,
           },
         },
@@ -49,6 +50,7 @@ export function Charts({chartData}) {
             label:'No of postings',
             data:chartData.data[0].values,
             backgroundColor:chartData.backgroundColor[0].color,
+            
           },
           {
             label: 'No of postings',
@@ -58,8 +60,8 @@ export function Charts({chartData}) {
         ],
       };
   return( <>
-         <div style={{width: '550px', margin:"auto auto",}} >
-         <Bar options={options1} data={data} />
+         <div style={{width: '600px', margin:"auto auto",}} >
+         <Bar options={options1} data={data}   />
          </div>
          </>)
 

@@ -1,13 +1,57 @@
+.dashboard{
+    color: #000;
+  
+}
+.dashboard-header{
+    color: rgb(66, 23, 71);
+    margin-bottom: 1rem;
+}
+.dashboard-subheader{
+       margin-bottom: 1rem;
+}
+.dashboard-content{
+    line-height: 2.5rem;
+}
+
+
 .chart{
     margin-bottom:5rem;
     display:flex;
     justify-content:center;
     align-items:center;
     gap:5px;
+    color:#000;
 }
 
 @media screen and (max-width: 568px){
     .chart{
         flex-wrap: wrap;
     }
+}
+
+
+.dash-img{
+    width: 180px;
+    height: 200px;
+    border-radius:10px;
+    margin: .5rem;
+}
+.dashboard-imgCard{
+    width: 200px;
+    height: 210px;
+    border-radius:10px;
+    margin-left: 4rem;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.dash-img:hover{
+    transform: scale(1.1)
+}
+
+.dashboard-list li{
+    list-style-type:circle;
+    white-space:nowrap;
+  margin: 1rem;
 }
