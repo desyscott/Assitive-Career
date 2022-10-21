@@ -27,44 +27,12 @@ connectDB();
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-// app.use(fileUpload());
+app.use(fileUpload());
 app.use(cookieParser());
 app.use(morgan("dev"));
 app.use(cors());
 const __dirname = path.resolve();
 
-
-
-
-
-//file upload
-app.post("/api/upload",expressAsyncHandler(async(req,res)=>{
-  if(req.files===null){
-    return res.status(400).json({msg:"No file uploaded"})
-  }
-  setTimeout(()=>{
-    console.log("file uploaded")
-    return res.status(200).json({result:true,msg:"file uploaded"})
-  },300)
- 
- 
-//  const file = req.files.file;
-//  console.log(file.name)
- 
-//  file.mv(`${__dirname}/client-side/public/uploads/${file.name}`,(err)=>{
-//    if(err){
-//      console.error(err);
-//     return res.status(500).send(err);
-//    }
-   
-//    res.json({fileName:file.name, filePath:`/uploads/${file.name}`})
-//  })
-}));
-
-//file delete
-app.delete("/api/upload",expressAsyncHandler(async(req,res)=>{
- return res.status(200).json({result:true,msg:"file deleted"})
-}));
 
 
 app.use("/api/auth",authRoute);
@@ -75,13 +43,17 @@ app.use("/api/orders",requireAuth,orderRouter);
 
 
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static("Client-Side/build"));
+  app.use(express.static(path.join(__dirname,"Client-Side/build")));
+  
+  app.get("*",(req,res)=>{
+    res.sendFile(path.join(__dirname,"Client-Side","build","index.html"))
+  })
+}else{
+  app.get("/",(req,res)=>{
+    res.send("Api running")
+  })
 }
 
-
-app.get("/api/paypal/config",(req,res)=>{
-  res.send(process.env.PAYPAL_CLIENT_ID || "sb");
-});
 
 app.use((err,req,res,next)=>{
   res.status(500).send({message:err.message})

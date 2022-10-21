@@ -7,97 +7,88 @@ export const data ={
     
           courses:[
             {
-        _id:"1",
         title:"Web development",
         description:"Step by guid to becoming frontend developer in 2022",
         details:"Artificial intelligence (AI) specialists program computers to think.Some AI specialists work in cognitive simulation, in which "
             },
             {
-        _id:"2",
-        title:"Cyber Security",
-        description:"Step by guid to becoming frontend developer in 2022",
-        details:""
+                title:"Cyber Security",
+        description:"Step by guid to becoming Cyber security in 2022",
+        details:"jkjkkjkj"
             },
             {
-        _id:"3",
-        title:"Data Analysis",
+                title:"Data Analysis",
         description:"Step by guid to becoming frontend developer in 2022",
-        details:""
+        details:"njjkkkjkj"
             },
             {
-        _id:"4",
-        title:"Artificial intelligence Specialist",
+                title:"Artificial intelligence Specialist",
         description:"Step by guid to becoming frontend developer in 2022",
-        details:""
+        details:"jkkjkj"
             },
             {
-        _id:"5",
-        title:"Backend Developer",
+                title:"Backend Developer",
         description:"Step by guid to becoming frontend developer in 2022",
-        details:""
+        details:"kjkkkllkkl"
             },
             {
-        _id:"6",
-        title:"Data Engineer",
+                title:"Data Engineer",
         description:"Step by guid to becoming frontend developer in 2022",
-        details:""
+        details:"klklklkl"
             },
             {
-        _id:"7",
-        title:"Robotic Engineer",
+                title:"Robotic Engineer",
         description:"Step by guid to becoming frontend developer in 2022",
-        details:""
+        details:"klklklklkl"
             },
             {
-        _id:"8",
-        title:"Full Stack engineer",
+                title:"Full Stack engineer",
         description:"Step by guid to becoming frontend developer in 2022",
-        details:""
+        details:"jkkjkjkj"
             },
             {
-        _id:"9",
-        title:"Site Reliability engineer",
+                title:"Site Reliability engineer",
         description:"Step by guid to becoming frontend developer in 2022",
-        details:""
+        details:"jkjkjkj"
             },
             {
-        _id:"10",
+        
         title:"Customer Success specialist",
         description:"Step by guid to becoming frontend developer in 2022",
-        details:""
+        details:"klklklkl"
             },
             {
-        _id:"11",
+        
         title:"Chief revenue Officer (CRO)",
         description:"Step by guid to becoming frontend developer in 2022",
-        details:""
+        details:"klkklklkl"
             },
             {
-        _id:"12",
+        
         title:"Data Science",
         description:"Step by guid to becoming frontend developer in 2022",
-        details:""
+        details:"hjhhhjjj"
         
             },
             {
-        _id:"13",
+        
         title:"Behavioral Health Technician",
         description:"Step by guid to becoming frontend developer in 2022",
-        details:""
+        details:"jkjkjkjkkj"
         
             },
             {
-        _id:"14",
+        
         title:"frontend",
         description:"Step by guid to becoming frontend developer in 2022",
-        details:""
+        details:"jkkjjkjk"
         
             },
             {
-        _id:"15",
+        
         title:"frontend",
         description:"Step by guid to becoming frontend developer in 2022",
-        details:""
+        details:"hjhjhjhjhjhj"
         
             },
         ]

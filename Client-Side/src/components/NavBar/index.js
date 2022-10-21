@@ -79,9 +79,7 @@ const NavBar =()=>{
     <i className="fa fa-caret-down"/>
     </Link>
     <ul className="dropdown-content">
-    <li><Link to="/dashboard"> Dashboard</Link></li>
-    <li><Link to="/product">Products</Link></li>
-    <li><Link to="/orders"> Orders</Link></li>
+    <li><Link to="/mentor">Mentor</Link></li>
     <li><Link to="/users">Users</Link></li>
     </ul>
     </div>}
