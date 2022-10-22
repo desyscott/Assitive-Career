@@ -1,5 +1,5 @@
 import React,{useState,useEffect,useRef} from "react";
-import { Link,useParams } from "react-router-dom";
+import { Link,useParams,useHistory } from "react-router-dom";
 import {useSelector,useDispatch} from "react-redux"
 import {signup} from "../Redux/Reducers/userReducer/userActions"
 import "./signUp.css"
@@ -23,7 +23,7 @@ function SignUp() {
   const params=useParams();
   const role=params.signUpRole
   
-
+  const history=useHistory()
   const [values, setValues] = useState({
     firstName: "",
     lastName: "",
@@ -75,7 +75,11 @@ function SignUp() {
   if( inputRef &&  inputRef.current){
     inputRef.current.focus();
   } 
-  },[params, role])
+  
+  if(currentUser){
+    history.push(redirect);
+   }
+  },[currentUser, history, params, role])
   
    
   if(params.signUpRole!=="Mentor" && params.signUpRole!=="Student"){

@@ -39,13 +39,16 @@ const storage =multer.diskStorage({
 const upload=multer({storage:storage})
 
 const handleErrors = (err) => {
+  
   console.log("handleErrors",err.message, err.code);
+  
      let errors= {
     firstName: "",
     lastName: "",
     email: "",
     password: "",
     emailVerifyMessage: "",
+    errMessage:""
   };
 
   // incorrect email
@@ -53,7 +56,10 @@ const handleErrors = (err) => {
     errors.email = "That email is not registered";
     return errors;
   }
-
+  if(err){
+    errors.errMessage=err.message
+    return errors;
+  }
   // incorrect password
   if (err.message === "incorrect password") {
     errors.password = "The password is incorrect ";
