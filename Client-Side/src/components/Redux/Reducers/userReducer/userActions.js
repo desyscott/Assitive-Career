@@ -9,7 +9,7 @@ export const signIn=(email,password) =>async(dispatch)=>{
     
     try{
         const {data} =await Axios.post("/api/auth/signin",{email,password});
-        
+        console.log("signInData",data);
        
            if(data.id){
             dispatch({
@@ -40,8 +40,7 @@ export const signIn=(email,password) =>async(dispatch)=>{
 
 export const signOut=()=>async(dispatch)=>{
     localStorage.removeItem("currentUser")
-    localStorage.removeItem("cartItems")
-    localStorage.removeItem("shippingAddress")
+    localStorage.removeItem("requestItems")
     
     dispatch({type:userTypes.USER_SIGNOUT_SUCCESS})
 }

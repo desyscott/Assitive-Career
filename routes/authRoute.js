@@ -140,6 +140,7 @@ router.post("/signup",upload.single("Cv"), expressAsyncHandler(async (req, res) 
     console.log("user",user)
     
   } catch (err) {
+    console.log(err.message)
   const errors = handleErrors(err);
     res.send({errors});
   }
@@ -206,6 +207,7 @@ router.post("/signin",expressAsyncHandler(async(req, res) => {
       token,
       });
   } catch (err) {
+    console.log(err.message)
     const errors = handleErrors(err);
     res.send({ errors });
   }
