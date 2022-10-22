@@ -47,7 +47,6 @@ const handleErrors = (err) => {
     lastName: "",
     email: "",
     password: "",
-    emailVerifyMessage: "",
     errMessage:""
   };
 
@@ -56,10 +55,7 @@ const handleErrors = (err) => {
     errors.email = "That email is not registered";
     return errors;
   }
-  if(err){
-    errors.errMessage=err.message
-    return errors;
-  }
+  
   // incorrect password
   if (err.message === "incorrect password") {
     errors.password = "The password is incorrect ";
