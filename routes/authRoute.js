@@ -207,7 +207,8 @@ router.post("/signin",expressAsyncHandler(async(req, res) => {
     
     res.status(200).send({
       id:user._id,
-      name:user.name,
+      firstName:user.firstName,
+      lastName:user.lastName,
       email:user.email,
       isAdmin:user.isAdmin,
       token,
