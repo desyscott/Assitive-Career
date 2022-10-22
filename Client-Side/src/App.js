@@ -60,38 +60,43 @@ const  App=()=> {
           )}/> */}
           
           
-          <Route path="/course/:courseId" render={()=>(
+          {/* <Route path="/course/:courseId" render={()=>(
             <MainLayout>
               <CourseDetails/>
             </MainLayout>
-          )}/>
+          )}/> */}
           
           <PrivateRoute path="/home" component={Home} />
           <PrivateRoute path="/profile" component={Profile} />
+          <PrivateRoute path="/careers" component={Dashboard} />
+          <PrivateRoute path="/request-mentor" component={MentorRequest} />
+          <PrivateRoute path="/career-test" component={CareerTest} />
+          <PrivateRoute path="/mentors" component={Mentors} />
+          <PrivateRoute path="/course/:courseId" component={CourseDetails} />
           
-          <Route path="/careers" render={()=>(
+          {/* <Route path="/careers" render={()=>(
             <MainLayout>
             <Dashboard/>
             </MainLayout>
-          )}/>
+          )}/> */}
           
-          <Route exact path="/request-mentor" render={()=>(
+          {/* <Route exact path="/request-mentor" render={()=>(
             <MainLayout>
             <MentorRequest/>
             </MainLayout>
-          )}/>
+          )}/> */}
           
-          <Route exact path="/mentors" render={()=>(
+          {/* <Route exact path="/mentors" render={()=>(
             <MainLayout>
             <Mentors/>
             </MainLayout>
-          )}/>
+          )}/> */}
           
-          <Route exact path="/career-test" render={()=>(
+          {/* <Route exact path="/career-test" render={()=>(
             <MainLayout>
             <CareerTest/>
             </MainLayout>
-          )}/>
+          )}/> */}
           
           <Route exact path="/user-role" render={()=>(
             <UserRole/>
