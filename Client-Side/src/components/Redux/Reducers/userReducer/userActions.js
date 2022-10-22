@@ -10,16 +10,17 @@ export const signIn=(email,password) =>async(dispatch)=>{
     try{
         const {data} =await Axios.post("/api/auth/signin",{email,password});
         
-        if(data.errors){
-            dispatch({
-                type:userTypes.USER_SIGNIN_ERROR,
-                payLoad:data.errors})
-        }
+       
            if(data.id){
             dispatch({
                 type:userTypes.USER_SIGNIN_SUCCESS,
                 payLoad:data})
-           }
+           } 
+           if(data.errors){
+            dispatch({
+                type:userTypes.USER_SIGNIN_ERROR,
+                payLoad:data.errors})
+               }
            
          
              if(data.id){
@@ -53,6 +54,7 @@ export const signup=(formData)=>async(dispatch)=>{
         const {data} = await Axios.post("/api/auth/signup",formData);
         console.log("data",data);
         
+
         if(data.errors){
             dispatch({type:userTypes.USER_SIGNUP_ERROR,payLoad:data.errors})
             }

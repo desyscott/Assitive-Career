@@ -25,6 +25,7 @@ const userSchema = new mongoose.Schema({
   },
   CV:{
     data:Buffer,
+    contentType:String,
   },
  
   password: {

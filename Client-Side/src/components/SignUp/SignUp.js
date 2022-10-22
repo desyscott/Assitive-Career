@@ -32,14 +32,14 @@ function SignUp() {
     password: "",
     confirmPassword: "",
   });
-  const [file,setFile]=useState("");
+  const [Cv,setCv]=useState("");
 
   const redirect = "/home";
   
   
   
   const onChange=(e)=>{
-    setFile(e.target.files[0])
+    setCv(e.target.files[0])
   }
   
   const handleChange = (e) => {
@@ -50,23 +50,22 @@ function SignUp() {
     });
   };
   
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    const {firstName,lastName,role,email,password,confirmPassword}=values;
+    const {firstName,lastName,role,email,password,confirmPassword} = values;
     
-    const formData= new FormData();
-    formData.append("cv" ,file);
-    formData.append("firstName" ,firstName);
-    formData.append("lastName" ,lastName);
-    formData.append("role" ,role);
-    formData.append("email" ,email);
-    formData.append("password" ,password);
-
+    const formData = new FormData(); 
+    formData.append("firstName",firstName);
+    formData.append("lastName",lastName);
+    formData.append("role",role);
+    formData.append("email",email);
+    formData.append("password",password);
+    formData.append("Cv",Cv);
+    
     if(password !== confirmPassword){
       alert("password and confirm password do not match")
     }else{
       dispatch(signup(formData));
- 
     }
   };
   
@@ -79,7 +78,7 @@ function SignUp() {
   },[params, role])
   
    
-    if(params.signUpRole!=="Mentor" && params.signUpRole!=="Student"){
+  if(params.signUpRole!=="Mentor" && params.signUpRole!=="Student"){
      return  <MessageBox variant="danger">404 Page not found ( . .</MessageBox>
     }
   
@@ -91,6 +90,7 @@ function SignUp() {
     </div>
     
       <div className="form-container">
+      
         <form className="signUp-form" onSubmit={handleSubmit} enctype="multipart/form-data">
         
         <div>
@@ -165,7 +165,7 @@ function SignUp() {
             <label htmlFor="Cv">Upload CV</label>
             <input
               type="file"
-              name="cv"
+              name="Cv"
               required
               onChange={onChange}
             />
@@ -177,7 +177,7 @@ function SignUp() {
             <label htmlFor="Cv">Upload CV</label>
             <input
               type="file"
-              name="cv"
+              name="Cv"
               onChange={onChange}
             />
           </div>)
@@ -220,7 +220,7 @@ function SignUp() {
           <div>
           <div>
           <input type="checkbox" class="check-box" required/>
-          <span>By continuing, you agree to Assistive Career's <Link>Conditions of Use</Link> and <Link>Privacy Notice.</Link></span>
+          <span class="privacy-span">By continuing, you agree to Assistive Career's <Link>Conditions of Use</Link> and <Link>Privacy Notice.</Link></span>
           </div>
            <label/>
            

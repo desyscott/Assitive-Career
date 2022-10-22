@@ -47,18 +47,16 @@ const  App=()=> {
     <>
      <SkeletonTheme baseColor="hsl(200,30%,80%)" highlightColor="hsl(500, 50%, 95%)">
       
-          
-       
           <Route path="/" exact render={()=>(
-            <MainLayout>
-            <Home/>
-            </MainLayout>
-          )}/>
-          
-          {/* <Route path="/" exact render={()=>(
             <LandingMainLayout  {...configScrollRef}>
             <Landing  {...configScrollRef}/>
             </LandingMainLayout>
+          )}/>
+       
+          {/* <Route path="/home" render={()=>(
+            <MainLayout>
+            <Home/>
+            </MainLayout>
           )}/> */}
           
           
@@ -68,7 +66,7 @@ const  App=()=> {
             </MainLayout>
           )}/>
           
-          {/* <PrivateRoute path="/home" component={Home} /> */}
+          <PrivateRoute path="/home" component={Home} />
           <PrivateRoute path="/profile" component={Profile} />
           
           <Route path="/careers" render={()=>(

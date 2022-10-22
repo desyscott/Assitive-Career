@@ -21,7 +21,8 @@
     margin:1rem 0;
     font-size: 1.5rem;
 }
-.signUp-form  span{
+
+.privacy-span{
     color:rgba(32, 31, 31, 0.753);
     font-size:1.3rem;
 }
@@ -35,7 +36,7 @@ input{
     border:0.1rem #c0c0c0 solid;
 }
 
-.error{
+.error {
     font-size: 15px;
     color:#f00e0e;
 }

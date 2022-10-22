@@ -5,7 +5,6 @@ import expressAsyncHandler from "express-async-handler"
 import bcrypt from "bcrypt";
 import fs from "fs"
 import multer  from 'multer'
-import path from 'path';
 
 const router = express.Router();
 
@@ -22,8 +21,6 @@ import {data} from "../data/CourseData.js"
 
 import {requireAuth}  from "../middleware/authMiddleware.js";
 
-const __dirname = path.resolve();
-
 //storage engine
 const MimeTypes =["application/pdf","application/msword"]
 
@@ -31,12 +28,12 @@ const storage =multer.diskStorage({
   destination:(req,file,cb)=>{
     cb(null,"uploads")
   },
-  fileFilter:(req,file,cb)=>{
-    cb(null,MimeTypes.includes(file.mimetypes))
-  },
+  // fileFilter:(req,file,cb)=>{
+  //   cb(null,MimeTypes.includes(file.mimetypes))
+  // },
   filename:(req,file,cb)=>{
     cb(null,file.originalname)
-  },
+  }
 })
 //configure the storage engine
 const upload=multer({storage:storage})
@@ -95,13 +92,8 @@ router.get("/seed",expressAsyncHandler(async(req,res)=>{
 }))
 
 
-router.post("/signup", upload.single("cv"), expressAsyncHandler(async (req, res) => {
-  if(req.file===null){
-    return res.status(400).json({msg:"No file uploaded"})
-  }
-  
-  // const file = req.files.file;
-  // console.log(file)
+router.post("/signup",upload.single("Cv"), expressAsyncHandler(async (req, res) => {
+   
   try {
     const user = await authModel.create({
       firstName:req.body.firstName,
@@ -110,17 +102,10 @@ router.post("/signup", upload.single("cv"), expressAsyncHandler(async (req, res)
       email:req.body.email,
       CV:{
         data:fs.readFileSync("uploads/" + req.file.filename),
-        contentType:"application/pdf",
-        },
+        contentType:"application/msword"
+      },
       password:req.body.password,
     });
-    
-    // file.mv(`${__dirname}/client-side/public/uploads/${file.name}`,(err)=>{
-    //   if(err){
-    //     console.error(err);
-    //    return res.status(500).send(err);
-    //   }
-    // })
     
     //sending the jwt cookie to user browser when sign out
     // const maxAge= 3*24*60*60;
@@ -137,7 +122,7 @@ router.post("/signup", upload.single("cv"), expressAsyncHandler(async (req, res)
       from: process.env.AUTH_EMAIL, 
       to: user.email,
       subject: "verify your account",
-      html: `<h1>welcome to Shop Now!!!! ${user.firstName}</h1>
+      html: `<h1>welcome to Shop Now!!!! ${user.name}</h1>
       <p>You’re receiving this message because you recently signed up for a Shop Now!!!! account.
       Confirm your email address by clicking the button below. This step adds extra security to your business by verifying you own this email.</p>
       
@@ -155,8 +140,8 @@ router.post("/signup", upload.single("cv"), expressAsyncHandler(async (req, res)
     console.log("user",user)
     
   } catch (err) {
-    const errors = handleErrors(err);
-    res.send({ errors });
+  const errors = handleErrors(err);
+    res.send({errors});
   }
 }));
 
@@ -215,7 +200,7 @@ router.post("/signin",expressAsyncHandler(async(req, res) => {
     
     res.status(200).send({
       id:user._id,
-      firstName:user.firstName,
+      name:user.name,
       email:user.email,
       isAdmin:user.isAdmin,
       token,
@@ -241,8 +226,7 @@ router.get("/:id",requireAuth,expressAsyncHandler(async(req,res)=>{
 router.put("/profile",requireAuth,expressAsyncHandler(async(req,res)=>{
   const user = await authModel.findById(req.user.id);
   if(user){
-    user.firstName = req.body.firstName || user.firstName;
-    user.lastName = req.body.lastName || user.lastName;
+    user.name = req.body.name || user.name;
     user.email =req.body.email || user.email;
   if(req.body.password){
     user.password = req.body.password.trim() ;
@@ -251,8 +235,7 @@ router.put("/profile",requireAuth,expressAsyncHandler(async(req,res)=>{
   const token = createToken(updatedUser);
   res.send({
      id:updatedUser._id,
-     firstName:updatedUser.firstName,
-     lastName:updatedUser.lastName,
+     name:updatedUser.name,
      email:updatedUser.email,
      isAdmin:updatedUser. isAdmin,
      token

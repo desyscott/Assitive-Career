@@ -1,11 +1,9 @@
 import  express from "express";
-import fileUpload from "express-fileupload"
 import colors  from "colors";
 import dotenv  from "dotenv";
 import cors  from "cors";
 import morgan  from "morgan";
 import cookieParser  from "cookie-parser";
-import expressAsyncHandler from "express-async-handler"
 import path from 'path';
 
 const app = express();
@@ -27,7 +25,6 @@ connectDB();
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(fileUpload());
 app.use(cookieParser());
 app.use(morgan("dev"));
 app.use(cors());
