@@ -72,15 +72,21 @@ const  App=()=> {
             </MainLayout>
           )}/>
           
-          {/* <PrivateRoute path="/home" component={Home} />
+          <PrivateRoute path="/home" component={Home} />
           <PrivateRoute path="/profile" component={Profile} />
           <PrivateRoute path="/careers" component={Dashboard} />
           <PrivateRoute path="/request-mentor" component={MentorRequest} />
           <PrivateRoute path="/career-test" component={CareerTest} />
           <PrivateRoute path="/mentors" component={Mentors} />
-          <PrivateRoute path="/course/:courseId" component={CourseDetails} /> */}
+          <PrivateRoute path="/mentor-list" component={MentorList} />
+          <PrivateRoute path="/users" component={Users} />
+          <PrivateRoute path="/course/:courseId" component={CourseDetails} />
+          <PrivateRoute path="/career-test2" component={CareerTest2} />
+          <PrivateRoute path="/career-test3" component={CareerTest3} />
           
-          <Route path="/careers" render={()=>(
+          
+          
+          {/* <Route path="/careers" render={()=>(
             <MainLayout>
             <Dashboard/>
             </MainLayout>
@@ -127,7 +133,7 @@ const  App=()=> {
             <MainLayout>
             <CareerTest3/>
             </MainLayout>
-          )}/>
+          )}/> */}
           
           <Route exact path="/user-role" render={()=>(
             <UserRole/>
