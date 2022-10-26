@@ -6,6 +6,7 @@
    padding: 2rem;
    display: flex;
    flex-direction:column;
+   border:.1px solid rgba(87, 86, 86, 0.2);
  }
 
 .profile-photo-wrapper{
@@ -17,8 +18,8 @@
    
 }
 .profile-photo-wrapper > img{
-    width:95px;
-    height: 100px;
+    width:75px;
+    height: 75px;
     vertical-align: middle;
     border-radius: 100%;
     cursor: pointer;

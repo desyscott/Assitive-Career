@@ -5,11 +5,14 @@ import cors  from "cors";
 import morgan  from "morgan";
 import cookieParser  from "cookie-parser";
 import path from 'path';
+import multer from 'multer';
+import fs from "fs";
 
 const app = express();
 
 
 import {requireAuth}  from "./middleware/authMiddleware.js";
+import uploadModel from "./models/uploadModel.js"
 
 import authRoute  from "./routes/authRoute.js";
 import orderRouter from "./routes/orderRouter.js";
@@ -37,6 +40,40 @@ app.use("/api/charts",chartsRouter);
 app.use("/api/courses",coursesRouter);
 app.use("/api/users",usersRouter);
 app.use("/api/orders",requireAuth,orderRouter);
+
+
+const storage = multer.diskStorage({
+  destination(req, file, cb) {
+    cb(null, 'uploads');
+  },
+  filename(req, file, cb) {
+    cb(null, `${Date.now()}.jpg`);
+  },
+});
+
+const upload = multer({ storage });
+
+app.post('/upload', upload.single('image'), async(req, res) => {
+  const image=req.file.path
+ 
+  
+  const fileUpload= new uploadModel({
+   image:image,
+  })
+  const newUser = await fileUpload.save();
+  if(newUser){
+    res.send({data:fs.readFileSync("uploads/" + req.file.filename)});
+  }else {
+    res.status(401).send({ message: 'Invalid User Data.' });
+  }
+ 
+});
+
+
+
+
+
+
 
 
 if (process.env.NODE_ENV === "production") {

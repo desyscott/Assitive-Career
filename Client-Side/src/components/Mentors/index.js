@@ -67,10 +67,13 @@ function Mentors() {
     <p>You can send max 4 requests at a time</p>
     </div>
      <ul >
-     {requestItems.map(request=>(
-       <li key={request.user} className="request-card card-2 ">
-       <span>{request.name}</span>
-       
+     {requestItems.splice(4, 1) && requestItems.map(request=>(
+       <li key={request.user} className="request-card card-2 flex ">
+        <img src={request.profileImage} alt="profile" />
+        <div>
+       <span className="request-name">{request.name}</span>
+       </div>
+         <p>Requested</p>
        </li>
      ))}
      </ul>

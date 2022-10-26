@@ -11,7 +11,7 @@
 
 }
 
- 
+
 .flex{
     display:flex;
     gap:2rem;
@@ -127,6 +127,24 @@ font-weight: bold ;
 .nav-links {
   display:flex;  
   justify-content:center;
+  align-items: center;
+
+  
+}
+.notification-icon{
+    color:rgb(196, 191, 191);
+    font-size:2rem;
+    cursor: pointer;
+    box-shadow:0 0.15rem 1.75rem 0 rgb(58 59 69 / 15%) !important;
+}
+.notification-icon-light{
+    color:#fff;
+    font-size:1.5rem;
+    cursor: pointer;
+}
+
+.notification-icon:hover{
+    color:#fff;
   
 }
 
@@ -136,6 +154,10 @@ font-weight: bold ;
     align-items:center;
     position:relative;
     padding:.5rem;
+    padding:1.3rem 0;
+    
+    
+   
 }
 
 .dropdown-content{
@@ -145,11 +167,15 @@ font-weight: bold ;
     top:40px;
     min-width:12rem;
     padding:1rem;
-    z-index:9999;
     margin:0;
     margin-top:0.4rem;
     border-radius:0.5rem;
-    background-color:#203040;
+    background-color:#fff;
+    /* background-color:#203040; */
+    border:.5px solid #3333;
+    box-shadow:0 0.15rem 1.75rem 0 rgb(58 59 69 / 15%) !important;
+    z-index: 1000;
+  
   
 }
 .dropdown:hover .dropdown-content {
@@ -159,23 +185,72 @@ font-weight: bold ;
 .dropdown-content > li:hover{
     background-color:#082f58;
     min-width:100%;
+    color:#fff;   
+    box-shadow:0 0.15rem 1.75rem 0 rgb(58 59 69 / 15%) !important;
 }
 .dropdown-content > li{
  list-style:none;
  white-space:nowrap;
  margin-top:1rem;
+ padding:5px 12px;
+ border-radius:.4rem;
+ transition:all .3s;
+ cursor: pointer;
 
 }
 .dropdown-content > li >a{
- 
+    color:#3a3b45;
  font-size:1.6rem;
+ font-weight: 400;
+ transition:all .3s;background-color: transparent
+ 
+}
+.dropdown-content > li >a:hover{
+ color:#fff;
+ font-size:1.6rem;
+}
+.dropdown-content >li >a{
+    display:flex;
+    justify-content:flex-start;
+    align-items:center;
+    
+}
+.dropdown-icons{
+    margin-right:.5rem;
+   font-size:1.8rem;
+}
+ 
+.notification-dropdown-content{
+    display:flex;
+    align-items:center;
+   flex-direction:column;
+    justify-content: center;
+    position:absolute;
+    right:100px;
+    top:50px;
+    min-width:12rem;
+    padding:1rem;
+    margin:0;
+    margin-top:0.4rem;
+    border-radius:0.5rem;
+    background-color:#fff;
+    border:.5px solid #3333;
+    box-shadow:0 0.15rem 1.75rem 0 rgb(58 59 69 / 15%) !important;
+    z-index: 1000;
+    height:150px
+  
+  
+}
+.notification-dropdown-none{
+    display:none;
 }
 
      
 .profile-photo{
-    width:4rem;
-    height:4rem;
+    width:3.5rem;
+    height:3.5rem;
     border-radius:100%;
+    margin-right: 0.5rem;
 }
 
 @media screen and (max-width:650px){

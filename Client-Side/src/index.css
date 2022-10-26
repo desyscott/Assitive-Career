@@ -38,7 +38,7 @@ a{
 }
 
 .container{
-  padding:4rem;
+  padding:3rem;
   
 
 }
@@ -54,4 +54,40 @@ a{
   --white:#fff;
   --box-shadow: 0 .3rem .5rem rgba(0,0,0,0.1);
   --dark-gray:rgba(13,13,13);
+}
+
+
+.mentors-header{
+  margin-bottom:1rem;
+}
+
+.content-margined {
+  margin: 2rem;
+}
+
+.table {
+  width: 100%;
+}
+th {
+  text-align: left;
+}
+tbody > tr:nth-child(odd) {
+  background-color: #d9d5db9d;
+}
+
+
+.button.secondary {
+  background-color: #f0f0f0;
+}
+.button.primary {
+  background-color: #0000ff;
+  color: #ffff
+}
+.button {
+  padding: 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+.button:hover {
+  border: 0.1rem #404040 solid;
 }

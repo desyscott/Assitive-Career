@@ -28,24 +28,24 @@ const ContactUs=()=>{
         </div>
         
         <div className="footer-col">
-        <h3>contact us<div className="underline"><span></span></div></h3>
+        <h3 className="footerTitle-link">contact us<div className="underline"><span></span></div></h3>
         <ul>
-          <li className="footer-li"><a href="/">FAQ</a></li>  
-          <li className="footer-li"><a href="/">Supports</a></li>  
-          <li className="footer-li"><a href="/">Questions</a></li>  
+          <li className="footer-li"><a href="/"  className="footer-link">contact</a></li>  
+          <li className="footer-li"><a href="/"  className="footer-link">Supports</a></li>  
+          <li className="footer-li"><a href="/"  className="footer-link">Sponsorships</a></li>  
         </ul>
         </div>
         <div className="footer-col">
-        <h3>Offices<div className="underline"><span></span></div></h3>
+        <h3 className="footerTitle-link">Offices<div className="underline"><span></span></div></h3>
         <ul>
-          <li className="footer-li"><a href="/">Ghana</a></li>  
-          <li className="footer-li"><a href="/">Europe</a></li>  
-          <li className="footer-li"><a href="/">Canada</a></li>  
+          <li className="footer-li"><a href="/"  className="footer-link">Ghana</a></li>  
+          <li className="footer-li"><a href="/"  className="footer-link">Europe</a></li>  
+          <li className="footer-li"><a href="/"  className="footer-link">Canada</a></li>  
         </ul>
         </div>
 
         <div className="footer-col">
-        <h3>Link<div className="underline"><span></span></div></h3>
+        <h3 className="footerTitle-link">Link<div className="underline"><span></span></div></h3>
         <ul>
           <li className="footer-li"><a  className="footer-link" href="/">home</a></li>  
           <li className="footer-li"><a className="footer-link" href="/">services</a></li>  

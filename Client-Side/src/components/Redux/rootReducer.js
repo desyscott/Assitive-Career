@@ -4,6 +4,7 @@ import usersReducer, { userDetailsReducer, userProfileUpdateReducer } from "./Re
 import coursesReducer from "./Reducers/courseReducer/coursesReducer"
 import addToRequestReducer from "./Reducers/requestReducer/requestsReducer";
 import mentorReducer from "./Reducers/MentorReducer/mentorReducer";
+import addCareerTestScoreReducer from "./Reducers/CareerTestReducer/CareerReducer"
 
 const rootReducer = combineReducers({
     userData:usersReducer,
@@ -11,7 +12,8 @@ const rootReducer = combineReducers({
     coursesData:coursesReducer,
     requestData:addToRequestReducer,
     userProfileUpdatedData:userProfileUpdateReducer,
-    userDetailsData:userDetailsReducer
+    userDetailsData:userDetailsReducer,
+    testData: addCareerTestScoreReducer
 })
 
 export default rootReducer;

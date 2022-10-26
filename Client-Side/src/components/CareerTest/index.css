@@ -1,0 +1,36 @@
+.test-quiz li{
+    list-style-type:none;
+    margin-bottom:1.5rem;
+    
+    
+}
+.test-quiz >li >P{
+   
+    margin-bottom:1rem;
+    
+    
+}
+
+.test-form h3{
+    margin-bottom: 1.5rem;
+}
+
+.test-form{
+    width:70rem;
+    margin:0 auto;
+    border:.1rem #c0c0c0 solid;
+    border-radius:.5rem;
+    background-color:#fafafa;
+    padding:3rem
+}
+
+.test-form > div{
+    display: flex;
+    flex-direction:column;
+    margin:1rem;
+}
+
+.test-form label{
+    margin:1rem 0;
+    font-size: 1.5rem;
+}

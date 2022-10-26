@@ -21,9 +21,20 @@ const  initialState={
         ? JSON.parse(localStorage.getItem('requestItems'))
         : [],
         
-    }
-    
-
+    },
+    testData:{
+        testScoresCyber:localStorage.getItem('testScoresCyber') 
+        ? JSON.parse(localStorage.getItem('testScoresCyber'))
+        : [],
+        
+        testScoresWeb:localStorage.getItem('testScoresWeb') 
+        ? JSON.parse(localStorage.getItem('testScoresWeb'))
+        : [],
+        
+        testScoresDataAna:localStorage.getItem('testScoresDataAna') 
+        ? JSON.parse(localStorage.getItem('testScoresDataAna'))
+        : [],
+    },
 }
 const store= createStore(rootReducer,
                          initialState,

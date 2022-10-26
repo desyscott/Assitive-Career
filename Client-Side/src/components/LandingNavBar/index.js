@@ -6,7 +6,7 @@ import "./LandingNavBar.css"
 
 const LandingNavBar =(props)=>{
     
-    const { home, event,mentor,testimonal,aboutUs}=props
+    const { home, event,mentor,testimonal,contactUs,aboutUs}=props
     
     const [scroll, setScroll] = useState(false)
   
@@ -33,7 +33,7 @@ const LandingNavBar =(props)=>{
     return(
   <div className={scroll ? "primary-header flex active" : "primary-header flex"}>
   
-   <div className="nav-logo">
+   <div className="nav-logo" onClick={()=>scrollToSection(home)}>
    <Link to="/" >Assistive Career</Link>
    </div>
    
@@ -59,8 +59,8 @@ const LandingNavBar =(props)=>{
     </li>
     
     
-    <li onClick={()=>scrollToSection(mentor)}><Link to="/#" >About Us</Link></li>
-    <li onClick={()=>scrollToSection(testimonal)}><Link to="/#" >Contact Us</Link></li>
+    <li onClick={()=>scrollToSection(aboutUs)}><Link to="/#" >About Us</Link></li>
+    <li onClick={()=>scrollToSection(contactUs)}><Link to="/#" >Contact Us</Link></li>
     <li onClick={()=>scrollToSection(home)}><Link to="/#" >FAQ</Link></li>
     </ul>
     </nav>

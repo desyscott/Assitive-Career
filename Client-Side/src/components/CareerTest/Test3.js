@@ -4,7 +4,7 @@ import {FormRadioSelect} from "../FormSelect/index"
 import {data} from "./Data"
 import {useHistory} from "react-router-dom"
 import {useDispatch} from "react-redux"
-import {addCyberTestScore} from "../Redux/Reducers/CareerTestReducer/CareerTestAction"
+import {addDataAnaTestScore} from "../Redux/Reducers/CareerTestReducer/CareerTestAction"
 import {configFilters1,configFilters2,configFilters3,configFilters4,configFilters5} from "../FormSelect/useSelectForm"
 
 
@@ -34,21 +34,21 @@ function Test() {
    const handleSubmit=(e)=>{
      e.preventDefault();
     console.log(values)
-    dispatch(addCyberTestScore(values))
-    history.push("/career-test2")
+    dispatch(addDataAnaTestScore(values))
+    history.push("/career-test3")
    }
 
     
   return (
-    <div>
+    <div className="container">
     
     <form className="test-form" onSubmit={handleSubmit}> 
-     <h3>Cyber Security</h3>
-    {data.Question1.map((question)=>(
+     <h3>Data Analytics</h3>
+    {data.Question3.map((question)=>(
       <>
       <ul className="test-quiz">
       <li>
-       <p>{question.Q1}</p>
+      <p>{question.Q1}</p>
       <FormRadioSelect
        {...configFilters1}
        handleChange={handleChange}
@@ -61,7 +61,7 @@ function Test() {
        handleChange={handleChange}/>
       </li>
       <li>
-       <p>{question.Q3}</p>
+      <p>{question.Q3}</p>
       <FormRadioSelect
        {...configFilters3}
        handleChange={handleChange}/>
@@ -73,7 +73,7 @@ function Test() {
       handleChange={handleChange}/>
       </li>
       <li>
- <p>{question.Q5}</p>
+      <p>{question.Q5}</p>
       <FormRadioSelect 
       {...configFilters5}
       handleChange={handleChange}/>
@@ -88,7 +88,7 @@ function Test() {
      <div>
           <label/>
           <button type="submit" class="btn btn-primary" >
-          Next
+          Submit
           </button>
           </div>
     </form>

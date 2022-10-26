@@ -31,6 +31,7 @@ function SignUp() {
     role:"",
     password: "",
     confirmPassword: "",
+    agree:false
   });
   const [Cv,setCv]=useState("");
 
@@ -43,16 +44,16 @@ function SignUp() {
   }
   
   const handleChange = (e) => {
-    const {name,value}=e.target
+    const {name,value,type,checked,}=e.target
     setValues({
       ...values,
-      [name]:value,
+      [name]:type==="checkbox" ? checked:value,
     });
   };
   
   const handleSubmit = (e) => {
     e.preventDefault();
-    const {firstName,lastName,role,email,password,confirmPassword} = values;
+    const {firstName,lastName,role,email,password,confirmPassword,agree} = values;
     
     const formData = new FormData(); 
     formData.append("firstName",firstName);
@@ -61,11 +62,13 @@ function SignUp() {
     formData.append("email",email);
     formData.append("password",password);
     formData.append("Cv",Cv);
+    formData.append("agree",agree);
     
     if(password !== confirmPassword){
       alert("password and confirm password do not match")
     }else{
-      dispatch(signup(formData));
+      // dispatch(signup(formData));
+      console.log(values)
     }
   };
   
@@ -223,7 +226,12 @@ function SignUp() {
           </div>
           <div>
           <div>
-          <input type="checkbox" class="check-box" required/>
+          <input 
+          type="checkbox" 
+          class="check-box" 
+          name="agree"
+          onChange={handleChange}
+           required/>
           <span class="privacy-span">By continuing, you agree to Assistive Career's <Link>Conditions of Use</Link> and <Link>Privacy Notice.</Link></span>
           </div>
            <label/>

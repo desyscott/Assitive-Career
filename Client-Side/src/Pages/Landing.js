@@ -4,13 +4,12 @@ import MentorSection from "../components/MentorSection/index";
 import EventSection from "../components/EventSection/index"
 import TestimonalSection from "../components/TestimonialSection/index"
 import AboutUs from "../components/AboutUs/index"
-import ScrollToTop from "../components/ScrollToButton/ScrollToTop"
 import ContactUs from "../components/ContactUs/index"
 
 import {HomeObjOne,HomeObjTwo,HomeObjThree,HomeObjFour} from "../components/LandingData/LandingData"
 
 const Landing=(props)=>{
-  const { home, event,mentor,testimonal,aboutUs,}=props
+  const { home, event,mentor,testimonal,contactUs,aboutUs,}=props
   
   return (
     <>
@@ -36,7 +35,7 @@ const Landing=(props)=>{
    <TestimonalSection {...HomeObjFour}/>
    </div>
    
-   <div>
+   <div  ref={contactUs}>
    <ContactUs/>
    </div>
   

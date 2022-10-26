@@ -1,0 +1,28 @@
+
+
+.profilePhoto-wrapper{
+  display:flex;
+  justify-content:center;
+  position:relative;
+}
+.profilePhoto-wrapper> img{
+    width:7rem;
+    height:7rem;
+    border-radius:100%;
+    margin-bottom: .5rem;
+    position:relative;
+}
+
+.camera-icon{
+   position:absolute;
+   left:226px; 
+   bottom:25px;
+   font-size:25px;
+   color:rgba(51, 51, 51, 0.562);
+   cursor: pointer;
+   
+}
+.camera-icon:hover{
+    color:#333;
+   
+}

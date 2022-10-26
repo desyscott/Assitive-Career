@@ -21,6 +21,13 @@
    font-weight:bold;
    background:transparent;
    border:1px var(--gradient_light) solid;
+   
+   
+}
+
+.hero-arrow{
+    position: relative;
+    top:2px;
 }
 
 .secondary:hover{
@@ -31,6 +38,7 @@
     color:var(--gradient_light);
     padding: 9px 0;
     text-decoration: none;
+
 }
 
 .BtnLink_secondary:hover{

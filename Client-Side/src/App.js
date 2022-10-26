@@ -20,6 +20,10 @@ import Mentors from "./Pages/Mentors"
 import CareerTest from "./Pages/CareerTest"
 import CourseDetails from "./Pages/CourseDetails";
 import Profile from "./Pages/Profile"
+import MentorList from "./Pages/MentorsList"
+import CareerTest2 from "../src/components/CareerTest/Text2"
+import CareerTest3 from "../src/components/CareerTest/Test3"
+import Users from "./Pages/Users"
 import PrivateRoute from "./components/PrivateRoute/index"
 
 
@@ -32,6 +36,7 @@ const  App=()=> {
   const mentor=useRef(null)
   const testimonal=useRef(null)
   const aboutUs=useRef(null)
+  const contactUs=useRef(null)
   
   const configScrollRef ={
     home,
@@ -39,6 +44,7 @@ const  App=()=> {
    mentor,
    testimonal,
    aboutUs,
+   contactUs,
   }
   
   
@@ -53,50 +59,75 @@ const  App=()=> {
             </LandingMainLayout>
           )}/>
        
-          {/* <Route path="/home" render={()=>(
+          <Route path="/home" render={()=>(
             <MainLayout>
             <Home/>
             </MainLayout>
-          )}/> */}
+          )}/>
           
           
-          {/* <Route path="/course/:courseId" render={()=>(
+          <Route path="/course/:courseId" render={()=>(
             <MainLayout>
               <CourseDetails/>
             </MainLayout>
-          )}/> */}
+          )}/>
           
-          <PrivateRoute path="/home" component={Home} />
+          {/* <PrivateRoute path="/home" component={Home} />
           <PrivateRoute path="/profile" component={Profile} />
           <PrivateRoute path="/careers" component={Dashboard} />
           <PrivateRoute path="/request-mentor" component={MentorRequest} />
           <PrivateRoute path="/career-test" component={CareerTest} />
           <PrivateRoute path="/mentors" component={Mentors} />
-          <PrivateRoute path="/course/:courseId" component={CourseDetails} />
+          <PrivateRoute path="/course/:courseId" component={CourseDetails} /> */}
           
-          {/* <Route path="/careers" render={()=>(
+          <Route path="/careers" render={()=>(
             <MainLayout>
             <Dashboard/>
             </MainLayout>
-          )}/> */}
+          )}/>
+          <Route path="/profile" render={()=>(
+            <MainLayout>
+            <Profile/>
+            </MainLayout>
+          )}/>
+          <Route path="/mentor-list" render={()=>(
+            <MainLayout>
+            <MentorList/>
+            </MainLayout>
+          )}/>
+          <Route path="/users" render={()=>(
+            <MainLayout>
+            <Users/>
+            </MainLayout>
+          )}/>
           
-          {/* <Route exact path="/request-mentor" render={()=>(
+          <Route exact path="/request-mentor" render={()=>(
             <MainLayout>
             <MentorRequest/>
             </MainLayout>
-          )}/> */}
+          )}/>
           
-          {/* <Route exact path="/mentors" render={()=>(
+          <Route exact path="/mentors" render={()=>(
             <MainLayout>
             <Mentors/>
             </MainLayout>
-          )}/> */}
+          )}/>
           
-          {/* <Route exact path="/career-test" render={()=>(
+          <Route exact path="/career-test" render={()=>(
             <MainLayout>
             <CareerTest/>
             </MainLayout>
-          )}/> */}
+          )}/>
+          <Route exact path="/career-test2" render={()=>(
+            <MainLayout>
+            <CareerTest2/>
+            </MainLayout>
+          )}/>
+          <Route exact path="/career-test3" render={()=>(
+            <MainLayout>
+            <CareerTest3/>
+            </MainLayout>
+          )}/>
           
           <Route exact path="/user-role" render={()=>(
             <UserRole/>

@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState} from 'react'
 import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 import "./index.css"
@@ -6,7 +6,13 @@ import {SecondaryButton} from "../Button/index"
 import Fade from 'react-reveal/Fade';
 
 
+
 const Hero=({lightBg,TopLine,lightText,lightTextDesc,headLine,description,img,userRatingImg,alt,imgStart,googleImg, appleImg})=> {
+  const [hover,setHover]=useState(false)
+  
+  const onHover=()=>{
+    setHover(!hover)
+  }
   return (
     <>
     <div className={lightBg ? "landing-container" :"landing-container BgImg"}>
@@ -19,9 +25,11 @@ const Hero=({lightBg,TopLine,lightText,lightTextDesc,headLine,description,img,us
                      <p className={lightTextDesc? "sub-desc textDesc":"sub-desc darkTextDesc"}> 
                   {description}
                   </p>
-                     <ul className="Btn-wrapper">
-                     <SecondaryButton text="Get Started"/>
-                    </ul>
+                 
+                     <div className="Btn-wrapper" onMouseEnter={onHover} onMouseLeave={onHover}>
+                    
+                     <SecondaryButton text="Get Started" hover={hover} onMouseEnter={onHover} onMouseLeave={onHover}/>
+                    </div>
               </div>
             </div>
         

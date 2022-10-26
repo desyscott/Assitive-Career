@@ -1,7 +1,7 @@
 import React from 'react'
 import {productsData} from "./data/index"
 import "./index.css"
-import HorizontalScroll from "react-scroll-horizontal"
+import {Button2} from "../Button/index"
 
 
 const Hero=({lightBg,TopLine,lightText,lightTextDesc,headLine,description,img,alt,imgStart,})=> {
@@ -11,7 +11,7 @@ const Hero=({lightBg,TopLine,lightText,lightTextDesc,headLine,description,img,al
     <div className="event-header">Events</div>
     <div className="event-subheader">
     <h3>Upcoming event with your favorite mentor</h3>
-    <button class="btn view-btn">View all events</button>
+    <Button2 GetStarted={true} text="View All Events"/>
     </div>
     <div className="event-wrapper">
    

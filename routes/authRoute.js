@@ -2,7 +2,6 @@ import express from "express";
 import { v4 as uuidv4 } from 'uuid';
 import pkg from "mongoose";
 import expressAsyncHandler from "express-async-handler"
-import bcrypt from "bcrypt";
 import fs from "fs"
 import multer  from 'multer'
 
@@ -28,9 +27,9 @@ const storage =multer.diskStorage({
   destination:(req,file,cb)=>{
     cb(null,"uploads")
   },
-  // fileFilter:(req,file,cb)=>{
-  //   cb(null,MimeTypes.includes(file.mimetypes))
-  // },
+  fileFilter:(req,file,cb)=>{
+    cb(null,MimeTypes.includes(file.mimetypes))
+  },
   filename:(req,file,cb)=>{
     cb(null,file.originalname)
   }
@@ -92,6 +91,7 @@ router.get("/seed",expressAsyncHandler(async(req,res)=>{
   const userCred = await authModel.insertMany(data.users);
   res.send({userCred});
 }))
+
 
 
 router.post("/signup",upload.single("Cv"), expressAsyncHandler(async (req, res) => {
@@ -206,6 +206,7 @@ router.post("/signin",expressAsyncHandler(async(req, res) => {
       firstName:user.firstName,
       lastName:user.lastName,
       email:user.email,
+      role:user.role,
       isAdmin:user.isAdmin,
       token,
       });
@@ -231,8 +232,10 @@ router.get("/:id",requireAuth,expressAsyncHandler(async(req,res)=>{
 router.put("/profile",requireAuth,expressAsyncHandler(async(req,res)=>{
   const user = await authModel.findById(req.user.id);
   if(user){
-    user.name = req.body.name || user.name;
+    user.firstName = req.body.firstName || user.firstName;
+    user.lastName = req.body.lastName || user.lastName;
     user.email =req.body.email || user.email;
+    
   if(req.body.password){
     user.password = req.body.password.trim() ;
   }
@@ -240,15 +243,13 @@ router.put("/profile",requireAuth,expressAsyncHandler(async(req,res)=>{
   const token = createToken(updatedUser);
   res.send({
      id:updatedUser._id,
-     name:updatedUser.name,
+     firstName:updatedUser.firstName,
+     lastName:updatedUser.lastName,
      email:updatedUser.email,
      isAdmin:updatedUser. isAdmin,
      token
      })
   }
-  
-
-  
 }))
 
 

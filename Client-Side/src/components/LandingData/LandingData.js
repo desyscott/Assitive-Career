@@ -2,6 +2,7 @@
 import HeroImg from "./images/hero image.svg"
 import userRatingImg from "./images/User rating.svg"
 import MentorImg from "./images/Mentor.svg"
+import UserImg from "./images/landingPic.jpg"
 import Vector1 from "./images/Vector 1.svg"
 
 export const HomeObjOne={
@@ -49,7 +50,7 @@ export const HomeObjFour={
     lightTextDesc:false,
     headLine:"about us",
     description: "iLoc is here to stay with you on campus. Our goal is to enable students to easily identify places , and buildings around them with ease.iLoc is the easiest, fastest ,safest to navigate your way on campus",
-    imgStart:"SS",
-    // img:HeroImg,
+    imgStart:"end",
+    img:UserImg,
     alt:"",
 };

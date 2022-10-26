@@ -2,6 +2,7 @@ import React from 'react'
 import "./index.css"
 import Fade from 'react-reveal/Fade';
 
+
 const Hero=({lightBg,TopLine,lightText,lightTextDesc,headLine,description,img,alt,imgStart,googleImg, appleImg})=> {
   return (
     <>
@@ -28,7 +29,9 @@ const Hero=({lightBg,TopLine,lightText,lightTextDesc,headLine,description,img,al
         
           <div className="InforColumn">
           <div className="img-wrapper">
-          {/* <img src={img} alt={alt} className="Img"/> */}
+          <Fade right>
+          <img src={img} alt={alt} className="Img"/>
+          </Fade>
           </div>
           </div>
         </div>

@@ -9,6 +9,10 @@
 
     
   }
+
+.trial{
+  color:white
+}
   
   .BgImg{
     background:linear-gradient(to right, rgba(0,0,0,0.7),rgba(0,0,0,0.1)),url("../LandingData//images/Container\ --\ 3.svg");
@@ -109,6 +113,7 @@
     margin-bottom:16px;
     display:flex;
     align-items:center;
+    display:inline-block;
     
   }
   
@@ -129,9 +134,12 @@
     margin-left:70px;
     margin-top:20px;
   }
+ 
   .ratingImg{
     height:20px;
   }
+  
+ 
   
   @media screen and (max-width:991px){
     .Container{

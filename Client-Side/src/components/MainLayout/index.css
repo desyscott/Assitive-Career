@@ -3,19 +3,19 @@
     display:grid;
     grid-template-areas: 
     "header"
-    "content"
+    "main-body"
     "footer"
     ;
     grid-template-columns: 1fr;
-    grid-template-rows: 5rem 1fr 5rem;
+    grid-template-rows: 6.5rem 1fr 5rem;
     height: 100%;
 }
 
 .header{
     grid-area: header;
 }
-.content{
-    grid-area: content;
+.main-body{
+    grid-area: main-body;
 }
 .footer{
     grid-area:footer;
