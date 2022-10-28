@@ -72,7 +72,9 @@ function Mentors() {
         <img src={request.profileImage} alt="profile" />
         <div>
        <span className="request-name">{request.name}</span>
+    
        </div>
+       
          <p>Requested</p>
        </li>
      ))}

@@ -35,7 +35,7 @@ function Test() {
      e.preventDefault();
     console.log(values)
     dispatch(addDataAnaTestScore(values))
-    history.push("/career-test3")
+    history.push("/test-results")
    }
 
     

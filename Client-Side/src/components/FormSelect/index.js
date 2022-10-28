@@ -50,14 +50,15 @@ export const FormRadioSelect = ({ options, handleChange,defaultValue, label, ...
            
             <>
             
-          <div>
+          <div className="radio-item">
             <input type="radio"
-            className="form-radio"
+            className="radio"
+            required
              name={name}
              value={value} 
              onChange={handleChange}
         />
-          <h3 className="radio-value">{value}</h3>
+          <p className="radio-label">{value}</p>
           </div>
              
           

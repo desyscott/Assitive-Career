@@ -2,7 +2,10 @@ import React,{useState} from 'react'
 import Modal from "../../Modal/index"
 import "./index.css"
 
+
+
 function MentorCard({mentor}) {
+  
   const [openModal,setOpenModal] = useState(false)
   
   const handleModal=()=>{
@@ -52,7 +55,11 @@ function MentorCard({mentor}) {
           <p>{mentor.Hobbies}</p>
           </div>
         </div>
-        <div className="request-link " onClick={handleModal}><p>Request</p></div>
+       
+         <button className="request-link"   onClick={handleModal}><p>Request</p></button>
+         
+         
+        
        
     </div>
   )

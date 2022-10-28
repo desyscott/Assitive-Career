@@ -67,7 +67,7 @@ function SignUp() {
     if(password !== confirmPassword){
       alert("password and confirm password do not match")
     }else{
-      // dispatch(signup(formData));
+      dispatch(signup(formData));
       console.log(values)
     }
   };
