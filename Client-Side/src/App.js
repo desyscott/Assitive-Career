@@ -8,7 +8,7 @@ import MainLayout from "./components/MainLayout/index"
 import LandingMainLayout from "./components/LandingMainLayout/index"
 import SignUp from "./components/SignUp/SignUp";
 import Login from "./Pages/Login"
-import EmailVerified from "./components/EmailVerified";
+import EmailVerified from "./components/EmailVerfication/EmailVerified";
 import ForgotPassword from "./components/Forgot-Password/ForgotPassword";
 import ResetPassword from "./components/Reset-Password/ResetPassword";
 import Landing from "./Pages/Landing";
@@ -25,6 +25,7 @@ import CareerTest2 from "../src/components/CareerTest/Text2"
 import CareerTest3 from "../src/components/CareerTest/Test3"
 import TestResults from "../src/components/CareerTest/TestResults"
 import Users from "./Pages/Users"
+import Events from "./Pages/Events"
 import PrivateRoute from "./components/PrivateRoute/index"
 
 
@@ -76,6 +77,11 @@ const  App=()=> {
           <Route path="/careers" render={()=>(
             <MainLayout>
             <Dashboard/>
+            </MainLayout>
+          )}/>
+          <Route path="/events" render={()=>(
+            <MainLayout>
+            <Events/>
             </MainLayout>
           )}/>
           <Route path="/profile" render={()=>(
@@ -137,6 +143,7 @@ const  App=()=> {
           <PrivateRoute path="/mentor-list" component={MentorList} />
           <PrivateRoute path="/users" component={Users} />
           <PrivateRoute path="/course/:courseId" component={CourseDetails} />
+          <PrivateRoute path="/events" component={Events} />
           <PrivateRoute path="/career-test2" component={CareerTest2} />
           <PrivateRoute path="/career-test3" component={CareerTest3} />
           <PrivateRoute path="/test-results" component={TestResults} />
@@ -152,7 +159,7 @@ const  App=()=> {
           <Route path="/signIn" component={Login} />
           <Route path="/signUp/:signUpRole"  component={SignUp} />
           
-          <Route path="/email-verification/:userId/:verificationString"
+          <Route path="/email-verification"
            component={EmailVerified}
           />
           <Route path="/forgot-password" component={ForgotPassword} />

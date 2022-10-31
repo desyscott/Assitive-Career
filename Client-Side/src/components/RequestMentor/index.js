@@ -1,21 +1,27 @@
 import React,{useState,useEffect,useRef} from 'react'
-import LoadingBox from '../LoadingBox/index'
+import FormSelect from "../FormSelect/index"
+import { configCareers } from '../FormSelect/useSelectForm';
 import "./index.css"
 
 function RequestMentor() {
   const [files,setFiles]=useState("");
-  const [course,setCourse]=useState({
-    selectCourse:""
-  });
+  
+  const [career,setCareer]=useState("");
   
   
+  const handleChange=(e)=>{
+    const nextFilter = e.target.value
+    setCareer(nextFilter)
   
-  console.log(files)
+     }
+     console.log(career)
+ 
   const inputRef=useRef()
-
   useEffect(()=>{
     inputRef.current.focus();
+
   },[])
+  
   
   return (
     <div className="container">
@@ -51,8 +57,7 @@ function RequestMentor() {
            
           </div>
           <div>
-          <label>Select Career</label>
-          <select name="selectCourse"><option>Artificial intelligence</option></select>
+         <FormSelect {...configCareers} handleChange={handleChange}/>
           </div>
           <div>
           <label/>

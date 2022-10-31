@@ -28,12 +28,12 @@ export const data ={
     
           courses:[
             {
-        title:"Web development",
+        title:"Web Developer",
         description:"Step by guid to becoming web developer in 2022",
         details:"A web developer is at heart an interactive artist. They’re someone driven by a deep desire to create things. A web developer’s canvas is a user’s web browser.Much like how a curious child takes pleasure in making toys by joining LEGO blocks—and then experiences a similar joy in taking things apart to see how they’re made, a web developer’s job is to use the basic building blocks of the web (like HTML, CSS and JavaScript) to create something complex like a webpage. Don’t sweat it! We’ll get into all of those terms soon.It is also the web developer’s job to diagnose problems in a website’s functionality, to understand how something works by reading the code behind it, and to make changes to fix any issues. That essentially makes web developers the physicians of the world wide web."
             },
             {
-                title:"Cyber Security",
+                title:"Cyber Security Specialist",
         description:"Step by guid to becoming Cyber security in 2022",
         details:"It is a mistake to believe that you are of no interest to cyber attackers. Everyone who is connected to the Internet needs cyber security. This is because most cyber attacks are automated and aim to exploit common vulnerabilities rather than specific websites or organisations Computer security, cybersecurity (cyber security), or information technology security (IT security) is the protection of computer systems and networks from information disclosure, theft of, or damage to their hardware, software, or electronic data, as well as from the disruption or misdirection of the services they provide"
             },
@@ -107,7 +107,7 @@ export const data ={
             },
             {
         
-        title:"frontend",
+        title:"frontend developer",
         description:"Step by guid to becoming frontend developer in 2022",
         details:"hjhjhjhjhjhj"
         

@@ -13,7 +13,8 @@ import authModel from "../models/authModel.js";
 import userEmailConfirmation from "../models/userEmailConfirmation.js";
 import resetPassword from "../models/resetPasswordModel.js";
 import { isResetTokenValid } from "../middleware/resetTokenValid.js";
-import { mailTransport } from "../utilitis/Mail.js";
+import { mailTransport,generateEmailTemplate } from "../utilitis/Mail.js";
+import { generateOTP} from "../utilitis/generateOTP.js";
 import { sendError } from "../utilitis/responseHandler.js";
 import {createToken} from "../utilitis/generateToken.js"
 import {data} from "../data/CourseData.js"
@@ -114,28 +115,18 @@ router.post("/signup",upload.single("Cv"), expressAsyncHandler(async (req, res) 
     const token = createToken(user);
     // res.cookie("jwt", token, { httpOnly: true, maxAge: maxAge * 1000 });
     
+    const OTP = generateOTP();
     const verificationString = uuidv4() + user._id;
     const verifyUserEmail = userEmailConfirmation.create({
       userId: user._id,
-      verificationString:verificationString,
+      verificationString:OTP,
     });
     //sending an email
     mailTransport().sendMail({ 
       from: process.env.AUTH_EMAIL, 
       to: user.email,
       subject: "verify your account",
-      html: `<h1>welcome to Shop Now!!!! ${user.name}</h1>
-      <p>You’re receiving this message because you recently signed up for a Shop Now!!!! account.
-      Confirm your email address by clicking the button below. This step adds extra security to your business by verifying you own this email.</p>
-      
-      <a href=${
-        process.env.BASE_URL +
-        "/email-verification/" +
-        user._id +
-        "/" +
-        verificationString 
-      }>confirm email</a>
-      <p>This link will expire in 1hour. If you have questions, <a>we’re here to help.</a></p>`,
+      html:generateEmailTemplate(OTP),
     });
     
     res.status(200).json({user});
@@ -149,28 +140,29 @@ router.post("/signup",upload.single("Cv"), expressAsyncHandler(async (req, res) 
 }));
 
 
-router.get("/email-verification/:userId/:verificationString", expressAsyncHandler(async (req, res) => {
-  const { userId, verificationString} = req.params;
+
+router.post("/email-verification", expressAsyncHandler(async (req, res) => {
+  const { userId, verificationString} = req.body;
   
-  if (!userId || !verificationString)
-    return sendError(res, "invalid request,missing parameters");
+  
+  if (!userId || !verificationString.trim())
+    return sendError(res, "invalid request,missing parameters!");
 
    //checking if id is valid mongoDB id
   if (!isValidObjectId(userId))
-  return sendError(res, "invalid request,missing parameters");
+  return sendError(res, "invalid user id!");
 
   const user = await authModel.findById(userId);
   if (!user) return sendError(res, "sorry user not found");
+  
 
   if (user.verified) return sendError(res, "This account is already been verified");
 
   const userToken = await userEmailConfirmation.findOne({ userId: user._id });
-  if (!userToken)
-    return sendError(res, "The email verification link is invalid");
+  if (!userToken) return sendError(res, "sorry user not found 2");
 
   const verifyUniqueString = await userToken.verifyUniqueString(verificationString);
-  if (!verifyUniqueString)
-    return sendError(res, "The email verification link is invalid ");
+  if (!verifyUniqueString) return sendError(res, "The email verification link is invalid");
 
   await authModel.updateOne({ _id: user._id }, { verified: true });
   
@@ -183,7 +175,8 @@ router.get("/email-verification/:userId/:verificationString", expressAsyncHandle
     html: `<p>Email verified Successfully.Thanks for connecting with us.</p>`,
   });
 
-  res.json("your email is verified");
+  res.send({success: true, message:"your email is verified"});
+  
   // console.log("your email is verified");
 }));
 
@@ -272,7 +265,8 @@ router.post("/forget-password", async (req, res) => {
       " only after one hour before you can request another one "
     );
 
-  const uniqueToken = uuidv4() + user._id;
+
+  
   const resetPasswordToken = await resetPassword.create({
     userId: user._id,
     uniqueToken: uniqueToken,

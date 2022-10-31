@@ -23,7 +23,10 @@ const Courses = () => {
   dispatch(fetchCoursesRequest())
  },[dispatch])
   
-  console.log(courses)
+
+
+
+  // console.log(courses)
  
   return (
     <div className="main">
@@ -31,7 +34,7 @@ const Courses = () => {
     {loading ? 
         
         <div className="row center">
-        <CardSkeleton cards={12}/>
+        <CardSkeleton cards={36}/>
         </div>
         :
         error ?<MessageBox variant="danger">{error}</MessageBox>

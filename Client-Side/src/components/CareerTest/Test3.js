@@ -43,7 +43,7 @@ function Test() {
     <div className="container">
     
     <form className="test-form" onSubmit={handleSubmit}> 
-     <h3>Data Analytics</h3>
+    
     {data.Question3.map((question)=>(
       <>
       <ul className="test-quiz">

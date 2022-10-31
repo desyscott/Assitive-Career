@@ -18,7 +18,7 @@ const Hero=({lightBg,TopLine,lightText,lightTextDesc,headLine,description,img,al
                 {productsData.map((product,index)=>{
                     return(
                   
-                    <div key={index} className="event-card">
+                    <div key={index} className="event-section-card">
                         <img src={product.img} alt={product.alt} className="event-image"/>
                         <div className="event-infor">
                       <h3 className="event-title">{product.title}</h3>

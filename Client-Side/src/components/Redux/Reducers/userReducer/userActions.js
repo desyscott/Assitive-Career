@@ -59,11 +59,14 @@ export const signup=(formData)=>async(dispatch)=>{
             dispatch({type:userTypes.USER_SIGNUP_ERROR,payLoad:data.errors})
             }
         
-     if(!data.user.verified) {
-                const VerificationMessage= "Confirmation message has been sent to your inbox please check and verify your email"
-             dispatch({type:userTypes.USER_SIGNUP_VERIFICATION, payLoad:VerificationMessage})
+     if(!data.user.verified && data.user._id) {
+                const VerificationMessage=
+                 "We've sent verification code to your email"
+             dispatch({type:userTypes.USER_SIGNUP_VERIFICATION,
+                        payLoad:{VerificationMessage,userId:data.user._id}})
                
               }
+     
            
     }catch(err){
         if(err?.response?.data){
@@ -73,6 +76,44 @@ export const signup=(formData)=>async(dispatch)=>{
   }
         }  
 }
+
+
+
+export const userEmailVerification=(verificationString,userId)=>async(dispatch)=>{
+    dispatch({type:userTypes.USER_EMAIL_VERIFICATION_REQUEST,payLoad:{verificationString,userId}})
+    
+    try{
+        const {data} = await Axios.post(`/api/auth/email-verification`,{verificationString,userId});
+        console.log("data",data);
+        
+        if(data.message){
+            dispatch({
+                type:userTypes.USER_EMAIL_VERIFICATION_SUCCESS,
+                payLoad:data.message})
+           } 
+           
+           if(data.error){
+            dispatch({
+                type:userTypes.USER_EMAIL_VERIFICATION_ERROR,
+                payLoad:data.error})
+               }
+           
+    }catch(err){
+        if(err?.response?.data){
+            const {data}=err?.response
+            dispatch({type:userTypes.USER_EMAIL_VERIFICATION_FAIL,
+                payLoad:data});
+  }
+}  
+}
+
+
+
+
+
+
+
+
 
 export const userDetails=(userId)=>async(dispatch,getState)=>{
     dispatch({type:userTypes.USER_DETAILS_REQUEST,payLoad:userId});
@@ -91,6 +132,7 @@ export const userDetails=(userId)=>async(dispatch,getState)=>{
             ?err.response.data.message:err.message})
     }
 }
+
 
 export const updateUserProfile=(user)=>async(dispatch,getState)=>{
     dispatch({type:userTypes.USER_PROFILE_UPDATE_REQUEST,payLoad:user});

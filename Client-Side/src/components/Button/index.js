@@ -30,7 +30,7 @@ export const SecondaryButton=({hover,text})=>{
   return (
     <div>
     <button className= "Btn secondary">
-    <Link to={text ? "user-role":""} className="BtnLink_secondary">{text  ? text:""}{hover ?<IoIosArrowForward className="hero-arrow"/>:<HiArrowNarrowRight className="hero-arrow"/>}</Link>  
+    <Link to={text ? "user-role":""} className="BtnLink_secondary">{text  ? text:""}{hover ?<HiArrowNarrowRight className="hero-arrow"/>:<IoIosArrowForward className="hero-arrow"/>}</Link>  
     </button>
     </div>
   )

@@ -10,7 +10,8 @@ const CardSkeleton=({cards})=> {
      
       <Skeleton width={"100%"}/>
       
-     </div>))
+     </div>
+     ))
     
   
 }

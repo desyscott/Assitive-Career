@@ -6,6 +6,12 @@ export const NavBarItems =[
         title:"Careers",
         path:"/careers",
     },
+    {
+    
+        title:"Events",
+        path:"/events",
+               
+     },
     
     {
     
@@ -13,6 +19,7 @@ export const NavBarItems =[
        path:"/career-test",
               
     },
+  
     {
     
         title:"Request Mentor",

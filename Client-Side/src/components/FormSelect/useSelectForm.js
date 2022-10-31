@@ -1,4 +1,63 @@
 
+ export const configCareers={
+    label:"Select Career",
+    
+    options:[
+{  
+   name: "Data Science",
+   value: "data science"
+},
+     
+ {
+ name: "Cyber Security Specialist",
+value: "cyber security specialist"  
+ },
+{
+        name: "Full Stack Engineer",
+        value: "full stack engineer"
+},
+{
+  name: "Frontend Developer",
+  value: "frontend developer"
+},
+{
+name: "UX Designer",
+  value: " ux designer"
+ },
+{
+name: "AI Engineer",
+  value: "AI engineer"
+ },
+{
+name: "IT Project Manager",
+  value: "IT project manager"
+ },
+{
+name: "Information Security Analyst",
+  value: "information security analyst"
+ },
+{
+name:"Systems Architect",
+  value: "systems architect"
+ },
+{
+name:"Computer Hardware Engineer",
+value:"computer hardware engineer"
+ },
+{
+name:"Video Game Developer",
+value: "video game developer"
+ },
+        
+        
+        
+        ],
+}
+  
+
+
+
+
 
 export const configFilters1={
     options: [

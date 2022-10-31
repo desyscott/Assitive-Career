@@ -3,6 +3,7 @@
     margin-bottom:3rem;
     
     
+    
 }
 .test-quiz >li >P{
    
@@ -20,7 +21,7 @@
     margin:0 auto;
     border:.1rem #c0c0c0 solid;
     border-radius:.5rem;
-    /* background-color:#fafafa; */
+    z-index: -100;
     background-color: #141432;
     padding:3rem;
     color: #fff
@@ -56,6 +57,7 @@ flex-direction:column
   .test-card-1 >div>input{
   margin: 1rem;
   max-width:25rem;
+  z-index: -100;
   }
   
   .test-card-2 {

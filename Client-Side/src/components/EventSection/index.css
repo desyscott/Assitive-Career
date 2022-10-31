@@ -52,7 +52,7 @@ overflow-y: hidden;
   width:0;
 }
 
-.event-card{
+.event-section-card{
   /* border:0.1rem rgba(0, 0, 0, 0.25) solid; */
   background-color:#ffff;
   box-shadow:0 25px 50px -12px rgba(0, 0, 0, 0.25);
@@ -63,10 +63,10 @@ overflow-y: hidden;
   flex-direction:column;
   align-items:center;
 }
-.event-wrapper .event-card{
+.event-wrapper .event-section-card{
 margin-right: 2px;
 }
-/* .event-card:hover{
+/* .event-section-card:hover{
   transform:scale(1.1);   
 } */
 

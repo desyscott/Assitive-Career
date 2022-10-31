@@ -5,6 +5,8 @@
 .dashboard-header{
     color: rgb(66, 23, 71);
     margin-bottom: 1rem;
+    display:flex;
+    align-items: center;
 }
 .dashboard-subheader{
        margin-bottom: 1rem;

@@ -30,7 +30,7 @@ function MentorCard({mentor}) {
         </div>
         
           <div className="mentor-profession" >
-          <label className="label">professional enterprise</label>
+          <label className="label">profession</label>
           <p>{mentor.professional}</p>
           </div>
           

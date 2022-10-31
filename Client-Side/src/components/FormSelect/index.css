@@ -1,6 +1,7 @@
 .formRow {
     display: inline-block;
     width: 100%;
+ 
 
   }
 
@@ -23,13 +24,14 @@
     margin: 10px auto;
     outline: none;
     cursor: pointer;
+ 
   }
 
 
 .form-radio-container {
 display:grid;
 grid-template-columns: repeat(11,62px);
-     
+  
    
 }
 
@@ -38,6 +40,7 @@ grid-template-columns: repeat(11,62px);
   width: 25px;
   height:25px;
   position:relative;
+ 
 }
 
 .radio-label{
@@ -71,5 +74,6 @@ grid-template-columns: repeat(11,62px);
     top: 0;
     right: 0;
     bottom: 0;
+  
 }
 

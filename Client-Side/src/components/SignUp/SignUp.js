@@ -8,7 +8,6 @@ import MessageBox from "../MessageBox/index"
 import logo from "../Assets/images/logo.svg"
 
 const mapState=({userData})=>({
-  currentUser:userData.currentUser,
   signUpErrors:userData.signUpErrors,
   loading:userData.loading,
   userVerificationMessage:userData.userVerificationMessage,
@@ -17,7 +16,7 @@ const mapState=({userData})=>({
 })
 
 function SignUp() {
-  const {currentUser,loading,signUpErrors,error,userVerificationMessage}=useSelector(mapState);
+  const {loading,signUpErrors,error,userVerificationMessage}=useSelector(mapState);
   const dispatch= useDispatch()
   const inputRef=useRef();
   const params=useParams();
@@ -35,10 +34,7 @@ function SignUp() {
   });
   const [Cv,setCv]=useState("");
 
-  const redirect = "/home";
-  
-  
-  
+
   const onChange=(e)=>{
     setCv(e.target.files[0])
   }
@@ -72,17 +68,23 @@ function SignUp() {
     }
   };
   
+    
+  const redirect = "/email-verification";
   
   useEffect(()=>{
     setValues({role:role});
   if( inputRef &&  inputRef.current){
     inputRef.current.focus();
   } 
+
+  },[ history, params, role])
   
-  if(currentUser){
-    history.push(redirect);
-   }
-  },[currentUser, history, params, role])
+  useEffect(()=>{
+    if(userVerificationMessage){
+     history.push(redirect);
+    }
+  },[history,redirect,userVerificationMessage])
+  
   
    
   if(params.signUpRole!=="Mentor" && params.signUpRole!=="Student"){
@@ -105,9 +107,7 @@ function SignUp() {
            Create Account
           </h2>
           </div>
-          {userVerificationMessage && <p>{userVerificationMessage}</p>}
-          
-          
+          {error && <MessageBox variant="danger">{error}</MessageBox>}
           <div>
             <label htmlFor="role">Role</label>
             <input

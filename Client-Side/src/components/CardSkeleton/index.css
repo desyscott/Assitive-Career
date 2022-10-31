@@ -6,6 +6,7 @@
     border-radius:0.5rem;
     margin: 1rem; 
     width:29rem;
+    z-index: -1;
 }
 
 .card-img{

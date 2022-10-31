@@ -6,7 +6,9 @@ const USER_STATE={
     signInErrors:null,
     signUpErrors:null,
     userVerificationMessage:null,
-    userDetails:{}
+    userDetails:{},
+    emailVerifiedMessage:"",
+    emailVerificationError:""
 }
 
 
@@ -68,6 +70,36 @@ const usersReducer=(state=USER_STATE,action)=>{
             loading:false,
             error:action.payLoad
         }
+        
+          case userTypes.USER_EMAIL_VERIFICATION_REQUEST:
+        return{
+            ...state,
+            loading:true
+        }
+        
+        case userTypes.USER_EMAIL_VERIFICATION_SUCCESS:
+            return{
+                ...state,
+                loading:false,
+                emailVerifiedMessage:action.payLoad,
+                
+            }
+        case userTypes.USER_EMAIL_VERIFICATION_ERROR:
+            return{
+                ...state,
+                loading:false,
+                emailVerificationError:action.payLoad,
+                
+            }
+            
+            
+            case userTypes.USER_EMAIL_VERIFICATION_FAIL:
+            return{
+                ...state,
+                loading:false,
+                error:action.payLoad,
+                
+            }
       
 
         case userTypes.USER_SIGNOUT_SUCCESS:

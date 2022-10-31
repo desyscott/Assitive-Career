@@ -46,7 +46,7 @@ function CareerTest2() {
     <div className="container">
      
     <form className="test-form" onSubmit={handleSubmit}> 
-     <h3>Web Development</h3>
+  
     {data.Question2.map((question)=>(
       <>
       <ul className="test-quiz">

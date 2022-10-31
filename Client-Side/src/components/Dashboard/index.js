@@ -10,6 +10,7 @@ import dashImg5 from "./images/dashimg5.jpg"
 import dashImg6 from "./images/dashimg6.jpg"
 import dashImg7 from "./images/dashimg7.jpg"
 import dashImg8 from "./images/dashimg8.jpg"
+import dashImg9 from "./images/51f04fb2c2a6c79525182c461d5db1b7.svg"
 
 function UserDashboard() {
     
@@ -41,7 +42,10 @@ function UserDashboard() {
       </div>
       
       <div className="dashboard-header">
+     
+      <img src={dashImg9} alt="" className="dash-img-icon"/>
       <h2>Most In-Demand Programming Languages in 2022</h2>
+   
       </div>
       
       <div className="dashboard-content flex">
