@@ -1,5 +1,5 @@
 import React, {useState, useEffect } from "react";
-import { Link, useParams,useLocation } from "react-router-dom";
+import {useHistory } from "react-router-dom";
 import {useSelector,useDispatch} from "react-redux"
 import {userEmailVerification} from "../Redux/Reducers/userReducer/userActions"
 import LoadingBox from "../LoadingBox/index";
@@ -10,7 +10,7 @@ import "./index.css"
 
 
 const mapState=({userData})=>({
-  emailVerifiedMessage:userData.emailVerifiedMessage,
+ currentUser:userData.currentUser,
   loading:userData.loading,
   emailVerificationError:userData.emailVerificationError,
   userVerificationMessage:userData.userVerificationMessage,
@@ -19,15 +19,16 @@ const mapState=({userData})=>({
 
 const EmailVerified=()=>{
   const { 
-         emailVerifiedMessage,
+        currentUser,
          userVerificationMessage,
          loading,
          error}=useSelector(mapState)
   
   const dispatch=useDispatch();
- 
+  const history=useHistory()
   
   const [verificationString,setVerificationString]=useState("")
+  const redirect = "/home";
   
 
   // useEffect(() => {
@@ -50,6 +51,12 @@ const EmailVerified=()=>{
   //     </div>
   //   );
   // }
+  
+  useEffect(()=>{
+    if(currentUser){
+     history.push(redirect);
+    }
+  },[history,redirect,currentUser])
   const handleSubmit=(e)=>{
     e.preventDefault();
     dispatch(userEmailVerification(verificationString,userVerificationMessage.userId))
@@ -80,7 +87,7 @@ const EmailVerified=()=>{
       </div>
       <div>
       <label/>
-      <button type="submit" class="btn btn-primary">Submit</button>
+      <button type="submit" class="btn btn-primary">{loading ?<LoadingBox/>:<>verify</>}</button>
       </div>
     </form>
     </div>

@@ -20,9 +20,7 @@
    font-size:15px;
    font-weight:bold;
    background:transparent;
-   border:1px var(--gradient_light) solid;
-   
-   
+   border:1px var(--gradient_light) solid; 
 }
 
 .hero-arrow{

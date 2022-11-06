@@ -117,6 +117,15 @@ useEffect(()=>{
          />
          </div>
          
+         <div>
+            <label htmlFor="Cv">Upload CV</label>
+            <input
+              type="file"
+              name="Cv"
+              required
+            />
+          </div>
+         
           <div>
          <label htmlFor="password">Password</label>
          <input

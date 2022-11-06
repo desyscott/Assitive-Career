@@ -1,6 +1,7 @@
 import React,{useState} from 'react'
 import Modal from "../../Modal/index"
 import "./index.css"
+import {MdVerified} from 'react-icons/md'
 
 
 
@@ -22,16 +23,21 @@ function MentorCard({mentor}) {
 
         <div className="profile-photo-wrapper">
         <img src={mentor.profileImage} alt="profile" />
+        
         </div>
         
         <div className="mentor-infor">
         <div>
-        <h3 className="mentor-name"> {mentor.name}</h3>
+        <h3 className="mentor-name"> {mentor.firstName}{" "}{mentor.lastName}
+      { mentor.mentorVerified && <span> <MdVerified className="verified-icon"/></span>}
+        </h3>
+       
+        
         </div>
         
           <div className="mentor-profession" >
           <label className="label">profession</label>
-          <p>{mentor.professional}</p>
+          <p>{mentor.profession}</p>
           </div>
           
          
@@ -47,7 +53,7 @@ function MentorCard({mentor}) {
        
           <div>
           <label className="label">Mentorship Role</label>
-       <p> {mentor.MentorshipCate}</p>
+       <p> {mentor.MentorshipRole}</p>
           </div>
         
           <div>
@@ -56,7 +62,7 @@ function MentorCard({mentor}) {
           </div>
         </div>
        
-         <button className="request-link"   onClick={handleModal}><p>Request</p></button>
+         <button className="request-link" onClick={handleModal}><p>Request</p></button>
          
          
         

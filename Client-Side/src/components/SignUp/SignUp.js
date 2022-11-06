@@ -168,7 +168,8 @@ function SignUp() {
           
 
           {params.signUpRole==="Mentor" &&
-         ( <div>
+         ( 
+          <div>
             <label htmlFor="Cv">Upload CV</label>
             <input
               type="file"
@@ -176,7 +177,8 @@ function SignUp() {
               required
               onChange={onChange}
             />
-          </div>)
+          </div>
+          )
            
           }
           {params.signUpRole==="Student" &&

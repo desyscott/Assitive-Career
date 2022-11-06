@@ -36,6 +36,16 @@ const userSchema = new mongoose.Schema({
   profileImage:{
     type: String,
   },
+  Location:{
+    type: String,
+  },
+  profession:{
+    type: String,
+  },
+  
+  Hobbies:{
+    type: Array,
+  },
   
   isAdmin: {
     type: Boolean,
@@ -48,7 +58,16 @@ const userSchema = new mongoose.Schema({
     required: true,
     default: false,
   },
- 
+  agree:{
+    type: Boolean,
+    required: true,
+    default: false,
+  },
+  mentorVerified:{
+    type: Boolean,
+    required: true,
+    default: false,
+  }
 },{
   timestamps:true
 });

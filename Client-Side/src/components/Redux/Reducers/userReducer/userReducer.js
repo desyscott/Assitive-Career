@@ -7,7 +7,6 @@ const USER_STATE={
     signUpErrors:null,
     userVerificationMessage:null,
     userDetails:{},
-    emailVerifiedMessage:"",
     emailVerificationError:""
 }
 
@@ -81,7 +80,8 @@ const usersReducer=(state=USER_STATE,action)=>{
             return{
                 ...state,
                 loading:false,
-                emailVerifiedMessage:action.payLoad,
+                currentUser:action.payLoad,
+                userVerificationMessage:null,
                 
             }
         case userTypes.USER_EMAIL_VERIFICATION_ERROR:

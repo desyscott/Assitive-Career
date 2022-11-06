@@ -1,9 +1,17 @@
+.back-btn{
+    display:flex;
+    align-items:center;
+   color:rgb(6, 117, 206);
+}
+.back-btn a{
+   color:rgb(6, 117, 206);
+}
+
+
 .test-quiz li{
     list-style-type:none;
     margin-bottom:3rem;
-    
-    
-    
+      
 }
 .test-quiz >li >P{
    

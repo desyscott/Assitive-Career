@@ -27,9 +27,7 @@ export const signIn=(email,password) =>async(dispatch)=>{
              if(data.id){
                 localStorage.setItem("currentUser", JSON.stringify(data)); 
              }
-            
     
-        
     }catch(err){
         dispatch({
             type:userTypes.USER_SIGNIN_FAIL,
@@ -64,10 +62,7 @@ export const signup=(formData)=>async(dispatch)=>{
                  "We've sent verification code to your email"
              dispatch({type:userTypes.USER_SIGNUP_VERIFICATION,
                         payLoad:{VerificationMessage,userId:data.user._id}})
-               
-              }
-     
-           
+              }     
     }catch(err){
         if(err?.response?.data){
             const {data}=err?.response
@@ -86,10 +81,10 @@ export const userEmailVerification=(verificationString,userId)=>async(dispatch)=
         const {data} = await Axios.post(`/api/auth/email-verification`,{verificationString,userId});
         console.log("data",data);
         
-        if(data.message){
+        if(data.id){
             dispatch({
                 type:userTypes.USER_EMAIL_VERIFICATION_SUCCESS,
-                payLoad:data.message})
+                payLoad:data})
            } 
            
            if(data.error){
@@ -97,6 +92,10 @@ export const userEmailVerification=(verificationString,userId)=>async(dispatch)=
                 type:userTypes.USER_EMAIL_VERIFICATION_ERROR,
                 payLoad:data.error})
                }
+           
+          if(data.id){
+                localStorage.setItem("currentUser", JSON.stringify(data)); 
+             }
            
     }catch(err){
         if(err?.response?.data){

@@ -104,15 +104,13 @@ font-weight: bold ;
     width:92%;
     padding-right: 10px;
     margin-bottom:5px;
- 
     display: inline-block;
     position: relative;
     font-family: Inter;
     font-weight: 400;
     transition: box-shadow 0.5s ease 0s, text-shadow 0.5s ease 0s;
     cursor: pointer;
-
-    
+  
   }
 
 .nav-active{
@@ -184,6 +182,7 @@ font-weight: bold ;
     border:.5px solid #3333;
     box-shadow:0 0.15rem 1.75rem 0 rgb(58 59 69 / 15%) !important;
     z-index: 1000;
+ 
   
   
 }
@@ -211,12 +210,14 @@ font-weight: bold ;
     color:#3a3b45;
  font-size:1.6rem;
  font-weight: 400;
- transition:all .3s;background-color: transparent
+ transition:all .3s;
+ background-color: transparent;
+ font-size:1.5rem;
  
 }
 .dropdown-content > li >a:hover{
  color:#fff;
- font-size:1.6rem;
+ font-size:1.5rem;
 }
 .dropdown-content >li >a{
     display:flex;

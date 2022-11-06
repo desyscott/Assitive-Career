@@ -9,7 +9,8 @@ export const addRequestItem=(mentorId)=>async(dispatch,getState)=>{
         dispatch({
        type:requestTypes.ADD_TO_REQUEST,
        payLoad:{
-           name:data.name,
+           firstName:data.firstName,
+           lastName:data.lastName,
            profileImage:data.profileImage,
            email:data.email,
            Location:data.Location,

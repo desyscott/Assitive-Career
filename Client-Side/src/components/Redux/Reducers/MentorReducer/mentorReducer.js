@@ -3,7 +3,8 @@ import mentorTypes from "./mentorTypes"
 const INITIAL_STATE = {
     mentors:[],
     mentor:{},
-    loading:true
+    loading:true,
+    
 }
 
 const mentorReducer=(state=INITIAL_STATE,action)=>{
@@ -14,7 +15,7 @@ const mentorReducer=(state=INITIAL_STATE,action)=>{
             loading:true,
         }
         
-       case mentorTypes.SET_MENTORS: 
+       case mentorTypes.FETCH_MENTORS_SUCCESS: 
         return{
             ...state,
             mentors:action.payLoad,
@@ -34,7 +35,7 @@ const mentorReducer=(state=INITIAL_STATE,action)=>{
           loading:true,
       }
       
-      case mentorTypes.SET_MENTOR:
+      case mentorTypes.FETCH_MENTOR_SUCCESS:
       return{
         ...state,
         loading:false,
@@ -53,3 +54,49 @@ const mentorReducer=(state=INITIAL_STATE,action)=>{
     
 }
 export default mentorReducer;
+
+
+export const mentorDeleteReducer=(state=INITIAL_STATE,action)=>{
+    switch (action.type) {
+      case  mentorTypes.DELETE_MENTOR_REQUEST:
+        return {
+              loading: true 
+             };
+      case  mentorTypes.DELETE_MENTOR_SUCCESS:
+        return {
+                loading: false, 
+                mentor: action.payload,
+                success: true 
+                 };
+      case  mentorTypes.DELETE_MENTOR_FAIL:
+        return { 
+                loading: false, 
+                error: action.payload 
+                };
+      default:
+        return state;
+    }
+  }
+export const mentorVerificationReducer=(state=INITIAL_STATE,action)=>{
+    switch (action.type) {
+      case  mentorTypes.MENTOR_VERIFICATION_REQUEST:
+        return {
+              loading: true 
+             };
+      case  mentorTypes.MENTOR_VERIFICATION_SUCCESS:
+        return {
+                loading: false, 
+                mentor: action.payload,
+                success: true 
+                 };
+      case  mentorTypes.MENTOR_VERIFICATION_FAIL:
+        return { 
+                loading: false, 
+                error: action.payload 
+                };
+      default:
+        return state;
+    }
+  }
+
+  

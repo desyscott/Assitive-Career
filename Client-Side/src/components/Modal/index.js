@@ -16,6 +16,7 @@ function Modal({closeModal,mentor}) {
   const AddRequestHandler=()=>{
     closeModal(false)
     dispatch(addRequestItem(mentor._id))
+ 
   }
   
   return (

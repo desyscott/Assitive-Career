@@ -63,32 +63,97 @@ a{
 }
 
 .content-margined {
-  margin: 2rem;
+  margin: 1rem;
 }
 
 .table {
   width: 100%;
+  font-family: Inter, sans-serif;
 }
 th {
-  text-align: left;
+  text-align:center;
+  padding:.6rem;
+  font-size:1.4rem;
+color: #000000c4;
+  
 }
 tbody > tr:nth-child(odd) {
   background-color: #d9d5db9d;
+
+}
+
+td{
+
+  font-family: Inter, sans-serif;
+  color: #000000dc;
+  /* text-align:center; */
 }
 
 
-.button.secondary {
-  background-color: #f0f0f0;
-}
-.button.primary {
-  background-color: #0000ff;
-  color: #ffff
-}
-.button {
-  padding: 1rem;
-  border-radius: 0.5rem;
+
+.action-btn{
+  font-family: Inter, sans-serif;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  outline: none;
+  border-radius: 3px;
+  background-color: transparent;
+  transition: all 0.4s ease 0s;
   cursor: pointer;
+  padding:.9rem;
+  font-size:13px;
+  white-space: nowrap;
 }
-.button:hover {
-  border: 0.1rem #404040 solid;
-} 
+.action-btn.danger{
+  font-family: Inter, sans-serif;
+  color:#a02020;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  outline: none;
+  border-radius: 3px;
+  background-color: transparent;
+  transition: all 0.4s ease 0s;
+  cursor: pointer;
+  border: 1px solid #a02020;
+  white-space: nowrap;
+}
+.action-btn.danger:hover{
+  background-color: #a02020;
+  color: #fff;
+}
+
+
+.action-btn.primary{
+  font-family: Inter, sans-serif;
+  color: rgb(6, 117, 206);
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  outline: none;
+  border-radius: 3px;
+  background-color: transparent;
+  transition: all 0.4s ease 0s;
+  cursor: pointer;
+  border: 1px solid rgb(6, 117, 206);
+  white-space: nowrap;
+}
+.action-btn.primary:hover{
+  background-color:rgb(6, 117, 206);
+  color: #fff;
+}
+
+.verify-success{
+  color: #20a020;
+      background-color:#eeffe0;  
+}
+.verify-danger{
+  color:#a02020;
+  background-color:#ffe0e0e0; 
+}
+
+

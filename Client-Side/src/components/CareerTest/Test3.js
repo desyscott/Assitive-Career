@@ -2,11 +2,11 @@ import React,{useState} from 'react'
 import "./index.css"
 import {FormRadioSelect} from "../FormSelect/index"
 import {data} from "./Data"
-import {useHistory} from "react-router-dom"
+import {useHistory,Link} from "react-router-dom"
 import {useDispatch} from "react-redux"
 import {addDataAnaTestScore} from "../Redux/Reducers/CareerTestReducer/CareerTestAction"
 import {configFilters1,configFilters2,configFilters3,configFilters4,configFilters5} from "../FormSelect/useSelectForm"
-
+import {IoCaretBack} from "react-icons/io5"
 
 
 
@@ -41,7 +41,10 @@ function Test() {
     
   return (
     <div className="container">
-    
+     <div className="back-btn" >
+    <IoCaretBack/> <Link to="/career-test2">Back to Test2</Link>
+    </div>
+ 
     <form className="test-form" onSubmit={handleSubmit}> 
     
     {data.Question3.map((question)=>(

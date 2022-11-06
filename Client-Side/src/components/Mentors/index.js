@@ -24,9 +24,6 @@ function Mentors() {
    },[dispatch])
   
   console.log(query)
-  
- 
-  
 
   return (
     <>  
@@ -46,14 +43,14 @@ function Mentors() {
       
       {mentors.map((mentor)=>(
         <option key={mentor._id}>
-     {mentor.professional}
+     {mentor.profession}
      </option>
       ))}
      
       </select>
       </div>
     <div className="mentor-grid">
-    {mentors.filter((mentor)=>mentor.professional.toLowerCase().includes(query)).map((mentor)=>(
+    {mentors.map((mentor)=>(
        <div>
        <MentorCard key={mentor._id} mentor={mentor} />
        </div>
@@ -71,7 +68,7 @@ function Mentors() {
        <li key={request.user} className="request-card card-2 flex ">
         <img src={request.profileImage} alt="profile" />
         <div>
-       <span className="request-name">{request.name}</span>
+       <span className="request-name">{request.firstName}{" "}{request.lastName}</span>
     
        </div>
        

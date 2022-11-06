@@ -4,12 +4,12 @@ import bcrypt from "bcrypt";
 const salt = await bcrypt.genSalt();
 
 export const data ={
-          users:[
+          adminUsers:[
               {
                 firstName:"EDMUND",
                 lastName:"NII ODOI",
                 email:"admin123@gmail.com",
-                password:bcrypt.hashSync("123",salt),
+                password:bcrypt.hashSync("desy123",salt),
                 role:"admin",
                 isAdmin:true,
                 verified:true,
@@ -18,9 +18,9 @@ export const data ={
                 firstName:"Barbara",
                 lastName:"NII ODOI",
                 email:"barbara12@gmail.com",
-                password:bcrypt.hashSync("123",salt),
-                role:"Student",
-                isAdmin:false,
+                password:bcrypt.hashSync("desy123",salt),
+                role:"admin",
+                isAdmin:true,
                 verified:true,
               },
                  

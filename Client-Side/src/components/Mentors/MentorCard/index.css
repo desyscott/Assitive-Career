@@ -47,6 +47,11 @@
     color:rgb(24, 42, 54)
 }
 
+.verified-icon{
+    color:#0095f6;
+    font-size: 100%
+}
+
 .mentor-profession{
     margin-bottom:2rem;
     display:block;

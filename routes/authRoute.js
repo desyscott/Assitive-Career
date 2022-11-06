@@ -89,10 +89,20 @@ const handleErrors = (err) => {
 
 
 router.get("/seed",expressAsyncHandler(async(req,res)=>{
-  const userCred = await authModel.insertMany(data.users);
+  const userCred = await authModel.insertMany(data.adminUsers);
   res.send({userCred});
 }))
 
+
+router.get("/users", expressAsyncHandler(async(req,res)=>{
+  const user = await authModel.find({role:"Student"});
+  if(user){
+    res.send(user)
+  
+  }else{
+    res.status(404).send({message:"User Not found"})
+  }
+}));
 
 
 router.post("/signup",upload.single("Cv"), expressAsyncHandler(async (req, res) => {
@@ -108,6 +118,7 @@ router.post("/signup",upload.single("Cv"), expressAsyncHandler(async (req, res) 
         contentType:"application/msword"
       },
       password:req.body.password,
+      agree:req.body.agree,
     });
     
     //sending the jwt cookie to user browser when sign out
@@ -175,7 +186,16 @@ router.post("/email-verification", expressAsyncHandler(async (req, res) => {
     html: `<p>Email verified Successfully.Thanks for connecting with us.</p>`,
   });
 
-  res.send({success: true, message:"your email is verified"});
+  const token = createToken(user);
+  res.status(200).send({
+    id:user._id,
+    firstName:user.firstName,
+    lastName:user.lastName,
+    email:user.email,
+    role:user.role,
+    isAdmin:user.isAdmin,
+    token,
+    });
   
   // console.log("your email is verified");
 }));

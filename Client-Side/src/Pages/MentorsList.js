@@ -1,29 +1,61 @@
 import React,{useEffect} from 'react'
 import {Link} from "react-router-dom"
 import {useSelector,useDispatch} from "react-redux"
-import {fetchMentorsRequest} from "../components/Redux/Reducers/MentorReducer/mentorActions"
+import {fetchMentorsRequest,verifyMentor,deleteMentor} from "../components/Redux/Reducers/MentorReducer/mentorActions"
+import LoadingBox from '../components/LoadingBox/index'
+import MessageBox from '../components/MessageBox/index'
 
-
-
-const mapState=({mentorData})=>({
+const mapState=({mentorData,mentorDeleteData})=>({
   mentors:mentorData.mentors,
   loading:mentorData.loading,
   error:mentorData.error,
+       
 })
 
 function MentorsList() {
   const {mentors,loading,error} =useSelector(mapState)
+  const mentorDelete = useSelector((state) => state.mentorDeleteData);
+  const {
+    loading: loadingDelete,
+    success: successDelete,
+    error: errorDelete,
+  } = mentorDelete;
+  const mentorVerify = useSelector((state) => state.verifyMentorData);
+  const {
+    loading: loadingVerify,
+    success: successVerify,
+    error: errorVerify,
+  } =  mentorVerify;
   const dispatch=useDispatch()
   
   
   useEffect(()=>{
     dispatch(fetchMentorsRequest())
-   },[dispatch])
+    return () => {
+      //
+    }
+   },[dispatch,successVerify,successDelete])
+
+  
+  const handleVerifyMentor=(mentor)=>{
+   dispatch(verifyMentor({mentorId:mentor._id,mentorVerified:mentor.mentorVerified}))
+ 
+  }
+  
+  const deleteHandler=(mentor)=>{
+    dispatch(deleteMentor(mentor._id));
+  }
   
   return (
     <div className="content content-margined">
-
-      <div className="mentors-header">
+    {loading ? 
+        <LoadingBox></LoadingBox>
+        :
+        error ?<MessageBox variant="danger">{error}</MessageBox>
+        :
+     (
+       <>
+        <div className="mentors-header">
         <h3>Mentors</h3>
       </div>
       <div className="order-list">
@@ -48,18 +80,30 @@ function MentorsList() {
               <tr key={mentor._id}>
               <td>{mentor._id}</td>
               <td>createdAt</td>
-              <td>{mentor.name}</td>
-              <td>name</td>
+              <td>{mentor.firstName}</td>
+              <td>{mentor.lastName}</td>
               <td>{mentor.role}</td>
-              <td>true</td>
-              <td>{mentor.email}</td>
-              <td>{mentor.professional}</td> 
               <td>
-                <Link to="" className="button secondary" >Details</Link>
+              {mentor.mentorVerified?
+                   <span className="verify-success">true</span>
+                   :
+                   <span className="verify-danger">false</span>
+                   
+                    }
+              </td>
+              <td>{mentor.email}</td>
+              <td>{mentor.profession}</td> 
+              <td>
+                <Link to="" className="action-btn primary">Details</Link>
                 {' '}
-                <button type="button"  className="button secondary">Verify</button>
+                <button type="button"  className="action-btn primary" 
+                onClick={() => handleVerifyMentor(mentor)}
+                 disabled={mentor.mentorVerified}
+                 >Verify</button>
                 {' '}
-                <button type="button"  className="button secondary">Delete</button>
+                <button type="button"  className="action-btn danger"
+                 onClick={() => deleteHandler(mentor)}
+                >Delete</button>
               </td>
             </tr>
              ))}
@@ -67,6 +111,8 @@ function MentorsList() {
         </table>
 
       </div>
+      </>)
+    }
     </div>
   )
 }

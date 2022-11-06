@@ -2,7 +2,7 @@ import React,{useState} from "react"
 import {Link,useHistory} from "react-router-dom"
 import {useSelector,useDispatch} from "react-redux"
 import {signOut} from "../Redux/Reducers/userReducer/userActions"
-import { NavBarItems } from "./NavBarItems"
+import { NavBarItems,NavBarItems2 } from "./NavBarItems"
 import logo from '../Assets/images/logo.svg'
 import "./NavBar.css"
 import ProfilePhoto from "../Assets/images/blank-profile-picture-gdfa15e9f3_1280.png"
@@ -42,8 +42,27 @@ const NavBar =()=>{
    <Link to="/home" >Assistive Career</Link>
    </div>
    
+
+{currentUser.role==="Mentor" ?
+ 
+ (
+  <nav>
+    <ul className="primary-navigation flex mobile-view">
+    {NavBarItems2.map((item,index)=>{
+   return (
+    <li key={index} onClick={()=>setSelected(index)} className={selected===index? "navbar-list-items nav-active":"navbar-list-items"} >
+    <Link to={item.path}>
+        {item.title}
+    </Link>
+    </li>
+   )
+  
+ })}
+    </ul>
+    </nav>
    
-   <nav>
+ ):(
+  <nav>
     <ul className="primary-navigation flex mobile-view">
     {NavBarItems.map((item,index)=>{
    return (
@@ -55,12 +74,16 @@ const NavBar =()=>{
    )
   
  })}
-    
     </ul>
     </nav>
    
-   <div className="nav-links flex">
+ )
+ 
+ 
+ }
+  
    
+   <div className="nav-links flex">
     <div>
    <IoNotificationsSharp className={click ? "notification-icon-light":"notification-icon"} onClick={handleClick} />
    <ul className={click ? "notification-dropdown-content ":"notification-dropdown-none"}>
@@ -87,6 +110,9 @@ const NavBar =()=>{
         <ul className="dropdown-content">
            <li>
            <Link to="/profile"><CgProfile className="dropdown-icons"/>My Profile</Link>
+           </li>
+           <li>
+           <Link to="/help"><CgProfile className="dropdown-icons"/>Help</Link>
            </li>
            <li>
           <Link to="#" onClick={handleSignOut}><TbLogout className="logout-icon"/>Logout</Link>
