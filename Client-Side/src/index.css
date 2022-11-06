@@ -71,7 +71,7 @@ a{
   font-family: Inter, sans-serif;
 }
 th {
-  text-align:center;
+  text-align:left;
   padding:.6rem;
   font-size:1.4rem;
 color: #000000c4;
@@ -87,6 +87,7 @@ td{
   font-family: Inter, sans-serif;
   color: #000000dc;
   /* text-align:center; */
+  padding:.4rem;
 }
 
 

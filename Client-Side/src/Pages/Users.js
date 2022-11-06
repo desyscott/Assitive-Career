@@ -65,14 +65,14 @@ function Users() {
         <table className="table">
           <thead>
             <tr>
-              <th>ID</th>
+             
              
               <th>FIRSTNAME</th>
               <th>LASTNAME</th>
               <th>ROLE</th>
               <th>ISVERIFIED</th>
               <th>EMAIL</th>
-              <th>PROFESSION</th>
+             
               <th>ACTIONS</th>
             </tr>
           </thead>
@@ -80,14 +80,21 @@ function Users() {
           {studentUsers.map(student=>(
               
               <tr key={student._id}>
-              <td>{student._id}</td>
+              
             
               <td>{student.firstName}</td>
               <td>{student.lastName}</td>
               <td>{student.role}</td>
-              <td>true</td>
+              <td>
+              {student.verified?
+                   <span className="verify-success">true</span>
+                   :
+                   <span className="verify-danger">false</span>
+                   
+                    }
+              </td>
               <td>{student.email}</td>
-              <td>{student.professional}</td> 
+      
               <td>
                 <Link to="" className="action-btn primary" >Details</Link>
                 {' '}

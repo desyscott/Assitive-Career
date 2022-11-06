@@ -63,8 +63,7 @@ function MentorsList() {
         <table className="table">
           <thead>
             <tr>
-              <th>ID</th>
-              <th>DATE</th>
+             
               <th>FIRSTNAME</th>
               <th>LASTNAME</th>
               <th>ROLE</th>
@@ -78,8 +77,6 @@ function MentorsList() {
           {mentors.map(mentor=>(
               
               <tr key={mentor._id}>
-              <td>{mentor._id}</td>
-              <td>createdAt</td>
               <td>{mentor.firstName}</td>
               <td>{mentor.lastName}</td>
               <td>{mentor.role}</td>
