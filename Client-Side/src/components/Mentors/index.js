@@ -50,10 +50,14 @@ function Mentors() {
       </select>
       </div>
     <div className="mentor-grid">
-    {mentors.map((mentor)=>(
-       <div>
-       <MentorCard key={mentor._id} mentor={mentor} />
+    {mentors.map(mentor=>(
+      <>
+     
+        <div>
+       <MentorCard key={mentor._id} mentor={mentor}  />
        </div>
+  
+      </>
     ))}
     </div>
     
@@ -63,15 +67,14 @@ function Mentors() {
     <div className="request-card card-1">
     <p>You can send max 4 requests at a time</p>
     </div>
-     <ul >
+     <ul>
      {requestItems.splice(4, 1) && requestItems.map(request=>(
        <li key={request.user} className="request-card card-2 flex ">
+
         <img src={request.profileImage} alt="profile" />
         <div>
        <span className="request-name">{request.firstName}{" "}{request.lastName}</span>
-    
        </div>
-       
          <p>Requested</p>
        </li>
      ))}

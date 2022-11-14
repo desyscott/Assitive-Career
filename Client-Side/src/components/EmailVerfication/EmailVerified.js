@@ -30,27 +30,6 @@ const EmailVerified=()=>{
   const [verificationString,setVerificationString]=useState("")
   const redirect = "/home";
   
-
-  // useEffect(() => {
-  //   dispatch(userEmailVerification(userId,verificationString))
-  // }, [dispatch, userId, verificationString]);
-
-  // if (loading) {
-  //   return (
-  //     <div>
-  //      <LoadingBox/>
-  //       <h3>wait a moment verifying email</h3>
-  //     </div>
-  //   );
-  // }
-  
-  // if (error) {
-  //   return (
-  //     <div>
-  //   <MessageBox variant="danger">{error.error}</MessageBox>
-  //     </div>
-  //   );
-  // }
   
   useEffect(()=>{
     if(currentUser){
@@ -72,22 +51,29 @@ const EmailVerified=()=>{
     <div>
           <h2>OTP Verification</h2>
     </div>
-      {userVerificationMessage  && <MessageBox variant="success">{userVerificationMessage.VerificationMessage}</MessageBox>}
-      {error  && <MessageBox variant="danger">{error.error}</MessageBox>}
+      {userVerificationMessage  &&
+  <MessageBox variant="success">{userVerificationMessage.VerificationMessage}</MessageBox>
+        }
+      {error  && <MessageBox variant="danger">{error}</MessageBox>}
       <div>
-      <label/>
+
       <input   
         type="text"
         id="verificationString"
        name="verificationString"
        required
-      placeholder="Enter verification code"
+      placeholder="Enter 4-digits code"
       value={verificationString}
        onChange={(e)=>setVerificationString(e.target.value)}/>
       </div>
       <div>
       <label/>
-      <button type="submit" class="btn btn-primary">{loading ?<LoadingBox/>:<>verify</>}</button>
+      <button type="submit" class="btn btn-primary">
+      {loading ?<LoadingBox text=" Verify code..."/>:<>Verify code</>}
+      </button>
+      </div>
+      <div>
+      <label/>
       </div>
     </form>
     </div>

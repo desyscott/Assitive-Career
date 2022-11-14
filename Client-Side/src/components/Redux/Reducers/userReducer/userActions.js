@@ -58,11 +58,20 @@ export const signup=(formData)=>async(dispatch)=>{
             }
         
      if(!data.user.verified && data.user._id) {
-                const VerificationMessage=
-                 "We've sent verification code to your email"
+        const VerificationMessage=
+        `We've sent verification code to ${data.user.email}.To verify your email address,please check your inbox and enter the code below`
              dispatch({type:userTypes.USER_SIGNUP_VERIFICATION,
-                        payLoad:{VerificationMessage,userId:data.user._id}})
-              }     
+                        payLoad:{VerificationMessage,
+                                 userId:data.user._id,
+                                 userEmail:data.user.email,
+                                 }})
+                                 localStorage.setItem("userVerificationMessage", JSON.stringify({VerificationMessage,
+                                    userId:data.user._id,
+                                    userEmail:data.user.email,
+                                    })); 
+              }   
+     
+             
     }catch(err){
         if(err?.response?.data){
             const {data}=err?.response

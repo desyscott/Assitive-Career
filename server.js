@@ -4,6 +4,7 @@ import dotenv  from "dotenv";
 import cors  from "cors";
 import morgan  from "morgan";
 import cookieParser  from "cookie-parser";
+import fileUpload from "express-fileupload"
 import path from 'path';
 import multer from 'multer';
 import fs from "fs";
@@ -12,7 +13,7 @@ const app = express();
 
 
 import {requireAuth}  from "./middleware/authMiddleware.js";
-import uploadModel from "./models/uploadModel.js"
+// import uploadModel from "./models/uploadModel.js"
 
 import authRoute  from "./routes/authRoute.js";
 import orderRouter from "./routes/orderRouter.js";
@@ -29,6 +30,7 @@ connectDB();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cookieParser());
+// app.use(fileUpload())
 app.use(morgan("dev"));
 app.use(cors());
 const __dirname = path.resolve();
@@ -42,31 +44,42 @@ app.use("/api/users",usersRouter);
 app.use("/api/orders",requireAuth,orderRouter);
 
 
-const storage = multer.diskStorage({
-  destination(req, file, cb) {
-    cb(null, 'uploads');
+const MimeTypes =["application/pdf","application/msword"]
+const storage =multer.diskStorage({
+  destination:(req,file,cb)=>{
+    cb(null,"./Client-Side/public/uploads")
   },
-  filename(req, file, cb) {
-    cb(null, `${Date.now()}.jpg`);
+  fileFilter:(req,file,cb)=>{
+    cb(null,MimeTypes.includes(file.mimetypes))
   },
-});
-
-const upload = multer({ storage });
-
-app.post('/upload', upload.single('image'), async(req, res) => {
-  const image=req.file.path
- 
-  
-  const fileUpload= new uploadModel({
-   image:image,
-  })
-  const newUser = await fileUpload.save();
-  if(newUser){
-    res.send({data:fs.readFileSync("uploads/" + req.file.filename)});
-  }else {
-    res.status(401).send({ message: 'Invalid User Data.' });
+  filename:(req,file,cb)=>{
+    cb(null,file.originalname)
   }
+})
+//configure the storage engine
+const upload=multer({storage:storage})
+
+
+
+app.post('/uploadProfileImage',async(req, res) => {
+  // const fileName = req.file && req.file !== null ? req.file.filename : null;
+  
+  
+  // return res.json({fileName:fileName,filePath:`/uploads/${fileName}`})
+  
+  
+ if(req.files===null){
+   return res.status(400).json({msg:'No file uploaded'});
+ }
+ const file=req.files.file;
  
+ file.mv(`${__dirname}/client-side/public/uploads/${file.name}`,err=>{
+   if(err){
+     console.error(err);
+     return res.status(500).send(err)
+   }
+   return res.json({fileName:file.name,filePath:`/uploads/${file.name}`})
+ });
 });
 
 

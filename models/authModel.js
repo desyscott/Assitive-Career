@@ -23,9 +23,9 @@ const userSchema = new mongoose.Schema({
     unique: true,
     validate: [validator.isEmail, "Enter a correct email"],
   },
+  
   CV:{
-    data:Buffer,
-    contentType:String,
+    type:String,
   },
  
   password: {
@@ -36,7 +36,7 @@ const userSchema = new mongoose.Schema({
   profileImage:{
     type: String,
   },
-  Location:{
+  location:{
     type: String,
   },
   profession:{

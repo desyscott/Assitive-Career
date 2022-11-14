@@ -3,7 +3,7 @@ import {addRequestItem,removeRequestItem} from "../Redux/Reducers/requestReducer
 import {useDispatch} from "react-redux"
 import "./index.css"
 
-function Modal({closeModal,mentor}) {
+function Modal({closeModal,toggleModal,mentor}) {
   
   const dispatch=useDispatch()
   
@@ -19,17 +19,21 @@ function Modal({closeModal,mentor}) {
  
   }
   
+ 
+  
   return (
     <div className="modal-background">
+    <div className="overlay" onClick={toggleModal}></div>
+    
     <div className="modal-container">
     <div className="titleCloseBtn">
     <button onClick={()=>removeFromRequestHandler(mentor._id)} >X</button>
     </div>
     <div className="title">
-    <h3>Are You Sure You Want to Select this user?</h3>
+    <h3>Are You Sure You Want to Select this Mentor?</h3>
     </div>
     <div className="body">
-    <p>The user will receive a notification and the process will start after the user approves the request
+    <p>The mentor will receive a notification and the process will start after the mentor approves the request.
     Request can only be cancel by the program administrator</p>
     </div>
     <div className="footer">

@@ -19,7 +19,7 @@ import { sendError } from "../utilitis/responseHandler.js";
 import {createToken} from "../utilitis/generateToken.js"
 import {data} from "../data/CourseData.js"
 
-import {requireAuth}  from "../middleware/authMiddleware.js";
+import {requireAuth, isAdmin}  from "../middleware/authMiddleware.js";
 
 //storage engine
 const MimeTypes =["application/pdf","application/msword"]
@@ -94,7 +94,7 @@ router.get("/seed",expressAsyncHandler(async(req,res)=>{
 }))
 
 
-router.get("/users", expressAsyncHandler(async(req,res)=>{
+router.get("/students", expressAsyncHandler(async(req,res)=>{
   const user = await authModel.find({role:"Student"});
   if(user){
     res.send(user)
@@ -105,18 +105,30 @@ router.get("/users", expressAsyncHandler(async(req,res)=>{
 }));
 
 
+router.delete('/:id', requireAuth, isAdmin,expressAsyncHandler(async (req, res) => {
+  const deletedMentor = await  authModel.findById(req.params.id);
+  if (deletedMentor) {
+   const mentorRemoved= await deletedMentor.remove();
+  //  console.log(mentorRemoved);
+   res.send({ message:mentorRemoved });
+  } else {
+    res.status(404).send({error:'Error in Deletion.'});
+  }
+}));
+
+
+
 router.post("/signup",upload.single("Cv"), expressAsyncHandler(async (req, res) => {
-   
+  
+  
+  const fileName=req.file && req.file !==null ? req.file.filename : null
   try {
     const user = await authModel.create({
       firstName:req.body.firstName,
       lastName:req.body.lastName,
       role:req.body.role,
       email:req.body.email,
-      CV:{
-        data:fs.readFileSync("uploads/" + req.file.filename),
-        contentType:"application/msword"
-      },
+      CV:fileName,
       password:req.body.password,
       agree:req.body.agree,
     });
@@ -141,7 +153,7 @@ router.post("/signup",upload.single("Cv"), expressAsyncHandler(async (req, res) 
     });
     
     res.status(200).json({user});
-    console.log("user",user)
+    // console.log("user",user)
     
   } catch (err) {
     console.log(err.message)
@@ -248,6 +260,8 @@ router.put("/profile",requireAuth,expressAsyncHandler(async(req,res)=>{
     user.firstName = req.body.firstName || user.firstName;
     user.lastName = req.body.lastName || user.lastName;
     user.email =req.body.email || user.email;
+    user.profession =req.body.profession || user.profession;
+    user.location =req.body.location || user.location;
     
   if(req.body.password){
     user.password = req.body.password.trim() ;
@@ -259,6 +273,8 @@ router.put("/profile",requireAuth,expressAsyncHandler(async(req,res)=>{
      firstName:updatedUser.firstName,
      lastName:updatedUser.lastName,
      email:updatedUser.email,
+     profession:updatedUser.profession,
+     location:updatedUser.location,
      isAdmin:updatedUser. isAdmin,
      token
      })

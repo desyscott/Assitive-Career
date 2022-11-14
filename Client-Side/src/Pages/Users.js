@@ -1,64 +1,53 @@
-import React,{useState,useEffect} from 'react'
-import axios from "axios"
+import React,{useEffect} from 'react'
 import {Link} from "react-router-dom"
+import {fetchStudentsRequest,deleteStudent} from "../components/Redux/Reducers/studentsReducer/studentActions"
+import {useDispatch,useSelector} from "react-redux"
+import LoadingBox from '../components/LoadingBox/index'
+import MessageBox from '../components/MessageBox/index'
+
+
+const mapState=({studentData})=>({
+  students:studentData.students,
+  loading:studentData.loading,
+  error:studentData.error,
+       
+})
 
 function Users() {
-  // const [file,setFile]=useState()
-  const [uploading, setUploading] = useState(false);
-  const [image, setImage] = useState('');
-  const [studentUsers,setStudentUsers]=useState([])
-  
-  const uploadFileHandler = (e) => {
-    const file = e.target.files[0];
-    const bodyFormData = new FormData();
-    bodyFormData.append('image', file);
-    setUploading(true);
-    axios
-      .post('/upload', bodyFormData, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
-      })
-      .then((response) => {
-        setImage(response.data);
-        setUploading(false);
-      })
-      .catch((err) => {
-        console.log(err);
-        setUploading(false);
-      });
-     
-    
-  };
-  console.log(image)
+  const {students,loading,error} =useSelector(mapState)
+  const dispatch=useDispatch()
+  const studentDelete = useSelector((state) => state.studentDeleteData);
+  const {
+    loading: loadingDelete,
+    success: successDelete,
+    error: errorDelete,
+  } = studentDelete;
   
 
   useEffect(()=>{
-    try{
-      const fetchData=async()=>{
-        const {data}= await axios.get("/api/auth/users");
-        setStudentUsers(data)
-       }
-       fetchData()
-    
-    }catch(err){
-       console.log(err) 
+    dispatch(fetchStudentsRequest())
+    return () => {
+      //
     }
-  },[])
-  console.log(studentUsers)
+  },[dispatch,successDelete])
   
-  if(studentUsers.length===0){
-    return(
-      <div className="container">
-    No User
-    </div>)
+  
+  const deleteHandler=(student)=>{
+    dispatch(deleteStudent(student._id));
   }
+  
   
   return (
     <div className="content content-margined">
-
+ {loading ? 
+        <LoadingBox></LoadingBox>
+        :
+        error ?<MessageBox variant="danger">{error}</MessageBox>
+        :
+     (
+       <>
       <div className="mentors-header">
-        <h3>Mentors</h3>
+        <h3>Students</h3>
       </div>
       <div className="order-list">
 
@@ -77,7 +66,7 @@ function Users() {
             </tr>
           </thead>
           <tbody>
-          {studentUsers.map(student=>(
+          {students.map(student=>(
               
               <tr key={student._id}>
               
@@ -96,11 +85,10 @@ function Users() {
               <td>{student.email}</td>
       
               <td>
-                <Link to="" className="action-btn primary" >Details</Link>
+                <Link to={`user/${student._id}`} className="action-btn primary" >Details</Link>
                 {' '}
-                <button type="button"  className="action-btn primary">Verify</button>
-                {' '}
-                <button type="button"  className="action-btn danger">Delete</button>
+                <button type="button"  className="action-btn danger"
+                 onClick={() => deleteHandler(student)}>Delete</button>
               </td>
             </tr>
              ))}
@@ -108,6 +96,8 @@ function Users() {
         </table>
 
       </div>
+      </>
+     )}
     </div>
   )
 }

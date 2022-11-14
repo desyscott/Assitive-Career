@@ -2,10 +2,11 @@ import React,{useState} from 'react'
 import Modal from "../../Modal/index"
 import "./index.css"
 import {MdVerified} from 'react-icons/md'
+import ProfilePhoto from "../../Assets/images/blank-profile-picture-gdfa15e9f3_1280.png"
 
 
 
-function MentorCard({mentor}) {
+function MentorCard({mentor,request}) {
   
   const [openModal,setOpenModal] = useState(false)
   
@@ -13,17 +14,25 @@ function MentorCard({mentor}) {
     setOpenModal(true)
    
   }
+  const toggleModal = () => {
+    setOpenModal(!openModal);
+  };
   
-    if(openModal) {
-   return <Modal closeModal={setOpenModal} mentor={mentor} /> 
+  if(openModal) {
+    document.body.classList.add('active-modal')
+  } else {
+    document.body.classList.remove('active-modal')
   }
     
   return (
+    <>
     <div className="mentor-card" key={mentor._id}>
 
         <div className="profile-photo-wrapper">
-        <img src={mentor.profileImage} alt="profile" />
-        
+        {/* <img src={mentor.profileImage} alt="profile" /> */}
+     
+        <img src={mentor.profileImage ? mentor.profileImage:ProfilePhoto} alt="profile" className="profile-photo"/>
+     
         </div>
         
         <div className="mentor-infor">
@@ -62,12 +71,15 @@ function MentorCard({mentor}) {
           </div>
         </div>
        
-         <button className="request-link" onClick={handleModal}><p>Request</p></button>
-         
-         
-        
-       
+         <button className="request-link" 
+          //  disabled={ request && mentor._id=== request.user}
+         onClick={handleModal}>
+         <p>Request</p>
+         </button>
+   
     </div>
+    {openModal && <Modal  closeModal={setOpenModal} toggleModal={toggleModal} mentor={mentor} />}
+    </>
   )
 }
 

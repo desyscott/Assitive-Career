@@ -8,6 +8,7 @@ import "./NavBar.css"
 import ProfilePhoto from "../Assets/images/blank-profile-picture-gdfa15e9f3_1280.png"
 import {TbLogout} from "react-icons/tb"
 import {CgProfile} from "react-icons/cg"
+import {IoMdHelpCircleOutline} from "react-icons/io"
 import {FiUsers} from "react-icons/fi"
 import {FaElementor} from "react-icons/fa"
 import {IoNotificationsSharp} from "react-icons/io5"
@@ -43,7 +44,7 @@ const NavBar =()=>{
    </div>
    
 
-{currentUser.role==="Mentor" ?
+{currentUser && currentUser.role==="Mentor" ?
  
  (
   <nav>
@@ -66,7 +67,7 @@ const NavBar =()=>{
     <ul className="primary-navigation flex mobile-view">
     {NavBarItems.map((item,index)=>{
    return (
-    <li key={index} onClick={()=>setSelected(index)} className={selected===index? "navbar-list-items nav-active":"navbar-list-items"} >
+    <li key={index} onClick={()=>setSelected(index)} className={selected===index ? "navbar-list-items nav-active":"navbar-list-items"} >
     <Link to={item.path}>
         {item.title}
     </Link>
@@ -112,7 +113,7 @@ const NavBar =()=>{
            <Link to="/profile"><CgProfile className="dropdown-icons"/>My Profile</Link>
            </li>
            <li>
-           <Link to="/help"><CgProfile className="dropdown-icons"/>Help</Link>
+           <Link to="/help"><IoMdHelpCircleOutline className="dropdown-icons"/>Help</Link>
            </li>
            <li>
           <Link to="#" onClick={handleSignOut}><TbLogout className="logout-icon"/>Logout</Link>
@@ -132,7 +133,7 @@ const NavBar =()=>{
     </Link>
     <ul className="dropdown-content">
     <li><Link to="/mentor-list"><FaElementor className="dropdown-icons"/>All Mentors</Link></li>
-    <li><Link to="/users"><FiUsers  className="dropdown-icons"/>Users</Link></li>
+    <li><Link to="/users"><FiUsers  className="dropdown-icons"/>All Students</Link></li>
     </ul>
     </div>
     }

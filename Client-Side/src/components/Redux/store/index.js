@@ -13,7 +13,10 @@ const  initialState={
     userData:{
         currentUser:localStorage.getItem("currentUser")
         ? JSON.parse(localStorage.getItem("currentUser"))
-        : null
+        : null,
+        userVerificationMessage:localStorage.getItem("userVerificationMessage")
+        ? JSON.parse(localStorage.getItem("userVerificationMessage"))
+        : null,
     }, 
     
     requestData:{

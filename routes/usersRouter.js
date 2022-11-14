@@ -15,6 +15,8 @@ usersRouter.get("/seed",expressAsyncHandler(async(req,res)=>{
   res.send({createdUsers})
 }))
 
+
+//get all mentor
 usersRouter.get("/",  expressAsyncHandler(async(req, res) => {
     const user = await authModel.find({role:"Mentor"});
     if(user){
@@ -25,7 +27,8 @@ usersRouter.get("/",  expressAsyncHandler(async(req, res) => {
     }
 }));
 
-//get individual users
+
+//get individual users or mentor
 usersRouter.get("/:id",expressAsyncHandler(async(req, res) => {
   const user = await authModel.findById(req.params.id)
   if(user){
@@ -36,7 +39,7 @@ usersRouter.get("/:id",expressAsyncHandler(async(req, res) => {
 }));
 
 
-
+//verifying a mentor
 usersRouter.put('/:id', requireAuth, isAdmin, async (req, res) => {
   const mentorId = req.params.id;
   const mentor = await authModel.findById(mentorId);
@@ -56,6 +59,7 @@ usersRouter.put('/:id', requireAuth, isAdmin, async (req, res) => {
 });
 
 
+//deleting individual users or mentor
 usersRouter.delete('/:id', requireAuth, isAdmin, async (req, res) => {
   const deletedMentor = await  authModel.findById(req.params.id);
   if (deletedMentor) {

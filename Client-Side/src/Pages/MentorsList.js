@@ -5,7 +5,7 @@ import {fetchMentorsRequest,verifyMentor,deleteMentor} from "../components/Redux
 import LoadingBox from '../components/LoadingBox/index'
 import MessageBox from '../components/MessageBox/index'
 
-const mapState=({mentorData,mentorDeleteData})=>({
+const mapState=({mentorData})=>({
   mentors:mentorData.mentors,
   loading:mentorData.loading,
   error:mentorData.error,
@@ -20,6 +20,7 @@ function MentorsList() {
     success: successDelete,
     error: errorDelete,
   } = mentorDelete;
+  
   const mentorVerify = useSelector((state) => state.verifyMentorData);
   const {
     loading: loadingVerify,
@@ -67,7 +68,7 @@ function MentorsList() {
               <th>FIRSTNAME</th>
               <th>LASTNAME</th>
               <th>ROLE</th>
-              <th>ISVERIFIED</th>
+              <th>MENTOR VERIFIED</th>
               <th>EMAIL</th>
               <th>PROFESSION</th>
               <th>ACTIONS</th>
@@ -91,7 +92,7 @@ function MentorsList() {
               <td>{mentor.email}</td>
               <td>{mentor.profession}</td> 
               <td>
-                <Link to="" className="action-btn primary">Details</Link>
+                <Link to={`/mentor/${mentor._id}`} className="action-btn primary">Details</Link>
                 {' '}
                 <button type="button"  className="action-btn primary" 
                 onClick={() => handleVerifyMentor(mentor)}
@@ -106,7 +107,6 @@ function MentorsList() {
              ))}
           </tbody>
         </table>
-
       </div>
       </>)
     }
