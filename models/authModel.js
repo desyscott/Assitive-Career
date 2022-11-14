@@ -36,12 +36,19 @@ const userSchema = new mongoose.Schema({
   profileImage:{
     type: String,
   },
-  location:{
-    type: String,
-  },
+ 
   profession:{
     type: String,
   },
+  MentorshipRole:{
+    type: String,
+  },
+  career:{
+    type: String,
+  },
+  location:{
+    type: String
+    },
   
   Hobbies:{
     type: Array,

@@ -52,7 +52,7 @@ function MentorCard({mentor,request}) {
          
           <div>
           <label className="label">Location</label>
-          <p>{mentor.Location}</p>
+          <p>{mentor.location}</p>
           </div>
                
           <div>
