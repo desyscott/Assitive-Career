@@ -22,9 +22,7 @@ function ResetPassword() {
   const verifyToken = async () => {
     // console.log(uniqueToken);
     try {
-      const { data } = await axios.get(
-        `http://localhost:5000/api/auth/verify-resetToken?uniqueToken=${uniqueToken}&id=${id}`
-      );
+ const { data } = await axios.get(`http://localhost:5000/api/auth/verify-resetToken?uniqueToken=${uniqueToken}&id=${id}`);
       console.log(data);
       setBusy(false);
     } catch (error) {
@@ -110,16 +108,12 @@ function ResetPassword() {
 
   return (
     <>
-     
-      <form onSubmit={handleSubmit} className="form">
-      
-      <div>
-      <h2>reset password</h2>
-      </div>
     
+      <form onSubmit={handleSubmit} className="form">
+      <div>  <h2>Reset Password</h2></div>
         {error && <p>{error}</p>}
         <div>
-          <label for="password">New Password: </label>
+          <label for="password">New Password</label>
           <input
             type="password"
             name="password"
@@ -130,7 +124,7 @@ function ResetPassword() {
         </div>
         
         <div>
-          <label for="password2">Confirm Password: </label>
+          <label for="password2">Confirm Password</label>
           <input
             type="password"
             name="password2"
@@ -139,7 +133,6 @@ function ResetPassword() {
             onChange={handleChange}
           />
         </div>
-        
         <div>
         <label/>
         <button type="submit" class="btn btn-primary">Reset Password</button>

@@ -51,26 +51,31 @@ const [file,setFile]=useState("")
 const [uploadedFile,setUploadedFile]=useState({})
 
 const handleProfileImageChange=async(e)=>{
-    setFile(e.target.files[0]) 
- 
-    const formData=new FormData()
-    formData.append("file",file)
-    
-    try{
-        const res=await Axios.post("/uploadProfileImage",formData)
-        const {fileName,filePath}=res.data
-        setUploadedFile({fileName,filePath})
-        
-    }catch(err){
-        if(err.response.status===500){
-            console.log('There was a problem with the server')
-        }else{
-            console.log(err.response.data.msg)
-        }
-    }
+  const file=e.target.files[0]
+  if(!file) return;
+   file.isUploading = true;
+   setFile(file)
+   const formData=new FormData()
+   formData.append("file",file)
+   
+   try{
+       const res=await Axios.post("/uploadProfileImage",formData)
+       const {fileName,filePath}=res.data
+       file.isUploading = false;
+       setUploadedFile({fileName,filePath})
+      
+       
+   }catch(err){
+       if(err.response.status===500){
+           console.log('There was a problem with the server')
+       }else{
+           console.log(err.response.data.msg)
+       }
+   }
 }
+console.log(file);
 
-console.log(uploadedFile)
+// console.log(uploadedFile)
      
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -79,7 +84,14 @@ console.log(uploadedFile)
     if(password !== confirmPassword){
       alert("password and confirm password do not match")
     }else{
-      dispatch(updateUserProfile({userId:currentUser.id,firstName,lastName,profession,location,email,password}));
+      dispatch(updateUserProfile({userId:currentUser.id,
+                                  firstName,
+                                  lastName,
+                                  profession,
+                                  profileImage:uploadedFile.filePath && uploadedFile.filePath,
+                                  location,
+                                  email,
+                                  password}));
     }
  
   }
@@ -108,14 +120,16 @@ console.log(uploadedFile)
          <>
          <div>
           <div className="profilePhoto-wrapper">
-          {/* <input type="file"/> */}
-          <img src={uploadedFile && uploadedFile.filePath ? uploadedFile.filePath:ProfilePhoto} alt="profile"/>
+          <input type="file" className="profile_input"
+          onChange={handleProfileImageChange}/>
+          <img src={uploadedFile && uploadedFile.filePath ? uploadedFile.filePath:ProfilePhoto}
+           alt="profile"/>
           
-          <div >
+          <div>
           <FiCamera className="camera-icon" />
-      
           </div>
           </div>
+          
          <label htmlFor="firstName">FirstName</label>
          <input
           type="text"
@@ -221,13 +235,26 @@ console.log(uploadedFile)
            <>
           <div>
           <div className="profilePhoto-wrapper">
-          {/* <input type="file"/> */}
-          <img src={uploadedFile && uploadedFile.filePath ? uploadedFile.filePath:ProfilePhoto} alt="profile"/>
+          <input type="file" className="profile_input"
+          onChange={handleProfileImageChange}/>
+         {uploadedFile && uploadedFile.filePath? 
+          (
+           <>
+           <img src={uploadedFile.filePath}
+           alt="profile"/>
+          </>
+          ):(
+            <>
+            <img src={ProfilePhoto}
+           alt="profile"/>
           
           <div >
           <FiCamera className="camera-icon" />
-      
           </div>
+            </>
+          )
+          }
+          
           </div>
          <label htmlFor="firstName">FirstName</label>
          <input

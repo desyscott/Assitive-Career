@@ -175,7 +175,7 @@ const  App=()=> {
            component={EmailVerified}
           />
           <Route path="/forgot-password" component={ForgotPassword} />
-          <Route path="/reset-password" component={ResetPassword} /> 
+          <Route path="/reset-password" component={ResetPassword} />
      </SkeletonTheme>
     </>
   );

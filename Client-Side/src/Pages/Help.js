@@ -6,16 +6,20 @@ function Help() {
     const [uploadedFile,setUploadedFile]=useState({})
     
 
-    const handleChange=async(e)=>{
-        setFile(e.target.files[0]) 
-     
+    const uploadHandler=async(e)=>{
+       const file=e.target.files[0]
+       if(!file) return;
+        file.isUploading = true;
+        setFile(file)
         const formData=new FormData()
         formData.append("file",file)
         
         try{
             const res=await Axios.post("/uploadProfileImage",formData)
             const {fileName,filePath}=res.data
+            file.isUploading = false;
             setUploadedFile({fileName,filePath})
+           
             
         }catch(err){
             if(err.response.status===500){
@@ -26,13 +30,15 @@ function Help() {
         }
     }
     
+    console.log(uploadedFile)
+    console.log(file)
   return (
     <div>
  
-    <input type="file" onChange={handleChange}/>
+ <input type="file" onChange={uploadHandler} />
     
   
-    {uploadedFile ?
+    {uploadedFile.filePath ?
     ( <div>
     <h3>{uploadedFile.fileName}</h3>
    { uploadedFile && <img style={{width:"100%"}} src={uploadedFile.filePath} alt=""/>}

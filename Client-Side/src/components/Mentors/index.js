@@ -1,6 +1,7 @@
 import React,{useState,useEffect} from 'react'
 import {useSelector,useDispatch} from "react-redux"
 import {fetchMentorsRequest} from "../Redux/Reducers/MentorReducer/mentorActions"
+import ProfilePhoto from "../Assets/images/blank-profile-picture-gdfa15e9f3_1280.png"
 import "./index.css"
 import MentorCard from "./MentorCard/index"
 import MessageBox from "../MessageBox/index"
@@ -71,7 +72,8 @@ function Mentors() {
      {requestItems.splice(4, 1) && requestItems.map(request=>(
        <li key={request.user} className="request-card card-2 flex ">
 
-        <img src={request.profileImage} alt="profile" />
+        <img src={request.profileImage? request.profileImage:ProfilePhoto} alt="profile" />
+        
         <div>
        <span className="request-name">{request.firstName}{" "}{request.lastName}</span>
        </div>

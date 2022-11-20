@@ -86,26 +86,7 @@ console.log(userId)
             <FaFileAlt className="file-icon"/>{student.CV}
             </div>
           </div>
-      <div>
-            <label htmlFor="profession">Student's Profession</label>
-            <input 
-              type="text"
-              id="profession"
-              name="profession"
-              value={student.profession}
-             
-             
-            />
-          </div>
-          <div>
-            <label htmlFor="location">Student's Location</label>
-            <input 
-              type="text"
-              id="location"
-              name="location"
-              value={student.Location}
-            />
-          </div>
+    
           </>
           )}
       </div>

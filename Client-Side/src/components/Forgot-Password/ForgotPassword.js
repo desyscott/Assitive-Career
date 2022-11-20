@@ -1,21 +1,23 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-
+import MessageBox from "../MessageBox/index"
 
 
 function ForgotPassword() {
   const [email, setEmail] = useState("");
   const [error, setError]= useState("");
+  const [message, setMessage] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("/api/auth/forget-password", { email })
+      .post("/api/auth/forget-password", {email})
       .then((res) => {
         const data = res.data;
-        if (data) {
-          console.log(data);
+        if (data.message) {
+          setMessage(data.message)
+          setError("")
         }
       })
       .catch((err) => {
@@ -35,7 +37,8 @@ function ForgotPassword() {
         <div>
           <h3>Forgot Password</h3>
           </div>
-          
+         {message && <MessageBox variant="success">{message}</MessageBox>}
+         
           <div>
             <label for="email">Email</label>
             <input
@@ -48,8 +51,9 @@ function ForgotPassword() {
                 setEmail(e.target.value);
               }}
             />
-            {error && <p>{error}</p>}
+           {error && <span className="error">{error}</span>}
           </div>
+          
            <div>
           <label/>
           <button type="submit" class="btn btn-primary">submit</button>

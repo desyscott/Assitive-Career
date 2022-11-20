@@ -61,25 +61,25 @@ const upload=multer({storage:storage})
 
 
 
-app.post('/uploadProfileImage',async(req, res) => {
-  // const fileName = req.file && req.file !== null ? req.file.filename : null;
+app.post('/uploadProfileImage',upload.single("file"),async(req, res) => {
+  const fileName = req.file && req.file !== null ? req.file.filename : null;
   
   
-  // return res.json({fileName:fileName,filePath:`/uploads/${fileName}`})
+  return res.json({fileName:fileName,filePath:`/uploads/${fileName}`})
   
   
- if(req.files===null){
-   return res.status(400).json({msg:'No file uploaded'});
- }
- const file=req.files.file;
+//  if(req.files===null){
+//    return res.status(400).json({msg:'No file uploaded'});
+//  }
+//  const file=req.files.file;
  
- file.mv(`${__dirname}/client-side/public/uploads/${file.name}`,err=>{
-   if(err){
-     console.error(err);
-     return res.status(500).send(err)
-   }
-   return res.json({fileName:file.name,filePath:`/uploads/${file.name}`})
- });
+//  file.mv(`${__dirname}/client-side/public/uploads/${file.name}`,err=>{
+//    if(err){
+//      console.error(err);
+//      return res.status(500).send(err)
+//    }
+//    return res.json({fileName:file.name,filePath:`/uploads/${file.name}`})
+//  });
 });
 
 

@@ -104,6 +104,11 @@ router.get("/students", expressAsyncHandler(async(req,res)=>{
   }
 }));
 
+router.get("/verify-resetToken",isResetTokenValid, (req, res) => {
+  res.json({ success: true });
+
+});
+
 
 router.delete('/:id', requireAuth, isAdmin,expressAsyncHandler(async (req, res) => {
   const deletedMentor = await  authModel.findById(req.params.id);
@@ -119,8 +124,6 @@ router.delete('/:id', requireAuth, isAdmin,expressAsyncHandler(async (req, res) 
 
 
 router.post("/signup",upload.single("Cv"), expressAsyncHandler(async (req, res) => {
-  
-  
   const fileName=req.file && req.file !==null ? req.file.filename : null
   try {
     const user = await authModel.create({
@@ -182,10 +185,10 @@ router.post("/email-verification", expressAsyncHandler(async (req, res) => {
   if (user.verified) return sendError(res, "This account is already been verified");
 
   const userToken = await userEmailConfirmation.findOne({ userId: user._id });
-  if (!userToken) return sendError(res, "sorry user not found 2");
+  if (!userToken) return sendError(res, "sorry user not found");
 
   const verifyUniqueString = await userToken.verifyUniqueString(verificationString);
-  if (!verifyUniqueString) return sendError(res, "The email verification link is invalid");
+  if (!verifyUniqueString) return sendError(res, "The email verification code is invalid");
 
   await authModel.updateOne({ _id: user._id }, { verified: true });
   
@@ -208,9 +211,8 @@ router.post("/email-verification", expressAsyncHandler(async (req, res) => {
     isAdmin:user.isAdmin,
     token,
     });
-  
-  // console.log("your email is verified");
 }));
+
 
 
 router.post("/signin",expressAsyncHandler(async(req, res) => {
@@ -224,8 +226,6 @@ router.post("/signin",expressAsyncHandler(async(req, res) => {
     const user = await authModel.login(email, password);
 
     const token = createToken(user);
-
-    
     res.status(200).send({
       id:user._id,
       firstName:user.firstName,
@@ -254,20 +254,23 @@ router.get("/:id",requireAuth,expressAsyncHandler(async(req,res)=>{
 }));
 
 
+
+
 router.put("/profile",requireAuth,expressAsyncHandler(async(req,res)=>{
   const user = await authModel.findById(req.user.id);
+  
   if(user){
     user.firstName = req.body.firstName || user.firstName;
     user.lastName = req.body.lastName || user.lastName;
     user.email =req.body.email || user.email;
+    user.profileImage =req.body.profileImage || user.profileImage;
     user.profession =req.body.profession || user.profession;
     user.location =req.body.location || user.location;
-    
-  if(req.body.password){
+    if(req.body.password){
     user.password = req.body.password.trim() ;
-  }
+     }
   const updatedUser = await user.save();
-  const token = createToken(updatedUser);
+
   res.send({
      id:updatedUser._id,
      firstName:updatedUser.firstName,
@@ -275,20 +278,20 @@ router.put("/profile",requireAuth,expressAsyncHandler(async(req,res)=>{
      email:updatedUser.email,
      profession:updatedUser.profession,
      location:updatedUser.location,
+     profileImage:updatedUser.profileImage,
      isAdmin:updatedUser. isAdmin,
-     token
-     })
+     token: createToken(updatedUser),
+     });
+  }else{
+    res.status(404).send({ message: "User not found" });
   }
-}))
-
-
-
+})
+)
 
 
 
 router.post("/forget-password", async (req, res) => {
   const { email } = req.body;
-  // res.json(req.body);
   if (!email) return sendError(res, "Enter your email");
 
   const user = await authModel.findOne({ email });
@@ -301,8 +304,7 @@ router.post("/forget-password", async (req, res) => {
       " only after one hour before you can request another one "
     );
 
-
-  
+  const uniqueToken = uuidv4() + user._id;
   const resetPasswordToken = await resetPassword.create({
     userId: user._id,
     uniqueToken: uniqueToken,
@@ -324,8 +326,11 @@ router.post("/forget-password", async (req, res) => {
     
       <p>If you don't want to reset your credentials, just ignore this message and nothing will be changed</p>`,
   });
-  res.status(200).json("password reset link as been sent Successfully");
+  res.status(200).send({message:"password reset link as been sent Successfully"});
 });
+
+
+
 
 
 router.post("/reset-password", isResetTokenValid, async (req, res) => {
@@ -337,13 +342,10 @@ router.post("/reset-password", isResetTokenValid, async (req, res) => {
   const isSamePassword = await user.comparePassword(password);
   if (isSamePassword) return sendError(res, "use a new password");
 
-//resetting the password
   user.password = password.trim();
   await user.save();
-  
-//removing reset token from the database
-  await resetPassword.findOneAndDelete({ userId: user._id });
 
+  await resetPassword.findOneAndDelete({ userId: user._id });
   mailTransport().sendMail({
     from: process.env.AUTH_EMAIL,
     to: user.email,
@@ -356,9 +358,6 @@ router.post("/reset-password", isResetTokenValid, async (req, res) => {
 });
 
 
-router.get("/verify-resetToken", isResetTokenValid, (req, res) => {
-  res.status(200).json({ success: true });
-});
 
 
 export default router;
