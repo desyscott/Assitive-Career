@@ -1,5 +1,5 @@
 import React,{useState} from "react"
-import {Link,useHistory} from "react-router-dom"
+import {Link,useNavigate} from "react-router-dom"
 import {useSelector,useDispatch} from "react-redux"
 import {signOut} from "../Redux/Reducers/userReducer/userActions"
 import { NavBarItems,NavBarItems2 } from "./NavBarItems"
@@ -15,7 +15,7 @@ import {IoNotificationsSharp} from "react-icons/io5"
 
 
 const NavBar =()=>{
-  const history=useHistory()
+  const navigate=useNavigate()
     const dispatch=useDispatch()
     const {currentUser}=useSelector((state)=>state.userData);
     const [selected,setSelected]=useState()
@@ -24,7 +24,7 @@ const NavBar =()=>{
   
     const handleSignOut=()=>{
         dispatch(signOut())
-        history.push("/");
+        navigate.push("/");
     }
     
     
@@ -36,23 +36,24 @@ const NavBar =()=>{
   <div className= "nav-header flex">
   
    <div className="nav-logo">
-     <div>
-    <img src={ logo} alt="logo" className="logo-nav"/>
-    </div>
     
-   <Link to="/home" >Assistive Career</Link>
+    
+   <Link to="/home" >
+    <img src={ logo} alt="logo" className="logo-nav"/>
+    Assistive Career
+    </Link>
    </div>
    
 
 {currentUser && currentUser.role==="Mentor" ?
- 
+
  (
   <nav>
     <ul className="primary-navigation flex mobile-view">
     {NavBarItems2.map((item,index)=>{
    return (
     <li key={index} onClick={()=>setSelected(index)} className={selected===index? "navbar-list-items nav-active":"navbar-list-items"} >
-    <Link to={item.path}>
+    <Link to={item.path} >
         {item.title}
     </Link>
     </li>
@@ -68,7 +69,7 @@ const NavBar =()=>{
     {NavBarItems.map((item,index)=>{
    return (
     <li key={index} onClick={()=>setSelected(index)} className={selected===index ? "navbar-list-items nav-active":"navbar-list-items"} >
-    <Link to={item.path}>
+    <Link to={item.path} >
         {item.title}
     </Link>
     </li>

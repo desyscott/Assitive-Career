@@ -2,7 +2,7 @@ import React,{useState} from 'react'
 import "./index.css"
 import {FormRadioSelect} from "../FormSelect/index"
 import {data} from "./Data"
-import {useHistory,Link} from "react-router-dom"
+import { useNavigate,Link} from "react-router-dom"
 import {useDispatch} from "react-redux"
 import {addDataAnaTestScore} from "../Redux/Reducers/CareerTestReducer/CareerTestAction"
 import {configFilters1,configFilters2,configFilters3,configFilters4,configFilters5} from "../FormSelect/useSelectForm"
@@ -11,7 +11,7 @@ import {IoCaretBack} from "react-icons/io5"
 
 
 function Test() {
-  const history=useHistory()
+  const navigate= useNavigate()
   const dispatch=useDispatch()
 
   const [values,setValues]=useState({
@@ -35,7 +35,7 @@ function Test() {
      e.preventDefault();
     console.log(values)
     dispatch(addDataAnaTestScore(values))
-    history.push("/test-results")
+    navigate.push("/test-results")
    }
 
     

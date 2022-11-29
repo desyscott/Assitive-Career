@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useLocation } from "react-router";
 import queryString from "query-string";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function ResetPassword() {
   const [values, setValues] = useState({
@@ -16,7 +16,7 @@ function ResetPassword() {
   const [success, setSuccess] = useState(false);
 
   const location = useLocation();
-  const history = useHistory();
+  const navigate = useNavigate();
   const { uniqueToken, id } = queryString.parse(location.search);
   // console.log(location);
   const verifyToken = async () => {
@@ -71,7 +71,7 @@ function ResetPassword() {
       setBusy(false);
       if (data.success) {
         setSuccess(true);
-        history.replace("/reset-password");
+        navigate.replace("/reset-password");
       }
     } catch (error) {
       setBusy(false);

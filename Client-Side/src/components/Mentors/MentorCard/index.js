@@ -7,7 +7,7 @@ import ProfilePhoto from "../../Assets/images/blank-profile-picture-gdfa15e9f3_1
 
 
 function MentorCard({mentor,request}) {
-  
+
   const [openModal,setOpenModal] = useState(false)
   
   const handleModal=()=>{
@@ -23,7 +23,7 @@ function MentorCard({mentor,request}) {
   } else {
     document.body.classList.remove('active-modal')
   }
-    
+  
   return (
     <>
     <div className="mentor-card" key={mentor._id}>
@@ -71,12 +71,13 @@ function MentorCard({mentor,request}) {
           </div>
         </div>
        
-         <button className="request-link" 
+       
+           <button className="request-link" 
           //  disabled={ request && mentor._id=== request.user}
          onClick={handleModal}>
-         <p>Request</p>
+          <p>Request</p> 
          </button>
-   
+     
     </div>
     {openModal && <Modal  closeModal={setOpenModal} toggleModal={toggleModal} mentor={mentor} />}
     </>

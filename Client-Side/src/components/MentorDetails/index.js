@@ -79,12 +79,17 @@ function Mentor() {
              
             />
           </div>
-          <div>
+        {  
+          mentor.CV &&
+         <div>
             <label htmlFor="Cv">CV</label>
             <div className="mentor-document">
             <FaFileAlt className="file-icon"/>{mentor.CV}
             </div>
           </div>
+     
+      
+      }
       <div>
             <label htmlFor="profession">Mentor's Profession</label>
             <input 

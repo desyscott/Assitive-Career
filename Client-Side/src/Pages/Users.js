@@ -85,7 +85,7 @@ function Users() {
               <td>{student.email}</td>
       
               <td>
-                <Link to={`user/${student._id}`} className="action-btn primary" >Details</Link>
+                <Link to={`/user/${student._id}`} className="action-btn primary" >Details</Link>
                 {' '}
                 <button type="button"  className="action-btn danger"
                  onClick={() => deleteHandler(student)}>Delete</button>

@@ -10,7 +10,7 @@ export const chartsData=[
        { color:'rgba(125, 99, 132, 0.5)'},
        { color:'rgba(713, 562, 35, 0.5)'}
                       ],
-      text:' Top 20 emerging Jobs',
+      text:' Top 20 emerging Careers',
     },
     { 
       labels : ['javascript', 'python', 'C++', 'C#', 'java', 'Perl', 'PHP'],
@@ -22,7 +22,7 @@ export const chartsData=[
          { color:'rgba(255, 99, 132, 0.5)'},
          { color:'rgba(53, 162, 235, 0.5)'}
                         ],
-       text:'Number of indeed job posting by programming language',
+       text:'Number of indeed careers posting by programming language',
       }
   
   ]

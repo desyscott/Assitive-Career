@@ -1,5 +1,5 @@
 import React,{useState,useEffect,useRef} from "react";
-import { Link,useParams,useHistory } from "react-router-dom";
+import { Link,useParams,useNavigate } from "react-router-dom";
 import {useSelector,useDispatch} from "react-redux"
 import {signup} from "../Redux/Reducers/userReducer/userActions"
 import "./signUp.css"
@@ -22,7 +22,7 @@ function SignUp() {
   const params=useParams();
   const role=params.signUpRole
   
-  const history=useHistory()
+  const navigate=useNavigate()
   const [values, setValues] = useState({
     firstName: "",
     lastName: "",
@@ -77,13 +77,13 @@ function SignUp() {
     inputRef.current.focus();
   } 
 
-  },[ history, params, role])
+  },[ navigate, params, role])
   
   useEffect(()=>{
     if(userVerificationMessage){
-     history.push(redirect);
+    navigate(redirect);
     }
-  },[history,redirect,userVerificationMessage])
+  },[navigate,redirect,userVerificationMessage])
   
   
    
@@ -95,7 +95,7 @@ function SignUp() {
   return (
     <div className="Main">
    <div className="form-logo">
-    <img src={ logo} alt="logo"/>
+   <Link to="/"><img src={ logo} alt="logo"/></Link> 
     </div>
     
       <div className="form-container">

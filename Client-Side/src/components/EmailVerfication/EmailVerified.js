@@ -1,5 +1,5 @@
 import React, {useState, useEffect } from "react";
-import {useHistory } from "react-router-dom";
+import {useNavigate } from "react-router-dom";
 import {useSelector,useDispatch} from "react-redux"
 import {userEmailVerification} from "../Redux/Reducers/userReducer/userActions"
 import LoadingBox from "../LoadingBox/index";
@@ -25,7 +25,7 @@ const EmailVerified=()=>{
          error}=useSelector(mapState)
   
   const dispatch=useDispatch();
-  const history=useHistory()
+  const navigate=useNavigate()
   
   const [verificationString,setVerificationString]=useState("")
   const redirect = "/home";
@@ -33,9 +33,9 @@ const EmailVerified=()=>{
   
   useEffect(()=>{
     if(currentUser){
-     history.push(redirect);
+     navigate(redirect);
     }
-  },[history,redirect,currentUser])
+  },[navigate,redirect,currentUser])
   const handleSubmit=(e)=>{
     e.preventDefault();
     dispatch(userEmailVerification(verificationString,userVerificationMessage.userId))

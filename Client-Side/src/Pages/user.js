@@ -1,7 +1,7 @@
 import React from 'react'
 import UserDetails from "../components/userDetails/index"
 
-function user() {
+function User() {
   return (
     <div className="container">
       <UserDetails/>
@@ -9,4 +9,4 @@ function user() {
   )
 }
 
-export default user
+export default User

@@ -8,10 +8,7 @@
     height: 70px; 
     padding-left:60px;
     padding-right: 50px;
-    
-
 }
-
 
 .flex{
     display:flex;
@@ -30,11 +27,15 @@
 }
 
 .nav-logo a{
-font-weight: bold ;
- text-transform:capitalize;
- font-size:2rem;
- color:#ffff;
- margin-left: 1rem;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:.5rem;
+    font-weight: bold ;
+    text-transform:capitalize;
+    font-size:2rem;
+    color:#ffff;
+    margin-left: 1rem;
 }
 
 
@@ -49,6 +50,7 @@ font-weight: bold ;
  font-size:2rem;
  color:#000;
 }
+
 .menu-button  button {
     background:none;
     border :none;
@@ -56,7 +58,6 @@ font-weight: bold ;
     font-size:2.5rem;
    padding:.5rem;
    display:none;
-  
 }
 
 
@@ -67,6 +68,7 @@ font-weight: bold ;
     margin: 0;
     padding: 0;
 }
+
 .primary-navigation a {
   text-decoration: none;
   text-transform: capitalize;
@@ -76,27 +78,9 @@ font-weight: bold ;
   padding: 10px 0;
   letter-spacing: .5px;
 }
+
 .primary-navigation a:hover {
     color:#ffff;
-}
-
-.active{
-    background-color:#fff;
-    box-shadow: 0 .3rem .5rem rgba(0,0,0,0.1);
-    opacity: 100;
-}
-.active .primary-navigation a{
-    color:#000;
-    position: relative;
-}
-
-.active .nav-links a{
-    color:#fff;
-    position: relative;
-}
-
-.active .primary-navigation a:hover{
-    color:#279EFD;
 }
 
 
@@ -115,17 +99,26 @@ font-weight: bold ;
 
 .nav-active{
    position:relative;
+   color:rgba(85, 27, 179, 0.89) ;
   }
 
-  .nav-active::before{
+.activeLink{
+   color:rgba(85, 27, 179, 0.89) ;
+  }
+.normalLink{
+   color:rgba(85, 27, 179, 0.89) ;
+  }
+
+.nav-active::before{
    content:"";
    position:absolute;
-   background-color:rgba(85, 27, 179, 0.89);
-   width:90%;
-   height:25%;
+   background-color: rgb(44, 155, 245);
+   width:100%;
+   height:20%;
    left:0;
    right: 0;
-   top:15px;
+   transform: translate(-6%, -50%);
+   top:17px;
 }
 
 
@@ -181,11 +174,9 @@ font-weight: bold ;
     background-color:#fff;
     border:.5px solid #3333;
     box-shadow:0 0.15rem 1.75rem 0 rgb(58 59 69 / 15%) !important;
-    z-index: 100000;
- 
-  
-  
+    z-index: 100000; 
 }
+
 .dropdown:hover .dropdown-content {
     display:block;
 }
@@ -204,8 +195,8 @@ font-weight: bold ;
  border-radius:.4rem;
  transition:all .3s;
  cursor: pointer;
-
 }
+
 .dropdown-content > li >a{
     color:#3a3b45;
  font-size:1.6rem;

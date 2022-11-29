@@ -1,9 +1,17 @@
-import React from 'react'
+import React,{useState} from 'react'
 import "./index.css"
 import Fade from 'react-reveal/Fade';
+import {SecondaryButton} from "../Button/index"
 
 
 const Hero=({lightBg,TopLine,lightText,lightTextDesc,headLine,description,img,alt,imgStart,googleImg, appleImg})=> {
+  const [hover,setHover]=useState(false)
+  
+  const onHover=()=>{
+    setHover(!hover)
+  }
+  
+  
   return (
     <>
     <div className={lightBg ? "testimony-container" :"testimony-container purpleBg"}>
@@ -17,12 +25,10 @@ const Hero=({lightBg,TopLine,lightText,lightTextDesc,headLine,description,img,al
                      <p className={lightTextDesc? "sub-desc textDesc":"sub-desc darkTextDesc"}> 
                   {description}
                   </p>
-                     <ul className="Btn-wrapper">
-                    <a href="/">
-                     Get started
-                    </a>
+                  <div className="Btn-wrapper" onMouseEnter={onHover} onMouseLeave={onHover}>
                     
-                    </ul>
+                    <SecondaryButton text="Get Started" hover={hover} onMouseEnter={onHover} onMouseLeave={onHover}/>
+                   </div>
                     </Fade>
               </div>
             </div>

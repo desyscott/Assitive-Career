@@ -209,6 +209,7 @@ router.post("/email-verification", expressAsyncHandler(async (req, res) => {
     email:user.email,
     role:user.role,
     isAdmin:user.isAdmin,
+    cv:user.CV,
     token,
     });
 }));
@@ -233,6 +234,7 @@ router.post("/signin",expressAsyncHandler(async(req, res) => {
       email:user.email,
       role:user.role,
       isAdmin:user.isAdmin,
+      cv:user.CV,
       token,
       });
   } catch (err) {

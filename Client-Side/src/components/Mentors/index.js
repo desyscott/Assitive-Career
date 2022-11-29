@@ -18,13 +18,19 @@ const mapState=({mentorData,requestData})=>({
 function Mentors() {
   const {mentors,requestItems,loading,error} =useSelector(mapState)
   const dispatch=useDispatch()
-  const [query,setQuery] = useState("")
+  const [filter, setFilter] = useState('');
+  
   
   useEffect(()=>{
-    dispatch(fetchMentorsRequest())
+    dispatch(fetchMentorsRequest());
+    
    },[dispatch])
   
-  console.log(query)
+   const filterHandler = (e) => {
+    setFilter(e.target.value);
+    dispatch(fetchMentorsRequest(filter));
+  };
+   
 
   return (
     <>  
@@ -34,30 +40,25 @@ function Mentors() {
         :
         error ?<MessageBox variant="danger">{error}</MessageBox>
         :
-  
     (
       <>
       <div className="col-2">
       <strong>List to Request</strong>
       <div className="selectbox-container">
-      <select className="mentor-selectbox" onChange={(e)=>setQuery(e.target.value)}>
-      
+      <select className="mentor-selectbox" name="filter" onChange={filterHandler}>
       {mentors.map((mentor)=>(
         <option key={mentor._id}>
      {mentor.profession}
      </option>
       ))}
-     
       </select>
       </div>
     <div className="mentor-grid">
     {mentors.map(mentor=>(
       <>
-     
         <div>
        <MentorCard key={mentor._id} mentor={mentor}  />
        </div>
-  
       </>
     ))}
     </div>

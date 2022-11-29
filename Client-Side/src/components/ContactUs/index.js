@@ -11,6 +11,7 @@ import {
    } from "react-icons/fa";
     import "./index.css"
     import logo from "../Assets/images/logo.svg"
+    import {Link} from "react-router-dom"
 
 
 
@@ -30,9 +31,9 @@ const ContactUs=()=>{
         <div className="footer-col">
         <h3 className="footerTitle-link">contact us<div className="underline"><span></span></div></h3>
         <ul>
-          <li className="footer-li"><a href="/"  className="footer-link">contact</a></li>  
-          <li className="footer-li"><a href="/"  className="footer-link">Supports</a></li>  
-          <li className="footer-li"><a href="/"  className="footer-link">Sponsorships</a></li>  
+          <li className="footer-li"> <a href="/"  className="footer-link">contact</a></li>  
+          <li className="footer-li"> <a href="/"  className="footer-link">Supports</a></li>  
+          <li className="footer-li"> <a href="/"  className="footer-link">Sponsorships</a></li>  
         </ul>
         </div>
         <div className="footer-col">
@@ -78,7 +79,7 @@ const ContactUs=()=>{
                 </div> 
             </div>
             <div className="footer-col-2">
-            <a className="chat-link" href="/">Let's chat <FaArrowRight/></a>
+            <Link className="chat-link" to="/user-role">Let's chat <FaArrowRight/></Link>
             </div>
     </div>
         <hr/>

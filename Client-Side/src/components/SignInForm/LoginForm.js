@@ -1,5 +1,5 @@
 import React,{useEffect,useRef} from "react";
-import { Link,useHistory} from "react-router-dom";
+import { Link,useNavigate} from "react-router-dom";
 import {useSelector} from "react-redux"
 import loginUseForm from "./loginUseForm";
 import LoadingBox from "../LoadingBox";
@@ -19,7 +19,7 @@ const mapState=({userData})=>({
 function LoginForm() {
   const {currentUser,loading,signInError,error}=useSelector(mapState);
   const inputRef=useRef()
-  const history=useHistory()
+  const navigate=useNavigate()
   
   const redirect = "/home";
   
@@ -27,9 +27,9 @@ function LoginForm() {
   
   useEffect(()=>{
     if(currentUser){
-     history.push(redirect);
+     navigate(redirect);
     }
-  },[history,redirect,currentUser])
+  },[navigate,redirect,currentUser])
   
   useEffect(()=>{
     inputRef.current.focus();
@@ -38,7 +38,7 @@ function LoginForm() {
   return (
     <div className="Main">
     <div className="form-logo">
-    <img src={ logo} alt="logo"/>
+   <Link to="/"><img src={ logo} alt="logo"/></Link> 
     </div>
     
     <div> Login to Assistive Career</div>

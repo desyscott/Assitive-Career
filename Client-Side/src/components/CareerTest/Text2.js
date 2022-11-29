@@ -1,7 +1,7 @@
 import React,{useState} from 'react'
 import {FormRadioSelect} from "../FormSelect/index"
 import {data} from "./Data"
-import {useHistory,Link} from "react-router-dom"
+import {useNavigate,Link} from "react-router-dom"
 import {useDispatch} from "react-redux"
 import {addWebDevTestScore} from "../Redux/Reducers/CareerTestReducer/CareerTestAction"
 import {configFilters1,configFilters2,configFilters3,configFilters4,configFilters5} from "../FormSelect/useSelectForm"
@@ -13,7 +13,7 @@ import {IoCaretBack} from "react-icons/io5"
 
 function CareerTest2() {
   
-  const history=useHistory()
+  const navigate=useNavigate()
   const dispatch=useDispatch()
 
   const [values,setValues]=useState({
@@ -37,7 +37,7 @@ function CareerTest2() {
      e.preventDefault();
     console.log(values)
     dispatch(addWebDevTestScore(values))
-    history.push("/career-test3")
+    navigate.push("/career-test3")
    }
 
     

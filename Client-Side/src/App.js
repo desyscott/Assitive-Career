@@ -1,6 +1,6 @@
 
 import {useRef} from "react"
-import {Route} from "react-router-dom";
+import {Routes,Route} from "react-router-dom";
 import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 import  { SkeletonTheme} from 'react-loading-skeleton'
@@ -19,6 +19,7 @@ import MentorRequest from "./Pages/MentorRequest"
 import Mentors from "./Pages/Mentors"
 import CareerTest from "./Pages/CareerTest"
 import CourseDetails from "./Pages/CourseDetails";
+import CareerRoadmap from "./Pages/CareerRoadmap";
 import Profile from "./Pages/Profile"
 import MentorList from "./Pages/MentorsList"
 import CareerTest2 from "../src/components/CareerTest/Text2"
@@ -27,15 +28,16 @@ import TestResults from "../src/components/CareerTest/TestResults"
 import Users from "./Pages/Users"
 import Mentor from "./Pages/Mentor"
 import Events from "./Pages/Events"
-import user from "./Pages/user"
+import User from "./Pages/user"
 import Help from "./Pages/Help"
 import PrivateRoute from "./components/PrivateRoute/index"
+import PrivateOutlet from "./components/privateOutlet/index"
 
 
 
 
 const  App=()=> {
-  
+  console.log(window.location)
   const home=useRef(null)
   const event=useRef(null)
   const mentor=useRef(null)
@@ -57,12 +59,13 @@ const  App=()=> {
   return (
     <>
      <SkeletonTheme baseColor="hsl(200,30%,80%)" highlightColor="hsl(500, 50%, 95%)">
-      
-          <Route path="/" exact={true} render={()=>(
+     <Routes>
+          <Route path="/" exact={true} element={
             <LandingMainLayout  {...configScrollRef}>
             <Landing  {...configScrollRef}/>
             </LandingMainLayout>
-          )}/>
+          }/>
+        
        
           {/* <Route path="/home" render={()=>(
             <MainLayout>
@@ -146,36 +149,161 @@ const  App=()=> {
             </MainLayout>
           )}/>
            */}
+         
+          <Route path="/home" element={
+            <PrivateRoute>
+              <MainLayout>
+               <Home/>
+              </MainLayout>
+            </PrivateRoute>
+            } exact/>
           
-          <PrivateRoute path="/home" component={Home} />
-          <PrivateRoute path="/profile" component={Profile} />
-          <PrivateRoute path="/careers" component={Dashboard} />
-          <PrivateRoute path="/request-mentor" component={MentorRequest} />
-          <PrivateRoute path="/career-test" component={CareerTest} />
-          <PrivateRoute path="/mentors" component={Mentors} />
-          <PrivateRoute path="/mentor/:mentorId" component={Mentor} />
-          <PrivateRoute path="/mentor-list" component={MentorList} />
-          <PrivateRoute path="/users" component={Users} />
-          <PrivateRoute path="/user/:userId" component={user} />
-          <PrivateRoute path="/course/:courseId" component={CourseDetails} />
-          <PrivateRoute path="/events" component={Events} />
-          <PrivateRoute path="/help" component={Help} />
-          <PrivateRoute path="/career-test2" component={CareerTest2} />
-          <PrivateRoute path="/career-test3" component={CareerTest3} />
-          <PrivateRoute path="/test-results" component={TestResults} />
+          <Route path="/*" element={<PrivateOutlet/>} />
+     
+          <Route path="/profile" element={
+            <PrivateRoute>
+              <MainLayout>
+              <Profile/>
+              </MainLayout>
+            </PrivateRoute>
+            } />
           
-          <Route exact path="/user-role" render={()=>(
+          <Route path="/careers" element={
+            <PrivateRoute>
+            <MainLayout>
+            <Dashboard/>
+            </MainLayout>
+            </PrivateRoute>
+            } />
+        
+        <Route path="/request-mentor" element={
+          <PrivateRoute>
+            <MainLayout>        
+             <MentorRequest/>
+            </MainLayout>
+          </PrivateRoute>
+          } />
+        
+          <Route path="/career-test" element={
+            <PrivateRoute>
+              <MainLayout>
+               <CareerTest/>
+              </MainLayout>           
+            </PrivateRoute>
+            } />
+          
+          <Route path="/mentors" element={
+            <PrivateRoute>
+              <MainLayout>
+               <Mentors/>
+              </MainLayout>           
+            </PrivateRoute>
+            } />
+          
+          
+          <Route path="/mentor/:mentorId" element={
+            <PrivateRoute>
+              <MainLayout>
+               <Mentor/>
+              </MainLayout>           
+            </PrivateRoute>
+            } />
+          
+          <Route path="/mentor-list" element={
+            <PrivateRoute>
+              <MainLayout>
+               <MentorList/>
+              </MainLayout>       
+             </PrivateRoute>
+            } />
+          
+          <Route path="/users" element={
+            <PrivateRoute>
+              <MainLayout>
+               <Users/>
+              </MainLayout>           
+             </PrivateRoute>
+            } />
+          
+          <Route path="/user/:userId" element={
+            <PrivateRoute>
+              <MainLayout>
+                <User/>
+              </MainLayout>           
+           </PrivateRoute>
+            } />
+          
+          <Route path="/course/:courseId" element={
+            <PrivateRoute>
+              <MainLayout>
+               <CourseDetails/>
+              </MainLayout>
+            </PrivateRoute>
+            } />
+          
+          <Route path="/roadmap/:courseId" element={
+            <PrivateRoute>
+              <MainLayout>
+               <CareerRoadmap/>
+              </MainLayout>
+            </PrivateRoute>
+            } />
+          
+          <Route path="/events" element={
+            <PrivateRoute>
+              <MainLayout>
+               <Events/>
+              </MainLayout>           
+            </PrivateRoute>
+            } />
+          
+          <Route path="/help" element={
+            <PrivateRoute>
+              <MainLayout>
+               <Help/>
+              </MainLayout>           
+           </PrivateRoute>
+            } />
+          
+          <Route path="/career-test2" element={
+            <PrivateRoute>
+              <MainLayout>
+               <CareerTest2/>
+              </MainLayout>
+            </PrivateRoute>
+            } />
+          
+          <Route path="/career-test3" element={
+            <PrivateRoute>
+              <MainLayout>
+               <CareerTest3/>
+              </MainLayout>
+            </PrivateRoute>
+            } />
+          
+          <Route path="/test-results" element={
+            <PrivateRoute>
+              <MainLayout>
+               <TestResults/>
+              </MainLayout>
+            </PrivateRoute>
+            } />
+         
+          <Route exact path="/user-role" element={
             <UserRole/>
-          )}/>
-  
-          <Route path="/signIn" component={Login} />
-          <Route path="/signUp/:signUpRole"  component={SignUp} />
+         }/>
+          <Route path="/signIn" element={<Login/>} />
+        
+          <Route path="/signUp/:signUpRole"  element={<SignUp/>} />
           
           <Route path="/email-verification"
-           component={EmailVerified}
+           element={<EmailVerified/>}
           />
-          <Route path="/forgot-password" component={ForgotPassword} />
-          <Route path="/reset-password" component={ResetPassword} />
+          
+          <Route path="/forgot-password" element={<ForgotPassword/>} />
+         
+          <Route path="/reset-password" element={<ResetPassword/>} />
+          </Routes>
      </SkeletonTheme>
     </>
   );

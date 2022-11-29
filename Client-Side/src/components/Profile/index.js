@@ -8,6 +8,7 @@ import { userTypes } from '../Redux/Reducers/userReducer/userTypes'
 import ProfilePhoto from "../Assets/images/blank-profile-picture-gdfa15e9f3_1280.png"
 import "./index.css"
 import {FiCamera} from "react-icons/fi"
+import {FaFileAlt} from "react-icons/fa"
 import Axios from 'axios'
 
 
@@ -190,7 +191,7 @@ console.log(file);
          </div>
          
          <div>
-            <label htmlFor="Cv">Upload CV</label>
+            <label htmlFor="Cv">CV</label>
             <input
               type="file"
              onChange={handleProfileImageChange}
@@ -294,12 +295,24 @@ console.log(file);
          </div>
          
          <div>
-            <label htmlFor="Cv">Upload CV</label>
+            <label htmlFor="Cv">CV</label>
             <input
               type="file"
              onChange={handleProfileImageChange}
             />
           </div>
+          
+          {  
+          currentUser.cv &&
+         <div>
+          
+            <div className="mentor-document">
+            <FaFileAlt className="file-icon"/>{currentUser.cv}
+            </div>
+          </div>
+     
+      
+      }
          
           <div>
          <label htmlFor="password">Password</label>

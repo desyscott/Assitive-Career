@@ -16,15 +16,16 @@ usersRouter.get("/seed",expressAsyncHandler(async(req,res)=>{
 }))
 
 
+
 //get all mentor
 usersRouter.get("/",  expressAsyncHandler(async(req, res) => {
-    const user = await authModel.find({role:"Mentor"});
-    if(user){
-      res.send(user)
-    
-    }else{
-      res.status(404).send({message:"User Not found"})
-    }
+  const user = await authModel.find({role:"Mentor"});
+  if(user){
+    res.send(user)
+  
+  }else{
+    res.status(404).send({message:"User Not found"})
+  }
 }));
 
 

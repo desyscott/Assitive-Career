@@ -57,8 +57,6 @@ const LandingNavBar =(props)=>{
           
         </ul>
     </li>
-    
-    
     <li onClick={()=>scrollToSection(aboutUs)}><Link to="/#" >About Us</Link></li>
     <li onClick={()=>scrollToSection(contactUs)}><Link to="/#" >Contact Us</Link></li>
     <li onClick={()=>scrollToSection(home)}><Link to="/#" >FAQ</Link></li>
