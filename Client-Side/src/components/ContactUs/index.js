@@ -13,10 +13,16 @@ import {
     import logo from "../Assets/images/logo.svg"
     import {Link} from "react-router-dom"
 
-
-
-
-const ContactUs=()=>{
+const ContactUs=(props)=>{
+    const { home, event,contactUs,aboutUs}=props
+    
+    const scrollToSection=(refElement)=>{
+        window.scrollTo({
+          top:refElement.current.offsetTop,
+          behavior:"smooth",
+        })
+      }
+      
     return(
         <>
         <IconContext.Provider value={{color:"#d6a458"}}>
@@ -48,10 +54,10 @@ const ContactUs=()=>{
         <div className="footer-col">
         <h3 className="footerTitle-link">Link<div className="underline"><span></span></div></h3>
         <ul>
-          <li className="footer-li"><a  className="footer-link" href="/">home</a></li>  
-          <li className="footer-li"><a className="footer-link" href="/">services</a></li>  
-          <li className="footer-li"><a className="footer-link" href="/">products</a></li>  
-          <li className="footer-li"><a className="footer-link" href="/">contact us</a></li>  
+          <li className="footer-li" onClick={()=>scrollToSection(home)}><Link  className="footer-link" to="/#">home</Link></li>  
+          <li className="footer-li" onClick={()=>scrollToSection(event)}><Link className="footer-link" to="/#">services</Link></li>  
+          <li className="footer-li" onClick={()=>scrollToSection(aboutUs)}><Link className="footer-link" to="/#">About us</Link></li>  
+          <li className="footer-li" onClick={()=>scrollToSection(contactUs)}><Link className="footer-link" to="/#">contact us</Link></li>  
         </ul>
         </div>
         </div>

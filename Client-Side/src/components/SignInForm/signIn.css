@@ -10,6 +10,11 @@
     justify-content:center;
 }
 
+.signIn-header >h2{
+    font-weight:700;
+    font-family:var(--fonts-heading);
+}
+
 .form{
     max-width:50rem;
     margin:2rem auto;

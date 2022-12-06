@@ -43,7 +43,7 @@ function LoginForm() {
     
     <div> Login to Assistive Career</div>
         <form onSubmit={handleSubmit} className="form">
-        <div>
+        <div className="signIn-header">
           <h2>Sign In</h2>
           </div>
           

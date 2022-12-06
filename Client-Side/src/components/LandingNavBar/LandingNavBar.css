@@ -66,6 +66,32 @@ font-weight: bold ;
 .primary-navigation a:hover {
     color:#ffff;
 }
+.footer-link{
+    position: relative;
+    font-size:16px
+  
+}
+.landingNav-active{
+    position:relative;
+
+   }
+.landingNav-active::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 2px;
+    background: #279EFD;
+    transform: scaleX(0);
+    transition: transform .3s ease-in-out;
+ }
+
+ .landingNav-active:hover::before,
+ .landingNav-active:focus::before{
+     transform: scale(1);
+ 
+ }
 
 .active{
     background-color:#fff;

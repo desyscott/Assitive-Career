@@ -7,7 +7,7 @@ import Fade from 'react-reveal/Fade';
 
 
 
-const Hero=({lightBg,TopLine,lightText,lightTextDesc,headLine,description,img,userRatingImg,alt,imgStart,googleImg, appleImg})=> {
+const Hero=({lightBg,TopLine,lightText,lightTextDesc,headLine,description,img,userRatingImg,alt,imgStart})=> {
   const [hover,setHover]=useState(false)
   
   const onHover=()=>{

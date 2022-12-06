@@ -35,7 +35,7 @@ function Test() {
      e.preventDefault();
     console.log(values)
     dispatch(addCyberTestScore(values))
-   navigate.push("/career-test2")
+   navigate("/career-test2")
    }
 
     

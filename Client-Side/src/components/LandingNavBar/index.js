@@ -40,26 +40,26 @@ const LandingNavBar =(props)=>{
    
    <nav>
     <ul className="primary-navigation flex mobile-view">
-    <li onClick={()=>scrollToSection(home)}><Link  to="/">Home</Link></li>
+    <li onClick={()=>scrollToSection(home)}><Link  to="/" className="landingNav-active">Home</Link></li>
     
    
     <li  className="services-dropdown">
-        <Link to="/#">Services
+        <Link to="/#"  className="landingNav-active">Services
         {' '}<i className="fa fa-caret-down" />
         </Link>
         <ul className="services-dropdown-content">
            <li onClick={()=>scrollToSection(event)}>
-           <Link to="/#">News/Events</Link>
+           <Link to="/#" className="landingNav-active">News/Events</Link>
            </li>
            <li onClick={()=>scrollToSection(mentor)}>
-           <Link to="/#">Mentors</Link>
+           <Link to="/#" className="landingNav-active">Mentors</Link>
            </li>
           
         </ul>
     </li>
-    <li onClick={()=>scrollToSection(aboutUs)}><Link to="/#" >About Us</Link></li>
-    <li onClick={()=>scrollToSection(contactUs)}><Link to="/#" >Contact Us</Link></li>
-    <li onClick={()=>scrollToSection(home)}><Link to="/#" >FAQ</Link></li>
+    <li onClick={()=>scrollToSection(aboutUs)}><Link to="/#" className="landingNav-active" >About Us</Link></li>
+    <li onClick={()=>scrollToSection(contactUs)}><Link to="/#" className="landingNav-active" >Contact Us</Link></li>
+    <li onClick={()=>scrollToSection(home)}><Link to="/#"  className="landingNav-active">FAQ</Link></li>
     </ul>
     </nav>
    

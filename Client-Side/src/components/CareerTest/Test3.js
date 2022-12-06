@@ -35,7 +35,7 @@ function Test() {
      e.preventDefault();
     console.log(values)
     dispatch(addDataAnaTestScore(values))
-    navigate.push("/test-results")
+    navigate("/test-results")
    }
 
     

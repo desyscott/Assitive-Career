@@ -1,0 +1,17 @@
+.forgetPsswd-header{
+    display:flex;
+    margin-left: 41rem;
+    margin-bottom: 3rem;
+}
+
+.forgetPsswd-header h1{ 
+    font-size: 23px;
+    font-weight:700;
+    font-family:var(--fonts-heading);
+}
+
+.forgetPsswd-span{
+    color:rgba(32, 31, 31, 0.753);
+    font-size:1.4rem;
+    letter-spacing:.5px
+}

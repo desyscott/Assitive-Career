@@ -102,7 +102,7 @@ function SignUp() {
       
         <form className="signUp-form" onSubmit={handleSubmit} enctype="multipart/form-data">
         
-        <div>
+        <div className="signUp-header">
           <h2>
            Create Account
           </h2>

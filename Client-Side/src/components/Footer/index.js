@@ -5,7 +5,7 @@ const Footer =()=>{
     return(
         <>
       <div class="footer-container">
-       <div>All right reserved</div>
+       <div>&copy; All right reserved</div>
       </div>
         </>
     )

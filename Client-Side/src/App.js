@@ -1,7 +1,6 @@
 
 import {useRef} from "react"
 import {Routes,Route} from "react-router-dom";
-import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 import  { SkeletonTheme} from 'react-loading-skeleton'
 import MainLayout from "./components/MainLayout/index"
@@ -34,10 +33,7 @@ import PrivateRoute from "./components/PrivateRoute/index"
 import PrivateOutlet from "./components/privateOutlet/index"
 
 
-
-
 const  App=()=> {
-  console.log(window.location)
   const home=useRef(null)
   const event=useRef(null)
   const mentor=useRef(null)
@@ -54,25 +50,21 @@ const  App=()=> {
    contactUs,
   }
   
-  
-  
   return (
     <>
      <SkeletonTheme baseColor="hsl(200,30%,80%)" highlightColor="hsl(500, 50%, 95%)">
-     <Routes>
+       <Routes>
           <Route path="/" exact={true} element={
             <LandingMainLayout  {...configScrollRef}>
             <Landing  {...configScrollRef}/>
             </LandingMainLayout>
           }/>
-        
-       
+          
           {/* <Route path="/home" render={()=>(
             <MainLayout>
             <Home/>
             </MainLayout>
           )}/>
-          
           
           <Route path="/course/:courseId" render={()=>(
             <MainLayout>
@@ -163,16 +155,16 @@ const  App=()=> {
           <Route path="/profile" element={
             <PrivateRoute>
               <MainLayout>
-              <Profile/>
+               <Profile/>
               </MainLayout>
             </PrivateRoute>
             } />
           
           <Route path="/careers" element={
             <PrivateRoute>
-            <MainLayout>
-            <Dashboard/>
-            </MainLayout>
+              <MainLayout>
+               <Dashboard/>
+              </MainLayout>
             </PrivateRoute>
             } />
         
@@ -199,8 +191,7 @@ const  App=()=> {
               </MainLayout>           
             </PrivateRoute>
             } />
-          
-          
+        
           <Route path="/mentor/:mentorId" element={
             <PrivateRoute>
               <MainLayout>
@@ -289,21 +280,18 @@ const  App=()=> {
             </PrivateRoute>
             } />
          
-          <Route exact path="/user-role" element={
-            <UserRole/>
-         }/>
-          <Route path="/signIn" element={<Login/>} />
+          <Route exact path="/user-role" element={ <UserRole/>}/>
+          
+          <Route path="/signIn" element={<Login/>}/>
         
-          <Route path="/signUp/:signUpRole"  element={<SignUp/>} />
+          <Route path="/signUp/:signUpRole"  element={<SignUp/>}/>
           
-          <Route path="/email-verification"
-           element={<EmailVerified/>}
-          />
+          <Route path="/email-verification" element={<EmailVerified/>}/>
           
-          <Route path="/forgot-password" element={<ForgotPassword/>} />
-         
-          <Route path="/reset-password" element={<ResetPassword/>} />
-          </Routes>
+          <Route path="/forgot-password" element={<ForgotPassword/>}/>
+          
+          <Route path="/reset-password" element={<ResetPassword/>}/>
+       </Routes>
      </SkeletonTheme>
     </>
   );

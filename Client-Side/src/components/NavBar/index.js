@@ -13,133 +13,105 @@ import {FiUsers} from "react-icons/fi"
 import {FaElementor} from "react-icons/fa"
 import {IoNotificationsSharp} from "react-icons/io5"
 
-
 const NavBar =()=>{
-  const navigate=useNavigate()
-    const dispatch=useDispatch()
+   const navigate = useNavigate();
+    const dispatch=useDispatch();
     const {currentUser}=useSelector((state)=>state.userData);
     const [selected,setSelected]=useState()
     const [click,setClick]=useState(false)
     
-  
     const handleSignOut=()=>{
         dispatch(signOut())
-        navigate.push("/");
+        navigate("/");
     }
-    
-    
+  
     const handleClick=()=>{
       setClick(!click)
     }
  
-    return(
+return(
   <div className= "nav-header flex">
-  
    <div className="nav-logo">
-    
-    
-   <Link to="/home" >
-    <img src={ logo} alt="logo" className="logo-nav"/>
-    Assistive Career
+     <Link to="/home" >
+      <img src={ logo} alt="logo" className="logo-nav"/>
+      Assistive Career
     </Link>
    </div>
-   
-
 {currentUser && currentUser.role==="Mentor" ?
-
  (
   <nav>
-    <ul className="primary-navigation flex mobile-view">
-    {NavBarItems2.map((item,index)=>{
-   return (
-    <li key={index} onClick={()=>setSelected(index)} className={selected===index? "navbar-list-items nav-active":"navbar-list-items"} >
-    <Link to={item.path} >
-        {item.title}
-    </Link>
-    </li>
-   )
-  
- })}
-    </ul>
-    </nav>
-   
+      <ul className="primary-navigation flex mobile-view">
+      {NavBarItems2.map((item,index)=>{
+    return (
+      <li key={index} onClick={()=>setSelected(index)} className={selected===index? "navbar-list-items nav-active":"navbar-list-items"} >
+        <Link to={item.path} >
+            {item.title}
+        </Link>
+      </li>
+    )
+  })}
+      </ul>
+  </nav>
  ):(
   <nav>
     <ul className="primary-navigation flex mobile-view">
-    {NavBarItems.map((item,index)=>{
-   return (
-    <li key={index} onClick={()=>setSelected(index)} className={selected===index ? "navbar-list-items nav-active":"navbar-list-items"} >
-    <Link to={item.path} >
-        {item.title}
-    </Link>
-    </li>
-   )
-  
- })}
+      {NavBarItems.map((item,index)=>{
+    return (
+      <li key={index} onClick={()=>setSelected(index)} className={selected===index ? "navbar-list-items nav-active":"navbar-list-items"} >
+      <Link to={item.path}>{item.title}</Link>
+      </li>
+    )})}
     </ul>
-    </nav>
-   
- )
- 
- 
- }
-  
-   
+  </nav>
+ )}
    <div className="nav-links flex">
     <div>
-   <IoNotificationsSharp className={click ? "notification-icon-light":"notification-icon"} onClick={handleClick} />
-   <ul className={click ? "notification-dropdown-content ":"notification-dropdown-none"}>
-   <p>You haven’t received any notifications yet</p>
-   <div>
-   <button>view all notifications</button>
-   </div>
-   </ul>
-   </div>
+      <IoNotificationsSharp className={click ? "notification-icon-light":"notification-icon"} onClick={handleClick} />
+      <ul className={click ? "notification-dropdown-content ":"notification-dropdown-none"}>
+        <p>You haven’t received any notifications yet</p>
+        <div>
+        <button>view all notifications</button>
+        </div>
+      </ul>
+    </div>
   
     {currentUser &&
-     
-  
-      <div className="dropdown">
+    <div className="dropdown">
       {currentUser && currentUser.profileImage ?
         (<img src={currentUser.profileImage} alt="profile" className="profile-photo"/>)
        :(<img src={ProfilePhoto} alt="profile" className="profile-photo"/>)}
-      
-      
        {'  '}
-        <Link to="#">{currentUser.firstName}
+           <Link to="#">{currentUser.firstName}
         {' '}<i className="fa fa-caret-down"/>
         </Link>
         <ul className="dropdown-content">
            <li>
-           <Link to="/profile"><CgProfile className="dropdown-icons"/>My Profile</Link>
+            <Link to="/profile"><CgProfile className="dropdown-icons"/>My Profile</Link>
            </li>
            <li>
-           <Link to="/help"><IoMdHelpCircleOutline className="dropdown-icons"/>Help</Link>
+            <Link to="/help"><IoMdHelpCircleOutline className="dropdown-icons"/>Help</Link>
            </li>
            <li>
-          <Link to="#" onClick={handleSignOut}><TbLogout className="logout-icon"/>Logout</Link>
+            <Link to="#" onClick={handleSignOut}><TbLogout className="logout-icon"/>Logout</Link>
           </li>
         </ul>
     </div>
     }
-     
     
-   
-   
    {currentUser && currentUser.isAdmin &&
     <div className="dropdown">
-    <Link to="#">
-    Admin {''}
-    <i className="fa fa-caret-down"/>
-    </Link>
-    <ul className="dropdown-content">
-    <li><Link to="/mentor-list"><FaElementor className="dropdown-icons"/>All Mentors</Link></li>
-    <li><Link to="/users"><FiUsers  className="dropdown-icons"/>All Students</Link></li>
-    </ul>
+      <Link to="#">
+        Admin {''}
+        <i className="fa fa-caret-down"/>
+      </Link>
+      <ul className="dropdown-content">
+        <li><Link to="/mentor-list"><FaElementor className="dropdown-icons"/>All Mentors</Link></li>
+        <li><Link to="/users"><FiUsers  className="dropdown-icons"/>All Students</Link></li>
+      </ul>
     </div>
     }
    </div>
-        </div>
+</div>
     )
 }
 

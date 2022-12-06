@@ -3,6 +3,11 @@
    
 }
 
+.signUp-header{
+    font-weight:700;
+    font-family:var(--fonts-heading);
+}
+
 .signUp-form{
     width:35rem;
     margin:0 auto;

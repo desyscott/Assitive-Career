@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import MessageBox from "../MessageBox/index"
+import "./index.css"
 
 
 function ForgotPassword() {
@@ -32,13 +33,20 @@ function ForgotPassword() {
 
   return (
     <>
-      <div>
+      <div className="container">
+      <div className="forgetPsswd-header">
+      <h1>Assistive Career</h1>
+      </div>
         <form onSubmit={handleSubmit} className="form">
         <div>
           <h3>Forgot Password</h3>
           </div>
          {message && <MessageBox variant="success">{message}</MessageBox>}
          
+         <div>
+          <span className="forgetPsswd-span">Enter the email address associated with your account and we'll send you a link to reset your password.</span>
+          </div>
+          
           <div>
             <label for="email">Email</label>
             <input
@@ -61,7 +69,7 @@ function ForgotPassword() {
           <div>
           <label/>
        
-          <Link to="/signin">Back to login</Link>
+          <Link to="/signin">Back to sign In</Link>
           </div>
         </form>
       

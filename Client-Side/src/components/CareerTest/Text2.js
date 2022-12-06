@@ -37,7 +37,7 @@ function CareerTest2() {
      e.preventDefault();
     console.log(values)
     dispatch(addWebDevTestScore(values))
-    navigate.push("/career-test3")
+    navigate("/career-test3")
    }
 
     

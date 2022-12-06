@@ -24,6 +24,7 @@ export const data ={
                 verified:true,
               },
                  
+                
                  ],
     
           courses:[

@@ -2,12 +2,11 @@ import React,{useEffect} from 'react'
 import {useParams,Link} from "react-router-dom"
 import {useSelector,useDispatch} from "react-redux"
 import {fetchCourseRequest} from "../Redux/Reducers/courseReducer/courseActions"
-import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 import MessageBox from "../MessageBox/index"
 import "./index.css"
 import LoadingBox from '../LoadingBox'
-
+import {IoCaretBack} from "react-icons/io5"
 
 const mapState=({coursesData})=>({
   course:coursesData.course,
@@ -16,51 +15,44 @@ const mapState=({coursesData})=>({
 })
 
 const Details=()=> {
-
-  const {course,loading,error} =useSelector(mapState)
-  const dispatch =useDispatch()
- 
+  const {course,loading,error}=useSelector(mapState)
+  const  dispatch=useDispatch()
+  const {courseId}=useParams()
   
-   const {courseId}=useParams()
-  
-  useEffect(()=>{
+   useEffect(()=>{
     dispatch(fetchCourseRequest(courseId))
   },[dispatch,courseId])
   
- 
-  
-  
-   
    if(!course){
      return <div>No course found</div>
    }
-   
-   
-  
-   
+
   return (
-    
     <div className="main">
     {loading ? 
-     <LoadingBox/>
+      <LoadingBox/>
      :
      error ?<MessageBox variant="danger">{error}</MessageBox>
      :
     ( <>
-       <Link to ="/careers">Back to Results</Link>
+     <div  className="back-btn">
+      <IoCaretBack/> <Link to ="/careers">Back to Careers</Link>
+      </div>
          <div className="column center">
+          <div className='details-title'>
+          <h1>{course.title}</h1>
+          <p>Step by step guide to becoming a modern {course.title} in 2022</p>
+          </div>
          <div className="details-nav">
-         <div  className="details-btn">
-         <Link to={`/course/${courseId}`}>Details</Link>
+            <Link to={`/course/${courseId}`} className="details-btn details">
+            Details
+            </Link>
+            <Link to ={`/roadmap/${courseId}`}  className="details-btn">
+            Roadmap
+            </Link>
          </div>
-         <div className="details-btn">
-         <Link to ={`/roadmap/${courseId}`}>Roadmap</Link>
-         </div>
-         </div>
-         
          <div className="details-modal">
           <p>{course.details}</p>
-           
          </div>
       </div>
       </>)

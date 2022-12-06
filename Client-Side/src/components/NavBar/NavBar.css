@@ -102,13 +102,6 @@ font-weight: bold ;
    color:rgba(85, 27, 179, 0.89) ;
   }
 
-.activeLink{
-   color:rgba(85, 27, 179, 0.89) ;
-  }
-.normalLink{
-   color:rgba(85, 27, 179, 0.89) ;
-  }
-
 .nav-active::before{
    content:"";
    position:absolute;
@@ -121,6 +114,12 @@ font-weight: bold ;
    top:17px;
 }
 
+.activeLink{
+    color:rgba(85, 27, 179, 0.89) ;
+   }
+ .normalLink{
+    color:rgba(85, 27, 179, 0.89) ;
+   }
 
 .nav-links a{
     color:#ffff; 
@@ -156,9 +155,7 @@ font-weight: bold ;
     position:relative;
     padding:.5rem;
     padding:1.3rem 0;
-    
-    
-   
+  
 }
 
 .dropdown-content{

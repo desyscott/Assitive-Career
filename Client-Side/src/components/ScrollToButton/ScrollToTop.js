@@ -5,13 +5,11 @@ import "./ScrollToTop.css"
 function ScrollToTop() {
     const [showScrollTopButton,setShowScrollTopButton]=useState(false);
     
-    
     const ScrollToTopSection=()=>{
         window.scrollTo({
           top:0,
           behavior:"smooth",
         })
-        
       }
     
 const ScrollToTop=()=>{
@@ -26,7 +24,6 @@ const ScrollToTop=()=>{
         window.addEventListener("scroll",ScrollToTop)
     },[])
     
-    
   return (
     <>
     {showScrollTopButton &&(
@@ -34,9 +31,7 @@ const ScrollToTop=()=>{
         <BsArrowUpSquareFill className="scroll-top-btn-wrapper scroll-top-btn" onClick={()=>ScrollToTopSection()}/>
         </>
     )}
-
     </>
   )
 }
-
 export default ScrollToTop
