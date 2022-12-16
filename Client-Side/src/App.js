@@ -39,6 +39,7 @@ const  App=()=> {
   const mentor=useRef(null)
   const testimonal=useRef(null)
   const aboutUs=useRef(null)
+  const faq=useRef(null)
   const contactUs=useRef(null)
   
   const configScrollRef ={
@@ -47,6 +48,7 @@ const  App=()=> {
    mentor,
    testimonal,
    aboutUs,
+   faq,
    contactUs,
   }
   

@@ -6,7 +6,7 @@ import "./LandingNavBar.css"
 
 const LandingNavBar =(props)=>{
     
-    const { home, event,mentor,testimonal,contactUs,aboutUs}=props
+    const { home, event,mentor,testimonal,contactUs,aboutUs,faq}=props
     
     const [scroll, setScroll] = useState(false)
   
@@ -59,7 +59,7 @@ const LandingNavBar =(props)=>{
     </li>
     <li onClick={()=>scrollToSection(aboutUs)}><Link to="/#" className="landingNav-active" >About Us</Link></li>
     <li onClick={()=>scrollToSection(contactUs)}><Link to="/#" className="landingNav-active" >Contact Us</Link></li>
-    <li onClick={()=>scrollToSection(home)}><Link to="/#"  className="landingNav-active">FAQ</Link></li>
+    <li onClick={()=>scrollToSection(faq)}><Link to="/#"  className="landingNav-active">FAQ</Link></li>
     </ul>
     </nav>
    

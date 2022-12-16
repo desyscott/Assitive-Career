@@ -11,7 +11,7 @@ export const HomeObjOne={
     lightTextDesc:true,
     TopLine:"Exclusive Access",
     headLine:"Choose the right career",
-    description:"Assistive Career is on stop destination in helping you understand yourself,the best career for you and providing you all the resources in the process",
+    description:"Assistive Career is your one stop destination in helping you understand yourself,the best career for you and providing you all the resources in the process",
     imgStart:"",
     alt:"phone",
     img:HeroImg,
@@ -53,4 +53,15 @@ export const HomeObjFour={
     imgStart:"end",
     img:UserImg,
     alt:"",
+};
+
+export const HomeObjFive={
+    lightBg:false,
+    // lightText:false,
+    // lightTextDesc:false,
+    // headLine:"connect with a Mentor",
+    // description: "A quick, easy call with an expert is just one click away with our attractive one-off sessions. Picking a brain, talking through an issue or getting to know an industry expert has never been easier.",
+    // imgStart:"end",
+    // img:UserImg,
+    // alt:"",
 };

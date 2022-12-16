@@ -31,8 +31,7 @@ const About=({lightBg,TopLine,lightText,lightTextDesc,headLine,description,img,a
         </div>
       <div className="steps">
       <h3>Choose Right</h3>
-     We help you make the right choice and push you towards your career goals.
-      Engage in our events and career test to discover your strengths and future opportunities
+      We help you make the right choice and push you towards your career goals by engaging in our events and career test to discover your strengths and future opportunities
         </div>
       <div className="steps">
       <h3>Master Change</h3>

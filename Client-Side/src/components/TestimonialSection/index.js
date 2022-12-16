@@ -4,7 +4,7 @@ import Fade from 'react-reveal/Fade';
 import {SecondaryButton} from "../Button/index"
 
 
-const Hero=({lightBg,TopLine,lightText,lightTextDesc,headLine,description,img,alt,imgStart,googleImg, appleImg})=> {
+const Hero=({lightBg,TopLine,lightText,lightTextDesc,headLine,description,img,alt,imgStart})=> {
   const [hover,setHover]=useState(false)
   
   const onHover=()=>{

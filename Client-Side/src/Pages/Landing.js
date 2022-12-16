@@ -5,12 +5,13 @@ import EventSection from "../components/EventSection/index"
 import TestimonalSection from "../components/TestimonialSection/index"
 import AboutUs from "../components/AboutUs/index"
 import ContactUs from "../components/ContactUs/index"
+import FAQ from "../components/FAQ/index"
 import ScrollToTopButton from "../components/ScrollToButton/ScrollToTop"
 
-import {HomeObjOne,HomeObjTwo,HomeObjThree,HomeObjFour} from "../components/LandingData/LandingData"
+import {HomeObjOne,HomeObjTwo,HomeObjThree,HomeObjFour,HomeObjFive} from "../components/LandingData/LandingData"
 
 const Landing=(props)=>{
-  const { home, event,mentor,testimonal,contactUs,aboutUs,}=props
+  const { home, event,mentor,testimonal,contactUs,aboutUs,faq}=props
   return (
     <>
         <ScrollToTopButton/>
@@ -35,9 +36,15 @@ const Landing=(props)=>{
      <TestimonalSection {...HomeObjFour}/>
     </div>
     
+    <div  ref={faq}>
+     <FAQ {...HomeObjFive}/>
+   </div>
+   
     <div  ref={contactUs}>
      <ContactUs {...props}/>
    </div>
+   
+  
     </>
   );
 }

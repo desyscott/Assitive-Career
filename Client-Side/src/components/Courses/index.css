@@ -41,7 +41,7 @@
     outline:2px solid transparent;
     outline-offset: 2px;
     margin:1rem;
-    max-width:32rem;
+ 
     transition-duration: 150ms;
     transition-property:background-color,border-color,color,fill,stroke,opacity,box-shadow,transform; ;
     transition-timing-function: cubic-bezier(0, 0, 0.2, 1);

@@ -18,6 +18,9 @@
     padding: 0px
 }
 
+.current{
+    opacity:1;
+}
 
 .event-card{
     border:.1px #d6d4d4 solid;
@@ -194,7 +197,6 @@
 }
 
 .event-card-infor {
- 
     padding: 2.063rem;
     background: rgb(255, 255, 255);
     width: 100%;
