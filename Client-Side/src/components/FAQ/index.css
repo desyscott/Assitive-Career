@@ -37,5 +37,13 @@
 .faq-details{
     padding-top: 1.5rem;
     line-height:25px;
-    letter-spacing:0.5px;
+}
+
+.down-arrow{
+    color: rgb(6, 117, 206);
+    font-size: 21px;
+}
+.up-arrow{
+    color: rgb(6, 117, 206);
+  
 }

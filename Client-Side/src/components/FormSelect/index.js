@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState} from 'react';
 import "./index.css"
 
 
@@ -29,14 +29,10 @@ const FormSelect = ({ options, defaultValue, handleChange, label, ...otherProps 
 export default FormSelect;
 
 
-
-
-
 export const FormRadioSelect = ({ options, handleChange,defaultValue, label, ...otherProps }) => {
-
+  
   if (!Array.isArray(options) || options.length < 1) return null;
   return (
-    
     <div>
       {label && (
         <label className="formSelect-label">
@@ -46,25 +42,19 @@ export const FormRadioSelect = ({ options, handleChange,defaultValue, label, ...
       <div className="form-radio-container">
         {options.map((option, index) => {
           const { value, name } = option;
-          return (
-           
-            <>
-            
+          return ( <>
           <div className="radio-item">
             <input type="radio"
             className="radio"
               required
-              checked={value === "0"}
+             checked
              name={name}
              value={value} 
              onChange={handleChange}
         />
           <p className="radio-label">{value}</p>
           </div>
-             
-          
             </>
-            
           );
         })}
         </div>

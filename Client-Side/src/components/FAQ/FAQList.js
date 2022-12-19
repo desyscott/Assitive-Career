@@ -14,9 +14,9 @@ const  FAQList=({item})=>{
         <div className='faq-title'>
       <strong>{item.title}</strong>
     {item.subInfor && subinfor
-      ?<BiChevronDown size={21}/>
+      ?<BiChevronDown className='down-arrow'/>
       :item.subInfor
-      ?<IoIosArrowForward/>
+      ?<IoIosArrowForward className='up-arrow'/>
       :null}
       </div>
      <div>

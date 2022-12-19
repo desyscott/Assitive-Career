@@ -45,7 +45,7 @@ const Courses = () => {
       {!query && <GoSearch size={15}  className="search-icon"/>}
        </div>
        <div className="course-header"><h2>Hey there! 👋</h2>
-       <p>roadmap.sh is a community effort to create roadmaps, guides and other educational content to help guide the developers in picking up the path and guide their learnings.</p>
+       <p>Career Assistive is a community effort to create roadmaps, guides and other educational content to help guide the developers in picking up the path and guide their learnings.</p>
        </div>
           <div className="row center">
         
