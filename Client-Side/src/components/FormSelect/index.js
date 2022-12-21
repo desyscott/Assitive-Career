@@ -16,7 +16,6 @@ const FormSelect = ({ options, defaultValue, handleChange, label, ...otherProps 
 <select className="form-Select" value={defaultValue} onChange={handleChange} {...otherProps}>
         {options.map((option, index) => {
           const { value, name } = option;
-
           return (
             <option key={index} value={value}>{name}</option>
           );
@@ -25,7 +24,6 @@ const FormSelect = ({ options, defaultValue, handleChange, label, ...otherProps 
     </div>
   );
 }
-
 export default FormSelect;
 
 
@@ -44,13 +42,14 @@ export const FormRadioSelect = ({ options, handleChange,defaultValue, label, ...
           const { value, name } = option;
           return ( <>
           <div className="radio-item">
-            <input type="radio"
+            <input
+             type="radio"
             className="radio"
-              required
-             checked
-             name={name}
-             value={value} 
-             onChange={handleChange}
+            required
+            // checked={value}
+            name={name}
+            value={value} 
+            onChange={handleChange}
         />
           <p className="radio-label">{value}</p>
           </div>

@@ -60,7 +60,6 @@ value: "video game developer"
 
 
 export const configFilters1={
-    defaultValue:"0",
     options: [
       {
       name:"q1",
